@@ -1,0 +1,22 @@
+{
+  "name": "",
+  "css_prefix_text": "icon-",
+  "css_use_suffix": false,
+  "hinting": true,
+  "units_per_em": 1000,
+  "ascent": 850,
+  "glyphs": [
+    {
+      "uid": "1d35198f5190ec004dd4ec742fbe19ca",
+      "css": "right",
+      "code": 8594,
+      "src": "mfglabs"
+    },
+    {
+      "uid": "7f8b6c0519d85119a6f41fa3c5794806",
+      "css": "religious-christian",
+      "code": 59439,
+      "src": "maki"
+    }
+  ]
+}

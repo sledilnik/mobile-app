@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+
+import 'package:intl/intl.dart';
+import 'package:intl/date_symbol_data_local.dart';
+
 import "ui/widgets/info_box.dart";
 
 void main() {
+  Intl.defaultLocale = 'sl_SI';
+  initializeDateFormatting();
   runApp(MyApp());
 }
 
@@ -85,7 +91,9 @@ class _MyHomePageState extends State<MyHomePage> {
           // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            InfoBox(),
+            InfoBox("Potrjeni primeri", 24080, DateTime(2020, 10, 25), deltaIn: 1116),
+            SizedBox(height: 4),
+            InfoBox("Aktivni primeri", 16371, DateTime(2020, 10, 27), deltaIn: 1499, deltaOut: 386, death: 13),
           ],
         ),
       ),
