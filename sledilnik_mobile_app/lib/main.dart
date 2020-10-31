@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'package:flutter_svg/flutter_svg.dart';
+
 import "ui/widgets/info_box.dart";
 
 void main() {
@@ -76,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         onPressed: () => null,
         tooltip: 'Pojdi na graf',
-        child: Icon(Icons.add),
+        child: SvgPicture.asset("assets/floating-nav-inner.svg"),
       ),
     );
   }
