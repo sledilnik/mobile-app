@@ -27,9 +27,9 @@ jobs:
       working-directory: sledilnik_mobile_app
       run: flutter build appbundle
 
-    - name: Build iOS app
-      working-directory: sledilnik_mobile_app
-      run: flutter build ios
+    #- name: Build iOS app
+    #  working-directory: sledilnik_mobile_app
+    #  run: flutter build ios
 
     - name: Run tests
       working-directory: sledilnik_mobile_app
