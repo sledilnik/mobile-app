@@ -1,4 +1,4 @@
-name: Dart CI
+name: Flutter CI
 
 on:
   push:
@@ -11,8 +11,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    container:
-      image:  google/dart:latest
+    #container:
+    #  image:  google/dart:latest
 
     steps:
     - uses: actions/checkout@v2
