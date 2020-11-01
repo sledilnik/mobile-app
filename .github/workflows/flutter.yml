@@ -19,6 +19,18 @@ jobs:
       working-directory: sledilnik_mobile_app
       run: flutter pub get
 
+    - name: Build Android APK
+      working-directory: sledilnik_mobile_app
+      run: flutter build apk
+
+    - name: Build Android app bundle
+      working-directory: sledilnik_mobile_app
+      run: flutter build appbundle
+
+    - name: Build iOS app
+      working-directory: sledilnik_mobile_app
+      run: flutter build ios
+
     - name: Run tests
       working-directory: sledilnik_mobile_app
       run: flutter test
