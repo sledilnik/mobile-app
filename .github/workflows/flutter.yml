@@ -19,9 +19,13 @@ jobs:
       working-directory: sledilnik_mobile_app
       run: flutter pub get
 
+    #- name: Run tests
+    #  working-directory: sledilnik_mobile_app
+    #  run: flutter test
+
     - name: Build Android APK
       working-directory: sledilnik_mobile_app
-      run: flutter build apk
+      run: flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi
 
     - name: Build Android app bundle
       working-directory: sledilnik_mobile_app
@@ -30,7 +34,3 @@ jobs:
     #- name: Build iOS app
     #  working-directory: sledilnik_mobile_app
     #  run: flutter build ios
-
-    - name: Run tests
-      working-directory: sledilnik_mobile_app
-      run: flutter test
