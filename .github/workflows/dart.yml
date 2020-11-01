@@ -17,6 +17,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install dependencies
+      working-directory: sledilnik_mobile_app
       run: pub get
     - name: Run tests
+      working-directory: sledilnik_mobile_app
       run: pub run test
