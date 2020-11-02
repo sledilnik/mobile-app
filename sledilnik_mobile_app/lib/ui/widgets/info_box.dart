@@ -49,7 +49,7 @@ class InfoBox extends StatelessWidget {
             ),
             SizedBox(width: 4),
             Text(
-              '${relativeDeltaFormat.format(_relativeDelta)}%',
+              '${_relativeDelta > 0 ? "+" : ""}${relativeDeltaFormat.format(_relativeDelta)}%',
               textDirection: TextDirection.ltr,
               style: TextStyle(fontSize: 12, color: trendColor),
             ),

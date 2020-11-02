@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => null,
-        tooltip: 'Increment',
+        tooltip: 'Pojdi na graf',
         child: Icon(Icons.add),
       ),
     );
