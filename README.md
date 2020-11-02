@@ -1,5 +1,7 @@
 # sledilnik_mobile_app
 
+[![Flutter CI](https://github.com/sledilnik/mobile-app/workflows/Flutter%20CI/badge.svg)](https://github.com/sledilnik/mobile-app/actions?query=workflow%3A%22Flutter+CI%22)
+
 A new Flutter project.
 
 ## Contribution
