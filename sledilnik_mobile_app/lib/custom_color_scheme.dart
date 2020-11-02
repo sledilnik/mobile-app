@@ -22,6 +22,9 @@ MaterialColor createMaterialColor(Color color) {
   return MaterialColor(color.value, swatch);
 }
 
+final primaryYellow = Color(0xffffd922);
+final MaterialColor sledilnikPrimarySwatch = createMaterialColor(primaryYellow);
+
 extension CustomColorScheme on ColorScheme {
   Color get goodTrend => Color(0xe020b16d);
   Color get badTrend => Color(0xe0bf5747);
