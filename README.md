@@ -2,6 +2,10 @@
 
 A new Flutter project.
 
+## Contribution
+
+**Important**: Add an issue first and only then a PR linked to to the issue. So we can track changes easier.
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
