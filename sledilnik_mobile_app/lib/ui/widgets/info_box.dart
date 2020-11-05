@@ -24,12 +24,13 @@ class InfoBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    TrendType trendType;
-    if (deltaIn == null && deltaOut == null) {
-      trendType = TrendType.Death;
-    } else {
-      trendType = (deltaIn ?? 0) > (deltaOut ?? 0) ? TrendType.Bad : TrendType.Good;
-    }
+
+    TrendType trendType = (death != null && deltaIn == null)
+        ? TrendType.Death
+        : _relativeDelta < 0
+            ? TrendType.Good
+            : TrendType.Bad;
+
     final trendColor = colorScheme.getTrendColor(trendType);
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
