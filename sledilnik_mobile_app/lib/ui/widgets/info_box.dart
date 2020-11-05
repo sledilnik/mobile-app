@@ -32,8 +32,9 @@ class InfoBox extends StatelessWidget {
     final trendColor = colorScheme.getTrendColor(trendType);
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-        decoration: BoxDecoration(color: Color(0xfffffbe8)),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+        decoration: BoxDecoration(color: colorScheme.noticeBackgroundColor),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+            Widget>[
           Text(
             title,
             textDirection: TextDirection.ltr,

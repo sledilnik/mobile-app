@@ -30,6 +30,7 @@ extension CustomColorScheme on ColorScheme {
   Color get badTrend => Color(0xe0bf5747);
   Color get death => Color(0xe0404040);
   Color get deathText => Color(0xffa0a0a0);
+  Color get noticeBackgroundColor => Color(0xfffffbe8);
 
   Color getTrendColor(final TrendType trendType) {
     switch (trendType) {
