@@ -4,7 +4,6 @@ import 'package:intl/intl.dart' as intl;
 import 'package:sledilnik_mobile_app/enums.dart';
 import 'package:sledilnik_mobile_app/ui/widgets/trend_info.dart';
 
-import 'trend_icon.dart';
 import '../../custom_color_scheme.dart';
 
 class InfoBox extends StatelessWidget {
@@ -33,8 +32,9 @@ class InfoBox extends StatelessWidget {
     final trendColor = colorScheme.getTrendColor(trendType);
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-        decoration: BoxDecoration(color: Colors.yellow[50]),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+        decoration: BoxDecoration(color: colorScheme.noticeBackgroundColor),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
+            Widget>[
           Text(
             title,
             textDirection: TextDirection.ltr,
@@ -56,9 +56,9 @@ class InfoBox extends StatelessWidget {
           ]),
           SizedBox(height: 4),
           Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-            if (deltaIn != null) TrendInfo(TrendType.Bad, colorScheme.badTrend, deltaIn),
-            if (deltaOut != null) TrendInfo(TrendType.Good, colorScheme.goodTrend, deltaOut),
-            if (death != null) TrendInfo(TrendType.Death, colorScheme.death, death)
+            if (deltaIn != null) TrendInfo(TrendType.Bad, deltaIn),
+            if (deltaOut != null) TrendInfo(TrendType.Good, deltaOut),
+            if (death != null) TrendInfo(TrendType.Death, death)
           ]),
           SizedBox(height: 4),
           Text(
