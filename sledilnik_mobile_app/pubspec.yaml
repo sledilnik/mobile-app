@@ -32,6 +32,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  # flutter_launcher_icons: "^0.8.1" # To use: 1. uncomment this, 2. flutter pub get, 3. flutter run flutter_launcher_icons, 4. comment again to keep things clean
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/sledilnik-logo.png"
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
