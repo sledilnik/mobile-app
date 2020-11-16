@@ -108,23 +108,24 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final localization = AppLocalizations.of(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppLocalizations.of(context).title),
+        title: Text(localization.title),
       ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            InfoBox("Potrjeni primeri", 24080, DateTime(2020, 10, 25), deltaIn: 1116),
+            InfoBox(localization.confirmedCases, 24080, DateTime(2020, 10, 25), deltaIn: 1116),
             SizedBox(height: 4),
-            InfoBox("Aktivni primeri", 16371, DateTime(2020, 10, 27), deltaIn: 1499, deltaOut: 386, death: 13),
+            InfoBox(localization.activeCases, 16371, DateTime(2020, 10, 27), deltaIn: 1499, deltaOut: 386, death: 13),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => null,
-        tooltip: 'Pojdi na graf',
+        tooltip: localization.goToGraph,
         child: SvgPicture.asset("assets/floating-nav-inner.svg"),
       ),
     );
