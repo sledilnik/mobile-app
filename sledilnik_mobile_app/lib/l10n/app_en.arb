@@ -4,7 +4,7 @@
   "@title": {
     "description": "Title for the application",
     "type": "text"
-  }
+  },
   "activeCases": "Active cases",
   "@activeCases": {
       "type": "text"

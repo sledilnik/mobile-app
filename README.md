@@ -22,7 +22,7 @@ final intl.NumberFormat relativeDeltaFormat = intl.NumberFormat("#,##0.0", local
 final String title = AppLocalizations.of(context).title;
 ```
 
-Texts are defined in .arb files under *lib/l10n*  directory. Base file is *app_sl.arb*.
+Texts are defined in .arb files under *lib/l10n*  directory. Base file is *app_en.arb*.
 
 Localization texts should be managed through [Weblate](https://weblate.org/) or another such tool.
 
