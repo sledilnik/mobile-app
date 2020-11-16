@@ -4,12 +4,11 @@ import 'package:intl/intl.dart' as intl;
 import 'package:sledilnik_mobile_app/enums.dart';
 import 'package:sledilnik_mobile_app/ui/widgets/trend_info.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 import '../../custom_color_scheme.dart';
 
 class InfoBox extends StatelessWidget {
-  static final intl.DateFormat dateFormat = intl.DateFormat("E, d.MMM");
-  static final intl.NumberFormat relativeDeltaFormat = intl.NumberFormat("#,##0.0");
-  static final intl.NumberFormat intFormat = intl.NumberFormat("#,##0");
   final String title;
   final int value;
   final int deltaIn;
@@ -22,6 +21,10 @@ class InfoBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final localeName = AppLocalizations.of(context).localeName;
+    final intl.DateFormat dateFormat = intl.DateFormat("E, d.MMM", localeName);
+    final intl.NumberFormat relativeDeltaFormat = intl.NumberFormat("#,##0.0", localeName);
+    final intl.NumberFormat intFormat = intl.NumberFormat("#,##0", localeName);
     final colorScheme = Theme.of(context).colorScheme;
 
     TrendType trendType = (death != null && deltaIn == null)
@@ -34,8 +37,7 @@ class InfoBox extends StatelessWidget {
     return Container(
         padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
         decoration: BoxDecoration(color: colorScheme.noticeBackgroundColor),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <
-            Widget>[
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
           Text(
             title,
             textDirection: TextDirection.ltr,

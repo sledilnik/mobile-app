@@ -1,0 +1,9 @@
+{
+    "@@locale": "sl",
+
+    "title": "Domača stran mobilnega sledilnika",
+    "@title": {
+      "description": "Title for the application",
+      "type": "text"
+    }
+  }
