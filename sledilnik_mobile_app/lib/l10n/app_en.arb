@@ -1,9 +1,8 @@
 {
-    "@@locale": "en",
-
-    "title": "Home page for mobilnega sledilnika",
-    "@title": {
-      "description": "Title for the application",
-      "type": "text"
-    }
+  "@@locale": "en",
+  "title": "Home page of mobile sledilnik",
+  "@title": {
+    "description": "Title for the application",
+    "type": "text"
   }
+}
