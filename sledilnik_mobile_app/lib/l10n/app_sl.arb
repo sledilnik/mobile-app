@@ -1,20 +1,20 @@
 {
-    "@@locale": "sl",
-    "title": "Domača stran mobilnega sledilnika",
-    "@title": {
-      "description": "Title for the application",
-      "type": "text"
-    },
-    "activeCases": "Aktivni primeri",
-    "@activeCases": {
-        "type": "text"
-    },
-    "confirmedCases": "Potrjeni primeri",
-    "@confirmedCases": {
-        "type": "text"
-    },
-    "goToGraph": "Pojdi na graf",
-    "@goToGraph": {
-        "type": "text"
-    }
+  "@@locale": "sl",
+  "title": "Domača stran mobilnega sledilnika",
+  "@title": {
+    "description": "Title for the application",
+    "type": "text"
+  },
+  "activeCases": "Aktivni primeri",
+  "@activeCases": {
+    "type": "text"
+  },
+  "confirmedCases": "Potrjeni primeri",
+  "@confirmedCases": {
+    "type": "text"
+  },
+  "goToGraph": "Pojdi na graf",
+  "@goToGraph": {
+    "type": "text"
   }
+}
