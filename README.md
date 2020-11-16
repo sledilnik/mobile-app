@@ -1,6 +1,7 @@
 # sledilnik_mobile_app
 
 [![Flutter CI](https://github.com/sledilnik/mobile-app/workflows/Flutter%20CI/badge.svg)](https://github.com/sledilnik/mobile-app/actions?query=workflow%3A%22Flutter+CI%22)
+[![Translation status](https://hosted.weblate.org/widgets/sledilnik/-/mobile-app/svg-badge.svg)](https://hosted.weblate.org/engage/sledilnik/mobile-app/)
 
 A new Flutter project.
 
@@ -24,6 +25,8 @@ final String title = AppLocalizations.of(context).title;
 
 Texts are defined in .arb files under *lib/l10n*  directory. Base file is *app_en.arb*.
 
-Localization texts should be managed through [Weblate](https://weblate.org/) or another such tool.
+Translations can also be done through [Weblate](https://hosted.weblate.org/projects/sledilnik/mobile-app/). Current translation status:
+
+[![Stanje prevoda](https://hosted.weblate.org/widgets/sledilnik/-/mobile-app/multi-auto.svg)](https://hosted.weblate.org/projects/sledilnik/mobile-app/)
 
 **Important**: All app texts, number and date formats should be localized, no hardcoded values are allowed.
