@@ -43,3 +43,11 @@ jobs:
       with:
         name: release-apk
         path: sledilnik_mobile_app/build/app/outputs/apk/release/app-*release.apk
+        
+    - name: Upload artifact - app-*release.apk (Koofr)
+      uses: sledilnik/action-koofr-upload@v1
+      with:
+        username: info@sledilnik.org
+        appPassword: ${{ secrets.KOOFR_PASS }}
+        remotePath: /sledilnik-app
+        localPath: sledilnik_mobile_app/build/app/outputs/apk/release/app-*release.apk
