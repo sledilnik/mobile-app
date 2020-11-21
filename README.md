@@ -23,7 +23,7 @@ final intl.NumberFormat relativeDeltaFormat = intl.NumberFormat("#,##0.0", local
 final String title = AppLocalizations.of(context).title;
 ```
 
-Texts are defined in .arb files under *lib/l10n*  directory. Base file is *app_en.arb*.
+Texts are defined in `.arb` files under [`lib/l10n`](sledilnik_mobile_app/lib/l10n/)  directory. Base file is [`app_en.arb`](sledilnik_mobile_app/lib/l10n/app_en.arb).
 
 Translations can also be done through [Weblate](https://hosted.weblate.org/projects/sledilnik/mobile-app/). Current translation status:
 
