@@ -30,3 +30,15 @@ Translations can also be done through [Weblate](https://hosted.weblate.org/proje
 [![Stanje prevoda](https://hosted.weblate.org/widgets/sledilnik/-/mobile-app/multi-auto.svg)](https://hosted.weblate.org/projects/sledilnik/mobile-app/)
 
 **Important**: All app texts, number and date formats should be localized, no hardcoded values are allowed.
+
+## REST API
+
+Based on [Generating Dart REST API client libraries using OpenAPI Generator](https://medium.com/@rtlsilva/generating-dart-rest-api-client-libraries-using-openapi-generator-9b3dc517e68c) article.
+Before generating/updating library, make sure you have downloaded the [generator](https://medium.com/@rtlsilva/generating-dart-rest-api-client-libraries-using-openapi-generator-9b3dc517e68c) to the sledilnik_api root directory.
+Also add environment variable DART_POST_PROCESS_FILE that points to `dartfmt -w`, sample: `D:\Utilities\flutter\bin\cache\dart-sdk\bin\dartfmt.bat -w`.
+
+Commands to generate:
+```
+java -jar openapi-generator-cli.jar generate -i .\sledilnik_api.yaml -g dart-dio -c open-generator-config.yaml --enable-post-process-file
+flutter pub run build_runner build
+```

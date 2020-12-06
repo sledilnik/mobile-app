@@ -1,0 +1,1146 @@
+x-generator: NSwag v13.9.4.0 (NJsonSchema v10.3.1.0 (Newtonsoft.Json v12.0.0.0))
+swagger: '2.0'
+info:
+  title: slo-covid-19 data API
+  description: SchemaVersion
+  termsOfService: None
+  contact:
+    name: Miha Markič
+    url: 'https://blog.rthand.com/'
+    email: miha@rthand.com
+  license:
+    name: Use under MIT
+    url: 'https://raw.githubusercontent.com/slo-covid-19/data-api/master/LICENSE'
+  version: v20
+host: 'localhost:5000'
+schemes:
+  - http
+produces:
+  - text/plain
+  - application/json
+  - text/json
+paths:
+  /api/deceased-regions:
+    get:
+      tags:
+        - DeceasedPerRegions
+      operationId: DeceasedPerRegions_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DeceasedPerRegionsDay'
+  /api/health-centers:
+    get:
+      tags:
+        - HealthCenters
+      operationId: HealthCenters_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/HealthCentersDay'
+  /api/Hospitals:
+    get:
+      tags:
+        - Hospitals
+      operationId: Hospitals_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/HospitalsDay'
+  /api/hospitals-list:
+    get:
+      tags:
+        - HospitalsList
+      operationId: HospitalsList_Get
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Hospital'
+  /api/lab-tests:
+    get:
+      tags:
+        - LabTests
+      operationId: LabTests_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/LabTestDay'
+  /api/monthly-deaths-slovenia:
+    get:
+      tags:
+        - MonthlyDeathsSlovenia
+      operationId: MonthlyDeathsSlovenia_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MonthlyDeathsSlovenia'
+  /api/municipalities:
+    get:
+      tags:
+        - Municipalities
+      operationId: Municipalities_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/MunicipalityDay'
+  /api/municipalities-list:
+    get:
+      tags:
+        - MunicipalityList
+      operationId: MunicipalityList_Get
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Municipality'
+  /api/Owid:
+    get:
+      tags:
+        - Owid
+      operationId: Owid_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+        - text/csv
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: countries
+          in: query
+          x-nullable: true
+        - type: string
+          name: columns
+          in: query
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: false
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/OwidCountryDay'
+  /api/Patients:
+    get:
+      tags:
+        - Patients
+      operationId: Patients_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PatientsDay'
+  /api/regions:
+    get:
+      tags:
+        - Regions
+      operationId: Regions_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RegionsDay'
+  /api/retirement-homes:
+    get:
+      tags:
+        - RetirementHomes
+      operationId: RetirementHomes_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RetirementHomesDay'
+  /api/retirement-homes-list:
+    get:
+      tags:
+        - RetirementHomesList
+      operationId: RetirementHomesList_Get
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RetirementHome'
+  /api/Stats:
+    get:
+      tags:
+        - Stats
+      operationId: Stats_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/StatsDaily'
+  /api/stats-weekly:
+    get:
+      tags:
+        - StatsWeekly
+      operationId: StatsWeekly_Get
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/StatsWeeklyDay'
+definitions:
+  DeceasedPerRegionsDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      regions:
+        type: object
+        additionalProperties:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+  HealthCentersDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      all:
+        $ref: '#/definitions/HealthCentersDayItem'
+      municipalities:
+        type: object
+        additionalProperties:
+          type: object
+          additionalProperties:
+            $ref: '#/definitions/HealthCentersDayItem'
+  HealthCentersDayItem:
+    type: object
+    properties:
+      examinations:
+        $ref: '#/definitions/HealthCentersExaminations'
+      phoneTriage:
+        $ref: '#/definitions/HealthCentersPhoneTriage'
+      tests:
+        $ref: '#/definitions/HealthCentersTests'
+      sentTo:
+        $ref: '#/definitions/HealthCentersSentTo'
+  HealthCentersExaminations:
+    type: object
+    properties:
+      medicalEmergency:
+        type: integer
+        format: int32
+      suspectedCovid:
+        type: integer
+        format: int32
+  HealthCentersPhoneTriage:
+    type: object
+    properties:
+      suspectedCovid:
+        type: integer
+        format: int32
+  HealthCentersTests:
+    type: object
+    properties:
+      performed:
+        type: integer
+        format: int32
+      positive:
+        type: integer
+        format: int32
+  HealthCentersSentTo:
+    type: object
+    properties:
+      hospital:
+        type: integer
+        format: int32
+      selfIsolation:
+        type: integer
+        format: int32
+  HospitalsDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      overall:
+        $ref: '#/definitions/HospitalDay'
+      perHospital:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/HospitalDay'
+  HospitalDay:
+    type: object
+    properties:
+      beds:
+        $ref: '#/definitions/HospitalBedDay'
+      icu:
+        $ref: '#/definitions/HospitalICUDay'
+      vents:
+        $ref: '#/definitions/HospitalVentDay'
+      care:
+        $ref: '#/definitions/HospitalCareDay'
+  HospitalBedDay:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      max:
+        type: integer
+        format: int32
+      occupied:
+        type: integer
+        format: int32
+      free:
+        type: integer
+        format: int32
+      maxFree:
+        type: integer
+        format: int32
+  HospitalICUDay:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      max:
+        type: integer
+        format: int32
+      occupied:
+        type: integer
+        format: int32
+      free:
+        type: integer
+        format: int32
+  HospitalVentDay:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      max:
+        type: integer
+        format: int32
+      occupied:
+        type: integer
+        format: int32
+      free:
+        type: integer
+        format: int32
+  HospitalCareDay:
+    type: object
+    properties:
+      total:
+        type: integer
+        format: int32
+      max:
+        type: integer
+        format: int32
+      occupied:
+        type: integer
+        format: int32
+      free:
+        type: integer
+        format: int32
+  Hospital:
+    type: object
+    properties:
+      code:
+        type: string
+      name:
+        type: string
+      uri:
+        type: string
+  LabTestDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      total:
+        $ref: '#/definitions/LabTestData'
+      data:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/LabTestData'
+      labs:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/LabTestData'
+  LabTestData:
+    type: object
+    properties:
+      performed:
+        $ref: '#/definitions/ToDateToday'
+      positive:
+        $ref: '#/definitions/ToDateToday'
+  ToDateToday:
+    type: object
+    properties:
+      today:
+        type: integer
+        format: int32
+      toDate:
+        type: integer
+        format: int32
+  MonthlyDeathsSlovenia:
+    type: object
+    required:
+      - year
+      - month
+      - deceased
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      deceased:
+        type: integer
+        format: int32
+  MunicipalityDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      regions:
+        type: object
+        additionalProperties:
+          type: object
+          additionalProperties:
+            $ref: '#/definitions/MunicipalityDayData'
+  MunicipalityDayData:
+    type: object
+    properties:
+      activeCases:
+        type: integer
+        format: int32
+      confirmedToDate:
+        type: integer
+        format: int32
+      deceasedToDate:
+        type: integer
+        format: int32
+  Municipality:
+    type: object
+    required:
+      - population
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      population:
+        type: integer
+        format: int32
+  OwidCountryDay:
+    type: object
+    required:
+      - date
+    properties:
+      date:
+        type: string
+        format: date-time
+      isoCode:
+        type: string
+      newCases:
+        type: number
+        format: float
+      newCasesPerMillion:
+        type: number
+        format: float
+      totalCases:
+        type: number
+        format: float
+      totalCasesPerMillion:
+        type: number
+        format: float
+      totalDeaths:
+        type: number
+        format: float
+      totalDeathsPerMillion:
+        type: number
+        format: float
+  PatientsDay:
+    type: object
+    required:
+      - dayFromStart
+      - year
+      - month
+      - day
+    properties:
+      dayFromStart:
+        type: integer
+        format: int32
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      total:
+        $ref: '#/definitions/GeneralUnit'
+      facilities:
+        type: object
+        additionalProperties:
+          $ref: '#/definitions/Unit'
+  GeneralUnit:
+    allOf:
+      - $ref: '#/definitions/BaseUnitOfStateDeceased'
+      - type: object
+        properties:
+          outOfHospital:
+            $ref: '#/definitions/OutOfHospital'
+  OutOfHospital:
+    type: object
+    properties:
+      toDate:
+        type: integer
+        format: int32
+  BaseUnitOfStateDeceased:
+    type: object
+    properties:
+      inHospital:
+        $ref: '#/definitions/HospitalMovement'
+      icu:
+        $ref: '#/definitions/HospitalMovement'
+      critical:
+        $ref: '#/definitions/HospitalMovement'
+      deceased:
+        $ref: '#/definitions/StateDeceased'
+      care:
+        $ref: '#/definitions/HospitalMovement'
+      deceasedCare:
+        $ref: '#/definitions/ToDateToday'
+  HospitalMovement:
+    type: object
+    properties:
+      in:
+        type: integer
+        format: int32
+      out:
+        type: integer
+        format: int32
+      today:
+        type: integer
+        format: int32
+      toDate:
+        type: integer
+        format: int32
+  StateDeceased:
+    allOf:
+      - $ref: '#/definitions/Deceased'
+      - type: object
+        properties:
+          hospital:
+            $ref: '#/definitions/HospitalStats'
+          care:
+            $ref: '#/definitions/ToDateToday'
+          home:
+            $ref: '#/definitions/ToDateToday'
+  HospitalStats:
+    allOf:
+      - $ref: '#/definitions/ToDateToday'
+      - type: object
+        properties:
+          icu:
+            $ref: '#/definitions/ToDateToday'
+  Deceased:
+    type: object
+    properties:
+      today:
+        type: integer
+        format: int32
+      toDate:
+        type: integer
+        format: int32
+  Unit:
+    allOf:
+      - $ref: '#/definitions/BaseUnitOfHospitalDeceased'
+      - type: object
+  BaseUnitOfHospitalDeceased:
+    type: object
+    properties:
+      inHospital:
+        $ref: '#/definitions/HospitalMovement'
+      icu:
+        $ref: '#/definitions/HospitalMovement'
+      critical:
+        $ref: '#/definitions/HospitalMovement'
+      deceased:
+        $ref: '#/definitions/HospitalDeceased'
+      care:
+        $ref: '#/definitions/HospitalMovement'
+      deceasedCare:
+        $ref: '#/definitions/ToDateToday'
+  HospitalDeceased:
+    allOf:
+      - $ref: '#/definitions/Deceased'
+      - type: object
+        properties:
+          icu:
+            $ref: '#/definitions/ToDateToday'
+  RegionsDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      regions:
+        type: object
+        additionalProperties:
+          type: object
+          additionalProperties:
+            type: integer
+            format: int32
+  RetirementHomesDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+      - homes
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      total:
+        type: integer
+        format: int32
+      employee:
+        type: integer
+        format: int32
+      occupant:
+        type: integer
+        format: int32
+      homes:
+        type: array
+        items:
+          $ref: '#/definitions/RetirementHomeDay'
+  RetirementHomeDay:
+    type: object
+    properties:
+      id:
+        type: string
+      total:
+        type: integer
+        format: int32
+      employee:
+        type: integer
+        format: int32
+      occupant:
+        type: integer
+        format: int32
+  RetirementHome:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      region:
+        type: string
+      type:
+        type: string
+      occupants:
+        type: integer
+        format: int32
+      employees:
+        type: integer
+        format: int32
+      url:
+        type: string
+  StatsDaily:
+    type: object
+    required:
+      - dayFromStart
+      - year
+      - month
+      - day
+      - statePerAgeToDate
+      - deceasedPerAgeToDate
+    properties:
+      dayFromStart:
+        type: integer
+        format: int32
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      phase:
+        type: string
+      performedTestsToDate:
+        type: integer
+        format: int32
+      performedTests:
+        type: integer
+        format: int32
+      positiveTestsToDate:
+        type: integer
+        format: int32
+      positiveTests:
+        type: integer
+        format: int32
+      tests:
+        $ref: '#/definitions/Tests'
+      femaleToDate:
+        type: integer
+        format: int32
+      maleToDate:
+        type: integer
+        format: int32
+      cases:
+        $ref: '#/definitions/Cases'
+      statePerTreatment:
+        $ref: '#/definitions/PerTreatment'
+      statePerRegion:
+        type: object
+        additionalProperties:
+          type: integer
+          format: int32
+      statePerAgeToDate:
+        type: array
+        items:
+          $ref: '#/definitions/PerAgeBucket'
+      deceasedPerAgeToDate:
+        type: array
+        items:
+          $ref: '#/definitions/PerAgeBucket'
+  Tests:
+    type: object
+    properties:
+      performed:
+        $ref: '#/definitions/CommonTests'
+      positive:
+        $ref: '#/definitions/CommonTests'
+      regular:
+        $ref: '#/definitions/RegularTests'
+      nsApr20:
+        $ref: '#/definitions/RegularTests'
+  CommonTests:
+    type: object
+    properties:
+      toDate:
+        type: integer
+        format: int32
+      today:
+        type: integer
+        format: int32
+  RegularTests:
+    type: object
+    properties:
+      performed:
+        $ref: '#/definitions/CommonTests'
+      positive:
+        $ref: '#/definitions/CommonTests'
+  Cases:
+    type: object
+    properties:
+      confirmedToday:
+        type: integer
+        format: int32
+      confirmedToDate:
+        type: integer
+        format: int32
+      recoveredToDate:
+        type: integer
+        format: int32
+      closedToDate:
+        type: integer
+        format: int32
+      activeToDate:
+        type: integer
+        format: int32
+      active:
+        type: integer
+        format: int32
+      hs:
+        $ref: '#/definitions/HealthSystemSCases'
+      rh:
+        $ref: '#/definitions/RetirementHomeCases'
+      unclassified:
+        $ref: '#/definitions/UnclassifiedCases'
+  HealthSystemSCases:
+    type: object
+    properties:
+      employeeConfirmedToDate:
+        type: integer
+        format: int32
+  RetirementHomeCases:
+    type: object
+    properties:
+      employeeConfirmedToDate:
+        type: integer
+        format: int32
+      occupantConfirmedToDate:
+        type: integer
+        format: int32
+  UnclassifiedCases:
+    type: object
+    properties:
+      confirmedToDate:
+        type: integer
+        format: int32
+  PerTreatment:
+    type: object
+    properties:
+      inHospital:
+        type: integer
+        format: int32
+      inHospitalToDate:
+        type: integer
+        format: int32
+      inICU:
+        type: integer
+        format: int32
+      critical:
+        type: integer
+        format: int32
+      deceasedToDate:
+        type: integer
+        format: int32
+      deceased:
+        type: integer
+        format: int32
+      outOfHospitalToDate:
+        type: integer
+        format: int32
+      outOfHospital:
+        type: integer
+        format: int32
+      recoveredToDate:
+        type: integer
+        format: int32
+  PerAgeBucket:
+    type: object
+    properties:
+      ageFrom:
+        type: integer
+        format: int32
+      ageTo:
+        type: integer
+        format: int32
+      allToDate:
+        type: integer
+        format: int32
+      femaleToDate:
+        type: integer
+        format: int32
+      maleToDate:
+        type: integer
+        format: int32
+  StatsWeeklyDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      week:
+        type: string
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      to:
+        $ref: '#/definitions/Date'
+      confirmed:
+        type: integer
+        format: int32
+      investigated:
+        type: integer
+        format: int32
+      healthcare:
+        type: integer
+        format: int32
+      sentTo:
+        $ref: '#/definitions/StatsWeeklySentTo'
+      source:
+        type: object
+        additionalProperties:
+          type: integer
+          format: int32
+      from:
+        type: object
+        additionalProperties:
+          type: integer
+          format: int32
+  Date:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+  StatsWeeklySentTo:
+    type: object
+    properties:
+      quarantine:
+        type: integer
+        format: int32
