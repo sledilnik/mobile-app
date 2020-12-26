@@ -1,1 +1,6 @@
 analyzer:
+  errors:
+    unused_import: ignore
+linter:
+  rules:
+    unused_import: false

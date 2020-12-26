@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: unused_import
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -25,9 +26,11 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            InfoBox(localization.confirmedCases, 24080, DateTime(2020, 10, 25), deltaIn: 1116),
+            InfoBox(localization.confirmedCases, 24080, DateTime(2020, 10, 25),
+                deltaIn: 1116),
             SizedBox(height: 4),
-            InfoBox(localization.activeCases, 16371, DateTime(2020, 10, 27), deltaIn: 1499, deltaOut: 386, death: 13),
+            InfoBox(localization.activeCases, 16371, DateTime(2020, 10, 27),
+                deltaIn: 1499, deltaOut: 386, death: 13),
           ],
         ),
       ),
