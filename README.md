@@ -34,7 +34,10 @@ Translations can also be done through [Weblate](https://hosted.weblate.org/proje
 ## REST API
 
 Based on [Generating Dart REST API client libraries using OpenAPI Generator](https://medium.com/@rtlsilva/generating-dart-rest-api-client-libraries-using-openapi-generator-9b3dc517e68c) article.
-Before generating/updating library, make sure you have downloaded the [generator](https://medium.com/@rtlsilva/generating-dart-rest-api-client-libraries-using-openapi-generator-9b3dc517e68c) to the sledilnik_api root directory.
+
+Import [OpenApi](http://localhost:5000/swagger/v1/swagger.json) into https://editor.swagger.io/#/ (File/Import from URL), export it to sledilnik_api\sledilnik_api.yaml.
+
+Before generating/updating library, make sure you have downloaded the [generator](https://github.com/openapitools/openapi-generator) to the sledilnik_api root directory.
 Also add environment variable DART_POST_PROCESS_FILE that points to `dartfmt -w`, sample: `D:\Utilities\flutter\bin\cache\dart-sdk\bin\dartfmt.bat -w`.
 
 Commands to generate:

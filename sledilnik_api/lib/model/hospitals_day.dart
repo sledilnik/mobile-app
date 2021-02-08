@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:built_collection/built_collection.dart';
 import 'package:sledilnik_api/model/hospital_day.dart';
 import 'package:built_value/built_value.dart';
@@ -30,6 +37,8 @@ abstract class HospitalsDay
   // Boilerplate code needed to wire-up generated code
   HospitalsDay._();
 
-  factory HospitalsDay([updates(HospitalsDayBuilder b)]) = _$HospitalsDay;
+  static void _initializeBuilder(HospitalsDayBuilder b) => b;
+
+  factory HospitalsDay([void updates(HospitalsDayBuilder b)]) = _$HospitalsDay;
   static Serializer<HospitalsDay> get serializer => _$hospitalsDaySerializer;
 }

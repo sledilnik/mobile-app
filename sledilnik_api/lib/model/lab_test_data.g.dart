@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'lab_test_data.dart';
 
@@ -22,13 +23,13 @@ class _$LabTestDataSerializer implements StructuredSerializer<LabTestData> {
       result
         ..add('performed')
         ..add(serializers.serialize(object.performed,
-            specifiedType: const FullType(ToDateToday)));
+            specifiedType: const FullType(TodayToDate)));
     }
     if (object.positive != null) {
       result
         ..add('positive')
         ..add(serializers.serialize(object.positive,
-            specifiedType: const FullType(ToDateToday)));
+            specifiedType: const FullType(TodayToDate)));
     }
     return result;
   }
@@ -46,11 +47,11 @@ class _$LabTestDataSerializer implements StructuredSerializer<LabTestData> {
       switch (key) {
         case 'performed':
           result.performed.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ToDateToday)) as ToDateToday);
+              specifiedType: const FullType(TodayToDate)) as TodayToDate);
           break;
         case 'positive':
           result.positive.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ToDateToday)) as ToDateToday);
+              specifiedType: const FullType(TodayToDate)) as TodayToDate);
           break;
       }
     }
@@ -61,9 +62,9 @@ class _$LabTestDataSerializer implements StructuredSerializer<LabTestData> {
 
 class _$LabTestData extends LabTestData {
   @override
-  final ToDateToday performed;
+  final TodayToDate performed;
   @override
-  final ToDateToday positive;
+  final TodayToDate positive;
 
   factory _$LabTestData([void Function(LabTestDataBuilder) updates]) =>
       (new LabTestDataBuilder()..update(updates)).build();
@@ -102,17 +103,19 @@ class _$LabTestData extends LabTestData {
 class LabTestDataBuilder implements Builder<LabTestData, LabTestDataBuilder> {
   _$LabTestData _$v;
 
-  ToDateTodayBuilder _performed;
-  ToDateTodayBuilder get performed =>
-      _$this._performed ??= new ToDateTodayBuilder();
-  set performed(ToDateTodayBuilder performed) => _$this._performed = performed;
+  TodayToDateBuilder _performed;
+  TodayToDateBuilder get performed =>
+      _$this._performed ??= new TodayToDateBuilder();
+  set performed(TodayToDateBuilder performed) => _$this._performed = performed;
 
-  ToDateTodayBuilder _positive;
-  ToDateTodayBuilder get positive =>
-      _$this._positive ??= new ToDateTodayBuilder();
-  set positive(ToDateTodayBuilder positive) => _$this._positive = positive;
+  TodayToDateBuilder _positive;
+  TodayToDateBuilder get positive =>
+      _$this._positive ??= new TodayToDateBuilder();
+  set positive(TodayToDateBuilder positive) => _$this._positive = positive;
 
-  LabTestDataBuilder();
+  LabTestDataBuilder() {
+    LabTestData._initializeBuilder(this);
+  }
 
   LabTestDataBuilder get _$this {
     if (_$v != null) {

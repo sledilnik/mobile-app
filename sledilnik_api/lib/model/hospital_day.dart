@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:sledilnik_api/model/hospital_icu_day.dart';
 import 'package:sledilnik_api/model/hospital_vent_day.dart';
 import 'package:sledilnik_api/model/hospital_bed_day.dart';
@@ -27,6 +34,8 @@ abstract class HospitalDay implements Built<HospitalDay, HospitalDayBuilder> {
   // Boilerplate code needed to wire-up generated code
   HospitalDay._();
 
-  factory HospitalDay([updates(HospitalDayBuilder b)]) = _$HospitalDay;
+  static void _initializeBuilder(HospitalDayBuilder b) => b;
+
+  factory HospitalDay([void updates(HospitalDayBuilder b)]) = _$HospitalDay;
   static Serializer<HospitalDay> get serializer => _$hospitalDaySerializer;
 }

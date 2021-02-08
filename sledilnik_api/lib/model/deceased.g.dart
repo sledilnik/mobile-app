@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'deceased.dart';
 
@@ -108,7 +109,9 @@ class DeceasedBuilder implements Builder<Deceased, DeceasedBuilder> {
   int get toDate => _$this._toDate;
   set toDate(int toDate) => _$this._toDate = toDate;
 
-  DeceasedBuilder();
+  DeceasedBuilder() {
+    Deceased._initializeBuilder(this);
+  }
 
   DeceasedBuilder get _$this {
     if (_$v != null) {

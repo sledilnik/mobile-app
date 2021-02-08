@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'per_treatment.dart';
 
@@ -67,12 +68,6 @@ class _$PerTreatmentSerializer implements StructuredSerializer<PerTreatment> {
         ..add(serializers.serialize(object.outOfHospital,
             specifiedType: const FullType(int)));
     }
-    if (object.recoveredToDate != null) {
-      result
-        ..add('recoveredToDate')
-        ..add(serializers.serialize(object.recoveredToDate,
-            specifiedType: const FullType(int)));
-    }
     return result;
   }
 
@@ -119,10 +114,6 @@ class _$PerTreatmentSerializer implements StructuredSerializer<PerTreatment> {
           result.outOfHospital = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'recoveredToDate':
-          result.recoveredToDate = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
-          break;
       }
     }
 
@@ -147,8 +138,6 @@ class _$PerTreatment extends PerTreatment {
   final int outOfHospitalToDate;
   @override
   final int outOfHospital;
-  @override
-  final int recoveredToDate;
 
   factory _$PerTreatment([void Function(PerTreatmentBuilder) updates]) =>
       (new PerTreatmentBuilder()..update(updates)).build();
@@ -161,8 +150,7 @@ class _$PerTreatment extends PerTreatment {
       this.deceasedToDate,
       this.deceased,
       this.outOfHospitalToDate,
-      this.outOfHospital,
-      this.recoveredToDate})
+      this.outOfHospital})
       : super._();
 
   @override
@@ -183,8 +171,7 @@ class _$PerTreatment extends PerTreatment {
         deceasedToDate == other.deceasedToDate &&
         deceased == other.deceased &&
         outOfHospitalToDate == other.outOfHospitalToDate &&
-        outOfHospital == other.outOfHospital &&
-        recoveredToDate == other.recoveredToDate;
+        outOfHospital == other.outOfHospital;
   }
 
   @override
@@ -195,16 +182,14 @@ class _$PerTreatment extends PerTreatment {
                 $jc(
                     $jc(
                         $jc(
-                            $jc(
-                                $jc($jc(0, inHospital.hashCode),
-                                    inHospitalToDate.hashCode),
-                                inICU.hashCode),
-                            critical.hashCode),
-                        deceasedToDate.hashCode),
-                    deceased.hashCode),
-                outOfHospitalToDate.hashCode),
-            outOfHospital.hashCode),
-        recoveredToDate.hashCode));
+                            $jc($jc(0, inHospital.hashCode),
+                                inHospitalToDate.hashCode),
+                            inICU.hashCode),
+                        critical.hashCode),
+                    deceasedToDate.hashCode),
+                deceased.hashCode),
+            outOfHospitalToDate.hashCode),
+        outOfHospital.hashCode));
   }
 
   @override
@@ -217,8 +202,7 @@ class _$PerTreatment extends PerTreatment {
           ..add('deceasedToDate', deceasedToDate)
           ..add('deceased', deceased)
           ..add('outOfHospitalToDate', outOfHospitalToDate)
-          ..add('outOfHospital', outOfHospital)
-          ..add('recoveredToDate', recoveredToDate))
+          ..add('outOfHospital', outOfHospital))
         .toString();
   }
 }
@@ -262,12 +246,9 @@ class PerTreatmentBuilder
   int get outOfHospital => _$this._outOfHospital;
   set outOfHospital(int outOfHospital) => _$this._outOfHospital = outOfHospital;
 
-  int _recoveredToDate;
-  int get recoveredToDate => _$this._recoveredToDate;
-  set recoveredToDate(int recoveredToDate) =>
-      _$this._recoveredToDate = recoveredToDate;
-
-  PerTreatmentBuilder();
+  PerTreatmentBuilder() {
+    PerTreatment._initializeBuilder(this);
+  }
 
   PerTreatmentBuilder get _$this {
     if (_$v != null) {
@@ -279,7 +260,6 @@ class PerTreatmentBuilder
       _deceased = _$v.deceased;
       _outOfHospitalToDate = _$v.outOfHospitalToDate;
       _outOfHospital = _$v.outOfHospital;
-      _recoveredToDate = _$v.recoveredToDate;
       _$v = null;
     }
     return this;
@@ -309,8 +289,7 @@ class PerTreatmentBuilder
             deceasedToDate: deceasedToDate,
             deceased: deceased,
             outOfHospitalToDate: outOfHospitalToDate,
-            outOfHospital: outOfHospital,
-            recoveredToDate: recoveredToDate);
+            outOfHospital: outOfHospital);
     replace(_$result);
     return _$result;
   }

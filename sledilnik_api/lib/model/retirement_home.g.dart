@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'retirement_home.dart';
 
@@ -222,7 +223,9 @@ class RetirementHomeBuilder
   String get url => _$this._url;
   set url(String url) => _$this._url = url;
 
-  RetirementHomeBuilder();
+  RetirementHomeBuilder() {
+    RetirementHome._initializeBuilder(this);
+  }
 
   RetirementHomeBuilder get _$this {
     if (_$v != null) {

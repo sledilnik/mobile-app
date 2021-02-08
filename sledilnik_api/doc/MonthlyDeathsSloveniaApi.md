@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **monthlyDeathsSloveniaGet**
-> List<MonthlyDeathsSlovenia> monthlyDeathsSloveniaGet(from, to)
+> BuiltList<MonthlyDeathsSlovenia> monthlyDeathsSloveniaGet(from, to)
 
 
 
@@ -29,7 +29,7 @@ try {
     var result = api_instance.monthlyDeathsSloveniaGet(from, to);
     print(result);
 } catch (e) {
-    print("Exception when calling MonthlyDeathsSloveniaApi->monthlyDeathsSloveniaGet: $e\n");
+    print('Exception when calling MonthlyDeathsSloveniaApi->monthlyDeathsSloveniaGet: $e\n');
 }
 ```
 
@@ -37,12 +37,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **DateTime**|  | [optional] [default to null]
- **to** | **DateTime**|  | [optional] [default to null]
+ **from** | **DateTime**|  | [optional] 
+ **to** | **DateTime**|  | [optional] 
 
 ### Return type
 
-[**List<MonthlyDeathsSlovenia>**](MonthlyDeathsSlovenia.md)
+[**BuiltList<MonthlyDeathsSlovenia>**](MonthlyDeathsSlovenia.md)
 
 ### Authorization
 

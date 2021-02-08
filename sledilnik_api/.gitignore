@@ -35,5 +35,3 @@ pubspec.lock
 *.iws         // IntelliJ
 .idea/        // IntelliJ
 .DS_Store     // Mac
-
-openapi-generator-cli.jar

@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,7 +23,9 @@ abstract class RetirementHomeCases
   // Boilerplate code needed to wire-up generated code
   RetirementHomeCases._();
 
-  factory RetirementHomeCases([updates(RetirementHomeCasesBuilder b)]) =
+  static void _initializeBuilder(RetirementHomeCasesBuilder b) => b;
+
+  factory RetirementHomeCases([void updates(RetirementHomeCasesBuilder b)]) =
       _$RetirementHomeCases;
   static Serializer<RetirementHomeCases> get serializer =>
       _$retirementHomeCasesSerializer;

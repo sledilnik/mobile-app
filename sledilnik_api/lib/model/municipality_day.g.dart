@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'municipality_day.dart';
 
@@ -170,7 +171,9 @@ class MunicipalityDayBuilder
           MapBuilder<String, BuiltMap<String, MunicipalityDayData>> regions) =>
       _$this._regions = regions;
 
-  MunicipalityDayBuilder();
+  MunicipalityDayBuilder() {
+    MunicipalityDay._initializeBuilder(this);
+  }
 
   MunicipalityDayBuilder get _$this {
     if (_$v != null) {

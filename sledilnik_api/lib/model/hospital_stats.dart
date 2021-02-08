@@ -1,5 +1,12 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:sledilnik_api/model/hospital_stats_all_of.dart';
-import 'package:sledilnik_api/model/to_date_today.dart';
+import 'package:sledilnik_api/model/today_to_date.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -17,11 +24,14 @@ abstract class HospitalStats
 
   @nullable
   @BuiltValueField(wireName: r'icu')
-  ToDateToday get icu;
+  TodayToDate get icu;
 
   // Boilerplate code needed to wire-up generated code
   HospitalStats._();
 
-  factory HospitalStats([updates(HospitalStatsBuilder b)]) = _$HospitalStats;
+  static void _initializeBuilder(HospitalStatsBuilder b) => b;
+
+  factory HospitalStats([void updates(HospitalStatsBuilder b)]) =
+      _$HospitalStats;
   static Serializer<HospitalStats> get serializer => _$hospitalStatsSerializer;
 }

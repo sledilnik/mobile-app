@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'cases.dart';
 
@@ -271,7 +272,9 @@ class CasesBuilder implements Builder<Cases, CasesBuilder> {
   set unclassified(UnclassifiedCasesBuilder unclassified) =>
       _$this._unclassified = unclassified;
 
-  CasesBuilder();
+  CasesBuilder() {
+    Cases._initializeBuilder(this);
+  }
 
   CasesBuilder get _$this {
     if (_$v != null) {

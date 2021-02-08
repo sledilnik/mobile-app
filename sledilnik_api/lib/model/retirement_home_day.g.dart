@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'retirement_home_day.dart';
 
@@ -155,7 +156,9 @@ class RetirementHomeDayBuilder
   int get occupant => _$this._occupant;
   set occupant(int occupant) => _$this._occupant = occupant;
 
-  RetirementHomeDayBuilder();
+  RetirementHomeDayBuilder() {
+    RetirementHomeDay._initializeBuilder(this);
+  }
 
   RetirementHomeDayBuilder get _$this {
     if (_$v != null) {

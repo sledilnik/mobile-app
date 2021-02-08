@@ -1,67 +1,82 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'dart:async';
-import 'dart:io';
 import 'dart:convert';
 import 'package:dio/dio.dart';
-import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 
 import 'package:sledilnik_api/model/municipality.dart';
+import 'package:built_collection/built_collection.dart';
 
 class MunicipalityListApi {
   final Dio _dio;
-  Serializers _serializers;
 
-  MunicipalityListApi(this._dio, this._serializers);
+  final Serializers _serializers;
+
+  const MunicipalityListApi(this._dio, this._serializers);
 
   ///
   ///
   ///
-  Future<Response<List<Municipality>>> municipalityListGet({
+  Future<Response<BuiltList<Municipality>>> municipalityListGet({
     CancelToken cancelToken,
-    Map<String, String> headers,
+    Map<String, dynamic> headers,
+    Map<String, dynamic> extra,
+    ValidateStatus validateStatus,
     ProgressCallback onSendProgress,
     ProgressCallback onReceiveProgress,
   }) async {
-    String _path = "/api/municipalities-list";
+    final String _path = '/api/municipalities-list';
 
-    Map<String, dynamic> queryParams = {};
-    Map<String, String> headerParams = Map.from(headers ?? {});
+    final queryParams = <String, dynamic>{};
+    final headerParams = <String, dynamic>{
+      if (headers != null) ...headers,
+    };
     dynamic bodyData;
 
-    queryParams.removeWhere((key, value) => value == null);
-    headerParams.removeWhere((key, value) => value == null);
+    queryParams.removeWhere((key, dynamic value) => value == null);
+    headerParams.removeWhere((key, dynamic value) => value == null);
 
-    List<String> contentTypes = [];
+    final contentTypes = <String>[];
 
     return _dio
-        .request(
+        .request<dynamic>(
       _path,
       queryParameters: queryParams,
       data: bodyData,
       options: Options(
         method: 'get'.toUpperCase(),
         headers: headerParams,
-        extra: {
-          'secure': [],
+        extra: <String, dynamic>{
+          'secure': <Map<String, String>>[],
+          if (extra != null) ...extra,
         },
+        validateStatus: validateStatus,
         contentType:
-            contentTypes.isNotEmpty ? contentTypes[0] : "application/json",
+            contentTypes.isNotEmpty ? contentTypes[0] : 'application/json',
       ),
       cancelToken: cancelToken,
       onSendProgress: onSendProgress,
       onReceiveProgress: onReceiveProgress,
     )
         .then((response) {
-      final FullType type =
-          const FullType(BuiltList, const [const FullType(Municipality)]);
-      BuiltList<Municipality> dataList = _serializers.deserialize(
-          response.data is String ? jsonDecode(response.data) : response.data,
-          specifiedType: type);
-      var data = dataList.toList();
+      const type = FullType(BuiltList, [FullType(Municipality)]);
+      final data = _serializers.deserialize(
+        response.data is String
+            ? jsonDecode(response.data as String)
+            : response.data,
+        specifiedType: type,
+      ) as BuiltList<Municipality>;
 
-      return Response<List<Municipality>>(
+      return Response<BuiltList<Municipality>>(
         data: data,
         headers: response.headers,
+        isRedirect: response.isRedirect,
         request: response.request,
         redirects: response.redirects,
         statusCode: response.statusCode,

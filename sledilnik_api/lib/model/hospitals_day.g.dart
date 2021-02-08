@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'hospitals_day.dart';
 
@@ -178,7 +179,9 @@ class HospitalsDayBuilder
   set perHospital(MapBuilder<String, HospitalDay> perHospital) =>
       _$this._perHospital = perHospital;
 
-  HospitalsDayBuilder();
+  HospitalsDayBuilder() {
+    HospitalsDay._initializeBuilder(this);
+  }
 
   HospitalsDayBuilder get _$this {
     if (_$v != null) {

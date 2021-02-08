@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:built_collection/built_collection.dart';
 import 'package:sledilnik_api/model/lab_test_data.dart';
 import 'package:built_value/built_value.dart';
@@ -33,6 +40,8 @@ abstract class LabTestDay implements Built<LabTestDay, LabTestDayBuilder> {
   // Boilerplate code needed to wire-up generated code
   LabTestDay._();
 
-  factory LabTestDay([updates(LabTestDayBuilder b)]) = _$LabTestDay;
+  static void _initializeBuilder(LabTestDayBuilder b) => b;
+
+  factory LabTestDay([void updates(LabTestDayBuilder b)]) = _$LabTestDay;
   static Serializer<LabTestDay> get serializer => _$labTestDaySerializer;
 }

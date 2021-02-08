@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'per_age_bucket.dart';
 
@@ -177,7 +178,9 @@ class PerAgeBucketBuilder
   int get maleToDate => _$this._maleToDate;
   set maleToDate(int maleToDate) => _$this._maleToDate = maleToDate;
 
-  PerAgeBucketBuilder();
+  PerAgeBucketBuilder() {
+    PerAgeBucket._initializeBuilder(this);
+  }
 
   PerAgeBucketBuilder get _$this {
     if (_$v != null) {

@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'stats_weekly_sent_to.dart';
 
@@ -97,7 +98,9 @@ class StatsWeeklySentToBuilder
   int get quarantine => _$this._quarantine;
   set quarantine(int quarantine) => _$this._quarantine = quarantine;
 
-  StatsWeeklySentToBuilder();
+  StatsWeeklySentToBuilder() {
+    StatsWeeklySentTo._initializeBuilder(this);
+  }
 
   StatsWeeklySentToBuilder get _$this {
     if (_$v != null) {

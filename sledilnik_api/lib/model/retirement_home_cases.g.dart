@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'retirement_home_cases.dart';
 
@@ -126,7 +127,9 @@ class RetirementHomeCasesBuilder
   set occupantConfirmedToDate(int occupantConfirmedToDate) =>
       _$this._occupantConfirmedToDate = occupantConfirmedToDate;
 
-  RetirementHomeCasesBuilder();
+  RetirementHomeCasesBuilder() {
+    RetirementHomeCases._initializeBuilder(this);
+  }
 
   RetirementHomeCasesBuilder get _$this {
     if (_$v != null) {

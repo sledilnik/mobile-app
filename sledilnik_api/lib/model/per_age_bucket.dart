@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -28,6 +35,8 @@ abstract class PerAgeBucket
   // Boilerplate code needed to wire-up generated code
   PerAgeBucket._();
 
-  factory PerAgeBucket([updates(PerAgeBucketBuilder b)]) = _$PerAgeBucket;
+  static void _initializeBuilder(PerAgeBucketBuilder b) => b;
+
+  factory PerAgeBucket([void updates(PerAgeBucketBuilder b)]) = _$PerAgeBucket;
   static Serializer<PerAgeBucket> get serializer => _$perAgeBucketSerializer;
 }

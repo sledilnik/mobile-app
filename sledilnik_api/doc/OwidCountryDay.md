@@ -8,14 +8,14 @@ import 'package:sledilnik_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**date** | [**DateTime**](DateTime.md) |  | [default to null]
-**isoCode** | **String** |  | [optional] [default to null]
-**newCases** | **double** |  | [optional] [default to null]
-**newCasesPerMillion** | **double** |  | [optional] [default to null]
-**totalCases** | **double** |  | [optional] [default to null]
-**totalCasesPerMillion** | **double** |  | [optional] [default to null]
-**totalDeaths** | **double** |  | [optional] [default to null]
-**totalDeathsPerMillion** | **double** |  | [optional] [default to null]
+**date** | [**DateTime**](DateTime.md) |  | 
+**isoCode** | **String** |  | [optional] 
+**newCases** | **double** |  | [optional] 
+**newCasesPerMillion** | **double** |  | [optional] 
+**totalCases** | **double** |  | [optional] 
+**totalCasesPerMillion** | **double** |  | [optional] 
+**totalDeaths** | **double** |  | [optional] 
+**totalDeathsPerMillion** | **double** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

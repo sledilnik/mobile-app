@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **statsGet**
-> List<StatsDaily> statsGet(from, to)
+> BuiltList<StatsDaily> statsGet(from, to)
 
 
 
@@ -29,7 +29,7 @@ try {
     var result = api_instance.statsGet(from, to);
     print(result);
 } catch (e) {
-    print("Exception when calling StatsApi->statsGet: $e\n");
+    print('Exception when calling StatsApi->statsGet: $e\n');
 }
 ```
 
@@ -37,12 +37,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **DateTime**|  | [optional] [default to null]
- **to** | **DateTime**|  | [optional] [default to null]
+ **from** | **DateTime**|  | [optional] 
+ **to** | **DateTime**|  | [optional] 
 
 ### Return type
 
-[**List<StatsDaily>**](StatsDaily.md)
+[**BuiltList<StatsDaily>**](StatsDaily.md)
 
 ### Authorization
 

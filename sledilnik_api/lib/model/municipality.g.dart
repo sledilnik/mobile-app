@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'municipality.dart';
 
@@ -131,7 +132,9 @@ class MunicipalityBuilder
   int get population => _$this._population;
   set population(int population) => _$this._population = population;
 
-  MunicipalityBuilder();
+  MunicipalityBuilder() {
+    Municipality._initializeBuilder(this);
+  }
 
   MunicipalityBuilder get _$this {
     if (_$v != null) {

@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:built_collection/built_collection.dart';
 import 'package:sledilnik_api/model/stats_weekly_sent_to.dart';
 import 'package:built_value/built_value.dart';
@@ -40,6 +47,18 @@ abstract class StatsWeeklyDay
   int get healthcare;
 
   @nullable
+  @BuiltValueField(wireName: r'healthcareMale')
+  int get healthcareMale;
+
+  @nullable
+  @BuiltValueField(wireName: r'healthcareFemale')
+  int get healthcareFemale;
+
+  @nullable
+  @BuiltValueField(wireName: r'rh-occupant')
+  int get rhOccupant;
+
+  @nullable
   @BuiltValueField(wireName: r'sentTo')
   StatsWeeklySentTo get sentTo;
 
@@ -51,10 +70,17 @@ abstract class StatsWeeklyDay
   @BuiltValueField(wireName: r'from')
   BuiltMap<String, int> get from;
 
+  @nullable
+  @BuiltValueField(wireName: r'locations')
+  BuiltMap<String, int> get locations;
+
   // Boilerplate code needed to wire-up generated code
   StatsWeeklyDay._();
 
-  factory StatsWeeklyDay([updates(StatsWeeklyDayBuilder b)]) = _$StatsWeeklyDay;
+  static void _initializeBuilder(StatsWeeklyDayBuilder b) => b;
+
+  factory StatsWeeklyDay([void updates(StatsWeeklyDayBuilder b)]) =
+      _$StatsWeeklyDay;
   static Serializer<StatsWeeklyDay> get serializer =>
       _$statsWeeklyDaySerializer;
 }

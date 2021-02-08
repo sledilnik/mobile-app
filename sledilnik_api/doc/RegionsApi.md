@@ -9,11 +9,11 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**regionsGet**](RegionsApi.md#regionsGet) | **get** /api/regions | 
+[**regionsGetRegionCases**](RegionsApi.md#regionsGetRegionCases) | **get** /api/regions | 
 
 
-# **regionsGet**
-> List<RegionsDay> regionsGet(from, to)
+# **regionsGetRegionCases**
+> BuiltList<RegionCasesDay> regionsGetRegionCases(from, to)
 
 
 
@@ -26,10 +26,10 @@ var from = 2013-10-20T19:20:30+01:00; // DateTime |
 var to = 2013-10-20T19:20:30+01:00; // DateTime | 
 
 try { 
-    var result = api_instance.regionsGet(from, to);
+    var result = api_instance.regionsGetRegionCases(from, to);
     print(result);
 } catch (e) {
-    print("Exception when calling RegionsApi->regionsGet: $e\n");
+    print('Exception when calling RegionsApi->regionsGetRegionCases: $e\n');
 }
 ```
 
@@ -37,12 +37,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **DateTime**|  | [optional] [default to null]
- **to** | **DateTime**|  | [optional] [default to null]
+ **from** | **DateTime**|  | [optional] 
+ **to** | **DateTime**|  | [optional] 
 
 ### Return type
 
-[**List<RegionsDay>**](RegionsDay.md)
+[**BuiltList<RegionCasesDay>**](RegionCasesDay.md)
 
 ### Authorization
 

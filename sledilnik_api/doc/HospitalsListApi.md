@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **hospitalsListGet**
-> List<Hospital> hospitalsListGet()
+> BuiltList<Hospital> hospitalsListGet()
 
 
 
@@ -27,7 +27,7 @@ try {
     var result = api_instance.hospitalsListGet();
     print(result);
 } catch (e) {
-    print("Exception when calling HospitalsListApi->hospitalsListGet: $e\n");
+    print('Exception when calling HospitalsListApi->hospitalsListGet: $e\n');
 }
 ```
 
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<Hospital>**](Hospital.md)
+[**BuiltList<Hospital>**](Hospital.md)
 
 ### Authorization
 

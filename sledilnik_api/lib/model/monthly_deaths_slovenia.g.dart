@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'monthly_deaths_slovenia.dart';
 
@@ -140,7 +141,9 @@ class MonthlyDeathsSloveniaBuilder
   int get deceased => _$this._deceased;
   set deceased(int deceased) => _$this._deceased = deceased;
 
-  MonthlyDeathsSloveniaBuilder();
+  MonthlyDeathsSloveniaBuilder() {
+    MonthlyDeathsSlovenia._initializeBuilder(this);
+  }
 
   MonthlyDeathsSloveniaBuilder get _$this {
     if (_$v != null) {

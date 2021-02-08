@@ -8,13 +8,13 @@ import 'package:sledilnik_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | [optional] [default to null]
-**name** | **String** |  | [optional] [default to null]
-**region** | **String** |  | [optional] [default to null]
-**type** | **String** |  | [optional] [default to null]
-**occupants** | **int** |  | [optional] [default to null]
-**employees** | **int** |  | [optional] [default to null]
-**url** | **String** |  | [optional] [default to null]
+**id** | **String** |  | [optional] 
+**name** | **String** |  | [optional] 
+**region** | **String** |  | [optional] 
+**type** | **String** |  | [optional] 
+**occupants** | **int** |  | [optional] 
+**employees** | **int** |  | [optional] 
+**url** | **String** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

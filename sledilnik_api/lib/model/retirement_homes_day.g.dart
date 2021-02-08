@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'retirement_homes_day.dart';
 
@@ -228,7 +229,9 @@ class RetirementHomesDayBuilder
       _$this._homes ??= new ListBuilder<RetirementHomeDay>();
   set homes(ListBuilder<RetirementHomeDay> homes) => _$this._homes = homes;
 
-  RetirementHomesDayBuilder();
+  RetirementHomesDayBuilder() {
+    RetirementHomesDay._initializeBuilder(this);
+  }
 
   RetirementHomesDayBuilder get _$this {
     if (_$v != null) {

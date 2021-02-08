@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'hospital_stats_all_of.dart';
 
@@ -24,7 +25,7 @@ class _$HospitalStatsAllOfSerializer
       result
         ..add('icu')
         ..add(serializers.serialize(object.icu,
-            specifiedType: const FullType(ToDateToday)));
+            specifiedType: const FullType(TodayToDate)));
     }
     return result;
   }
@@ -43,7 +44,7 @@ class _$HospitalStatsAllOfSerializer
       switch (key) {
         case 'icu':
           result.icu.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ToDateToday)) as ToDateToday);
+              specifiedType: const FullType(TodayToDate)) as TodayToDate);
           break;
       }
     }
@@ -54,7 +55,7 @@ class _$HospitalStatsAllOfSerializer
 
 class _$HospitalStatsAllOf extends HospitalStatsAllOf {
   @override
-  final ToDateToday icu;
+  final TodayToDate icu;
 
   factory _$HospitalStatsAllOf(
           [void Function(HospitalStatsAllOfBuilder) updates]) =>
@@ -93,11 +94,13 @@ class HospitalStatsAllOfBuilder
     implements Builder<HospitalStatsAllOf, HospitalStatsAllOfBuilder> {
   _$HospitalStatsAllOf _$v;
 
-  ToDateTodayBuilder _icu;
-  ToDateTodayBuilder get icu => _$this._icu ??= new ToDateTodayBuilder();
-  set icu(ToDateTodayBuilder icu) => _$this._icu = icu;
+  TodayToDateBuilder _icu;
+  TodayToDateBuilder get icu => _$this._icu ??= new TodayToDateBuilder();
+  set icu(TodayToDateBuilder icu) => _$this._icu = icu;
 
-  HospitalStatsAllOfBuilder();
+  HospitalStatsAllOfBuilder() {
+    HospitalStatsAllOf._initializeBuilder(this);
+  }
 
   HospitalStatsAllOfBuilder get _$this {
     if (_$v != null) {

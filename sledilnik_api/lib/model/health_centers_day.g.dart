@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'health_centers_day.dart';
 
@@ -194,7 +195,9 @@ class HealthCentersDayBuilder
               municipalities) =>
       _$this._municipalities = municipalities;
 
-  HealthCentersDayBuilder();
+  HealthCentersDayBuilder() {
+    HealthCentersDay._initializeBuilder(this);
+  }
 
   HealthCentersDayBuilder get _$this {
     if (_$v != null) {

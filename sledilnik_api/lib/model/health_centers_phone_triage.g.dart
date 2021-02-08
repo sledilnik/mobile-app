@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'health_centers_phone_triage.dart';
 
@@ -105,7 +106,9 @@ class HealthCentersPhoneTriageBuilder
   set suspectedCovid(int suspectedCovid) =>
       _$this._suspectedCovid = suspectedCovid;
 
-  HealthCentersPhoneTriageBuilder();
+  HealthCentersPhoneTriageBuilder() {
+    HealthCentersPhoneTriage._initializeBuilder(this);
+  }
 
   HealthCentersPhoneTriageBuilder get _$this {
     if (_$v != null) {

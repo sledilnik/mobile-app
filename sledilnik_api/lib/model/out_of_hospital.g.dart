@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'out_of_hospital.dart';
 
@@ -93,7 +94,9 @@ class OutOfHospitalBuilder
   int get toDate => _$this._toDate;
   set toDate(int toDate) => _$this._toDate = toDate;
 
-  OutOfHospitalBuilder();
+  OutOfHospitalBuilder() {
+    OutOfHospital._initializeBuilder(this);
+  }
 
   OutOfHospitalBuilder get _$this {
     if (_$v != null) {

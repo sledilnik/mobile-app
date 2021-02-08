@@ -8,11 +8,11 @@ import 'package:sledilnik_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**today** | **int** |  | [optional] [default to null]
-**toDate** | **int** |  | [optional] [default to null]
-**hospital** | [**HospitalStats**](HospitalStats.md) |  | [optional] [default to null]
-**care** | [**ToDateToday**](ToDateToday.md) |  | [optional] [default to null]
-**home** | [**ToDateToday**](ToDateToday.md) |  | [optional] [default to null]
+**today** | **int** |  | [optional] 
+**toDate** | **int** |  | [optional] 
+**hospital** | [**HospitalStats**](HospitalStats.md) |  | [optional] 
+**care** | [**TodayToDate**](TodayToDate.md) |  | [optional] 
+**home** | [**TodayToDate**](TodayToDate.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

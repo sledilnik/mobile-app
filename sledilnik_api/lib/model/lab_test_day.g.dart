@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'lab_test_day.dart';
 
@@ -199,7 +200,9 @@ class LabTestDayBuilder implements Builder<LabTestDay, LabTestDayBuilder> {
       _$this._labs ??= new MapBuilder<String, LabTestData>();
   set labs(MapBuilder<String, LabTestData> labs) => _$this._labs = labs;
 
-  LabTestDayBuilder();
+  LabTestDayBuilder() {
+    LabTestDay._initializeBuilder(this);
+  }
 
   LabTestDayBuilder get _$this {
     if (_$v != null) {

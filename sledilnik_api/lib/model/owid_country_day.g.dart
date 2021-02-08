@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'owid_country_day.dart';
 
@@ -246,7 +247,9 @@ class OwidCountryDayBuilder
   set totalDeathsPerMillion(double totalDeathsPerMillion) =>
       _$this._totalDeathsPerMillion = totalDeathsPerMillion;
 
-  OwidCountryDayBuilder();
+  OwidCountryDayBuilder() {
+    OwidCountryDay._initializeBuilder(this);
+  }
 
   OwidCountryDayBuilder get _$this {
     if (_$v != null) {

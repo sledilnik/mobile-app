@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'unclassified_cases.dart';
 
@@ -99,7 +100,9 @@ class UnclassifiedCasesBuilder
   set confirmedToDate(int confirmedToDate) =>
       _$this._confirmedToDate = confirmedToDate;
 
-  UnclassifiedCasesBuilder();
+  UnclassifiedCasesBuilder() {
+    UnclassifiedCases._initializeBuilder(this);
+  }
 
   UnclassifiedCasesBuilder get _$this {
     if (_$v != null) {

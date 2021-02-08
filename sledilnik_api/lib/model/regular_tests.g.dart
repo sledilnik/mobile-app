@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'regular_tests.dart';
 
@@ -23,13 +24,13 @@ class _$RegularTestsSerializer implements StructuredSerializer<RegularTests> {
       result
         ..add('performed')
         ..add(serializers.serialize(object.performed,
-            specifiedType: const FullType(CommonTests)));
+            specifiedType: const FullType(TodayToDate)));
     }
     if (object.positive != null) {
       result
         ..add('positive')
         ..add(serializers.serialize(object.positive,
-            specifiedType: const FullType(CommonTests)));
+            specifiedType: const FullType(TodayToDate)));
     }
     return result;
   }
@@ -47,11 +48,11 @@ class _$RegularTestsSerializer implements StructuredSerializer<RegularTests> {
       switch (key) {
         case 'performed':
           result.performed.replace(serializers.deserialize(value,
-              specifiedType: const FullType(CommonTests)) as CommonTests);
+              specifiedType: const FullType(TodayToDate)) as TodayToDate);
           break;
         case 'positive':
           result.positive.replace(serializers.deserialize(value,
-              specifiedType: const FullType(CommonTests)) as CommonTests);
+              specifiedType: const FullType(TodayToDate)) as TodayToDate);
           break;
       }
     }
@@ -62,9 +63,9 @@ class _$RegularTestsSerializer implements StructuredSerializer<RegularTests> {
 
 class _$RegularTests extends RegularTests {
   @override
-  final CommonTests performed;
+  final TodayToDate performed;
   @override
-  final CommonTests positive;
+  final TodayToDate positive;
 
   factory _$RegularTests([void Function(RegularTestsBuilder) updates]) =>
       (new RegularTestsBuilder()..update(updates)).build();
@@ -104,17 +105,19 @@ class RegularTestsBuilder
     implements Builder<RegularTests, RegularTestsBuilder> {
   _$RegularTests _$v;
 
-  CommonTestsBuilder _performed;
-  CommonTestsBuilder get performed =>
-      _$this._performed ??= new CommonTestsBuilder();
-  set performed(CommonTestsBuilder performed) => _$this._performed = performed;
+  TodayToDateBuilder _performed;
+  TodayToDateBuilder get performed =>
+      _$this._performed ??= new TodayToDateBuilder();
+  set performed(TodayToDateBuilder performed) => _$this._performed = performed;
 
-  CommonTestsBuilder _positive;
-  CommonTestsBuilder get positive =>
-      _$this._positive ??= new CommonTestsBuilder();
-  set positive(CommonTestsBuilder positive) => _$this._positive = positive;
+  TodayToDateBuilder _positive;
+  TodayToDateBuilder get positive =>
+      _$this._positive ??= new TodayToDateBuilder();
+  set positive(TodayToDateBuilder positive) => _$this._positive = positive;
 
-  RegularTestsBuilder();
+  RegularTestsBuilder() {
+    RegularTests._initializeBuilder(this);
+  }
 
   RegularTestsBuilder get _$this {
     if (_$v != null) {

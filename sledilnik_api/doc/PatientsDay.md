@@ -8,12 +8,12 @@ import 'package:sledilnik_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dayFromStart** | **int** |  | [default to null]
-**year** | **int** |  | [default to null]
-**month** | **int** |  | [default to null]
-**day** | **int** |  | [default to null]
-**total** | [**GeneralUnit**](GeneralUnit.md) |  | [optional] [default to null]
-**facilities** | [**BuiltMap&lt;String, Unit&gt;**](Unit.md) |  | [optional] [default to const {}]
+**dayFromStart** | **int** |  | 
+**year** | **int** |  | 
+**month** | **int** |  | 
+**day** | **int** |  | 
+**total** | [**GeneralUnit**](GeneralUnit.md) |  | [optional] 
+**facilities** | [**BuiltMap<String, Unit>**](Unit.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

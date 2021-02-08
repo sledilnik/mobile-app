@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **municipalitiesGet**
-> List<MunicipalityDay> municipalitiesGet(from, to)
+> BuiltList<MunicipalityDay> municipalitiesGet(from, to)
 
 
 
@@ -29,7 +29,7 @@ try {
     var result = api_instance.municipalitiesGet(from, to);
     print(result);
 } catch (e) {
-    print("Exception when calling MunicipalitiesApi->municipalitiesGet: $e\n");
+    print('Exception when calling MunicipalitiesApi->municipalitiesGet: $e\n');
 }
 ```
 
@@ -37,12 +37,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **DateTime**|  | [optional] [default to null]
- **to** | **DateTime**|  | [optional] [default to null]
+ **from** | **DateTime**|  | [optional] 
+ **to** | **DateTime**|  | [optional] 
 
 ### Return type
 
-[**List<MunicipalityDay>**](MunicipalityDay.md)
+[**BuiltList<MunicipalityDay>**](MunicipalityDay.md)
 
 ### Authorization
 

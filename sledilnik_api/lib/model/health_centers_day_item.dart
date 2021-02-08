@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:sledilnik_api/model/health_centers_phone_triage.dart';
 import 'package:sledilnik_api/model/health_centers_tests.dart';
 import 'package:sledilnik_api/model/health_centers_sent_to.dart';
@@ -28,7 +35,9 @@ abstract class HealthCentersDayItem
   // Boilerplate code needed to wire-up generated code
   HealthCentersDayItem._();
 
-  factory HealthCentersDayItem([updates(HealthCentersDayItemBuilder b)]) =
+  static void _initializeBuilder(HealthCentersDayItemBuilder b) => b;
+
+  factory HealthCentersDayItem([void updates(HealthCentersDayItemBuilder b)]) =
       _$HealthCentersDayItem;
   static Serializer<HealthCentersDayItem> get serializer =>
       _$healthCentersDayItemSerializer;

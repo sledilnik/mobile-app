@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'state_deceased.dart';
 
@@ -41,13 +42,13 @@ class _$StateDeceasedSerializer implements StructuredSerializer<StateDeceased> {
       result
         ..add('care')
         ..add(serializers.serialize(object.care,
-            specifiedType: const FullType(ToDateToday)));
+            specifiedType: const FullType(TodayToDate)));
     }
     if (object.home != null) {
       result
         ..add('home')
         ..add(serializers.serialize(object.home,
-            specifiedType: const FullType(ToDateToday)));
+            specifiedType: const FullType(TodayToDate)));
     }
     return result;
   }
@@ -78,11 +79,11 @@ class _$StateDeceasedSerializer implements StructuredSerializer<StateDeceased> {
           break;
         case 'care':
           result.care.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ToDateToday)) as ToDateToday);
+              specifiedType: const FullType(TodayToDate)) as TodayToDate);
           break;
         case 'home':
           result.home.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ToDateToday)) as ToDateToday);
+              specifiedType: const FullType(TodayToDate)) as TodayToDate);
           break;
       }
     }
@@ -99,9 +100,9 @@ class _$StateDeceased extends StateDeceased {
   @override
   final HospitalStats hospital;
   @override
-  final ToDateToday care;
+  final TodayToDate care;
   @override
-  final ToDateToday home;
+  final TodayToDate home;
 
   factory _$StateDeceased([void Function(StateDeceasedBuilder) updates]) =>
       (new StateDeceasedBuilder()..update(updates)).build();
@@ -167,15 +168,17 @@ class StateDeceasedBuilder
       _$this._hospital ??= new HospitalStatsBuilder();
   set hospital(HospitalStatsBuilder hospital) => _$this._hospital = hospital;
 
-  ToDateTodayBuilder _care;
-  ToDateTodayBuilder get care => _$this._care ??= new ToDateTodayBuilder();
-  set care(ToDateTodayBuilder care) => _$this._care = care;
+  TodayToDateBuilder _care;
+  TodayToDateBuilder get care => _$this._care ??= new TodayToDateBuilder();
+  set care(TodayToDateBuilder care) => _$this._care = care;
 
-  ToDateTodayBuilder _home;
-  ToDateTodayBuilder get home => _$this._home ??= new ToDateTodayBuilder();
-  set home(ToDateTodayBuilder home) => _$this._home = home;
+  TodayToDateBuilder _home;
+  TodayToDateBuilder get home => _$this._home ??= new TodayToDateBuilder();
+  set home(TodayToDateBuilder home) => _$this._home = home;
 
-  StateDeceasedBuilder();
+  StateDeceasedBuilder() {
+    StateDeceased._initializeBuilder(this);
+  }
 
   StateDeceasedBuilder get _$this {
     if (_$v != null) {

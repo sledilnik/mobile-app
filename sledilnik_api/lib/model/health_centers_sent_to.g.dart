@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'health_centers_sent_to.dart';
 
@@ -121,7 +122,9 @@ class HealthCentersSentToBuilder
   int get selfIsolation => _$this._selfIsolation;
   set selfIsolation(int selfIsolation) => _$this._selfIsolation = selfIsolation;
 
-  HealthCentersSentToBuilder();
+  HealthCentersSentToBuilder() {
+    HealthCentersSentTo._initializeBuilder(this);
+  }
 
   HealthCentersSentToBuilder get _$this {
     if (_$v != null) {

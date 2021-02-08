@@ -1,7 +1,14 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:sledilnik_api/model/deceased.dart';
 import 'package:sledilnik_api/model/state_deceased_all_of.dart';
+import 'package:sledilnik_api/model/today_to_date.dart';
 import 'package:sledilnik_api/model/hospital_stats.dart';
-import 'package:sledilnik_api/model/to_date_today.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -23,15 +30,18 @@ abstract class StateDeceased
 
   @nullable
   @BuiltValueField(wireName: r'care')
-  ToDateToday get care;
+  TodayToDate get care;
 
   @nullable
   @BuiltValueField(wireName: r'home')
-  ToDateToday get home;
+  TodayToDate get home;
 
   // Boilerplate code needed to wire-up generated code
   StateDeceased._();
 
-  factory StateDeceased([updates(StateDeceasedBuilder b)]) = _$StateDeceased;
+  static void _initializeBuilder(StateDeceasedBuilder b) => b;
+
+  factory StateDeceased([void updates(StateDeceasedBuilder b)]) =
+      _$StateDeceased;
   static Serializer<StateDeceased> get serializer => _$stateDeceasedSerializer;
 }

@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'general_unit_all_of.dart';
 
@@ -99,7 +100,9 @@ class GeneralUnitAllOfBuilder
   set outOfHospital(OutOfHospitalBuilder outOfHospital) =>
       _$this._outOfHospital = outOfHospital;
 
-  GeneralUnitAllOfBuilder();
+  GeneralUnitAllOfBuilder() {
+    GeneralUnitAllOf._initializeBuilder(this);
+  }
 
   GeneralUnitAllOfBuilder get _$this {
     if (_$v != null) {

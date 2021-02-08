@@ -8,13 +8,13 @@ import 'package:sledilnik_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**year** | **int** |  | [default to null]
-**month** | **int** |  | [default to null]
-**day** | **int** |  | [default to null]
-**total** | **int** |  | [optional] [default to null]
-**employee** | **int** |  | [optional] [default to null]
-**occupant** | **int** |  | [optional] [default to null]
-**homes** | [**BuiltList&lt;RetirementHomeDay&gt;**](RetirementHomeDay.md) |  | [default to const []]
+**year** | **int** |  | 
+**month** | **int** |  | 
+**day** | **int** |  | 
+**total** | **int** |  | [optional] 
+**employee** | **int** |  | [optional] 
+**occupant** | **int** |  | [optional] 
+**homes** | [**BuiltList<RetirementHomeDay>**](RetirementHomeDay.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'health_centers_day_item.dart';
 
@@ -172,7 +173,9 @@ class HealthCentersDayItemBuilder
       _$this._sentTo ??= new HealthCentersSentToBuilder();
   set sentTo(HealthCentersSentToBuilder sentTo) => _$this._sentTo = sentTo;
 
-  HealthCentersDayItemBuilder();
+  HealthCentersDayItemBuilder() {
+    HealthCentersDayItem._initializeBuilder(this);
+  }
 
   HealthCentersDayItemBuilder get _$this {
     if (_$v != null) {

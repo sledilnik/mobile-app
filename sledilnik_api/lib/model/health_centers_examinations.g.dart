@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'health_centers_examinations.dart';
 
@@ -125,7 +126,9 @@ class HealthCentersExaminationsBuilder
   set suspectedCovid(int suspectedCovid) =>
       _$this._suspectedCovid = suspectedCovid;
 
-  HealthCentersExaminationsBuilder();
+  HealthCentersExaminationsBuilder() {
+    HealthCentersExaminations._initializeBuilder(this);
+  }
 
   HealthCentersExaminationsBuilder get _$this {
     if (_$v != null) {

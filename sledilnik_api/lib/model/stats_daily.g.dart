@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'stats_daily.dart';
 
@@ -123,6 +124,30 @@ class _$StatsDailySerializer implements StructuredSerializer<StatsDaily> {
             specifiedType: const FullType(
                 BuiltList, const [const FullType(PerAgeBucket)])));
     }
+    if (object.deceasedPerType != null) {
+      result
+        ..add('deceasedPerType')
+        ..add(serializers.serialize(object.deceasedPerType,
+            specifiedType: const FullType(PerPersonType)));
+    }
+    if (object.deceasedToDate != null) {
+      result
+        ..add('deceasedToDate')
+        ..add(serializers.serialize(object.deceasedToDate,
+            specifiedType: const FullType(int)));
+    }
+    if (object.deceased != null) {
+      result
+        ..add('deceased')
+        ..add(serializers.serialize(object.deceased,
+            specifiedType: const FullType(int)));
+    }
+    if (object.vaccination != null) {
+      result
+        ..add('vaccination')
+        ..add(serializers.serialize(object.vaccination,
+            specifiedType: const FullType(Vaccination)));
+    }
     return result;
   }
 
@@ -210,6 +235,22 @@ class _$StatsDailySerializer implements StructuredSerializer<StatsDaily> {
                       BuiltList, const [const FullType(PerAgeBucket)]))
               as BuiltList<Object>);
           break;
+        case 'deceasedPerType':
+          result.deceasedPerType.replace(serializers.deserialize(value,
+              specifiedType: const FullType(PerPersonType)) as PerPersonType);
+          break;
+        case 'deceasedToDate':
+          result.deceasedToDate = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'deceased':
+          result.deceased = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'vaccination':
+          result.vaccination.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Vaccination)) as Vaccination);
+          break;
       }
     }
 
@@ -252,6 +293,14 @@ class _$StatsDaily extends StatsDaily {
   final BuiltList<PerAgeBucket> statePerAgeToDate;
   @override
   final BuiltList<PerAgeBucket> deceasedPerAgeToDate;
+  @override
+  final PerPersonType deceasedPerType;
+  @override
+  final int deceasedToDate;
+  @override
+  final int deceased;
+  @override
+  final Vaccination vaccination;
 
   factory _$StatsDaily([void Function(StatsDailyBuilder) updates]) =>
       (new StatsDailyBuilder()..update(updates)).build();
@@ -273,7 +322,11 @@ class _$StatsDaily extends StatsDaily {
       this.statePerTreatment,
       this.statePerRegion,
       this.statePerAgeToDate,
-      this.deceasedPerAgeToDate})
+      this.deceasedPerAgeToDate,
+      this.deceasedPerType,
+      this.deceasedToDate,
+      this.deceased,
+      this.vaccination})
       : super._();
 
   @override
@@ -303,7 +356,11 @@ class _$StatsDaily extends StatsDaily {
         statePerTreatment == other.statePerTreatment &&
         statePerRegion == other.statePerRegion &&
         statePerAgeToDate == other.statePerAgeToDate &&
-        deceasedPerAgeToDate == other.deceasedPerAgeToDate;
+        deceasedPerAgeToDate == other.deceasedPerAgeToDate &&
+        deceasedPerType == other.deceasedPerType &&
+        deceasedToDate == other.deceasedToDate &&
+        deceased == other.deceased &&
+        vaccination == other.vaccination;
   }
 
   @override
@@ -325,27 +382,27 @@ class _$StatsDaily extends StatsDaily {
                                                             $jc(
                                                                 $jc(
                                                                     $jc(
-                                                                        0,
-                                                                        dayFromStart
-                                                                            .hashCode),
-                                                                    year
-                                                                        .hashCode),
-                                                                month.hashCode),
-                                                            day.hashCode),
-                                                        phase.hashCode),
-                                                    performedTestsToDate
-                                                        .hashCode),
-                                                performedTests.hashCode),
-                                            positiveTestsToDate.hashCode),
-                                        positiveTests.hashCode),
-                                    tests.hashCode),
-                                femaleToDate.hashCode),
-                            maleToDate.hashCode),
-                        cases.hashCode),
-                    statePerTreatment.hashCode),
-                statePerRegion.hashCode),
-            statePerAgeToDate.hashCode),
-        deceasedPerAgeToDate.hashCode));
+                                                                        $jc(
+                                                                            $jc($jc($jc(0, dayFromStart.hashCode), year.hashCode),
+                                                                                month.hashCode),
+                                                                            day.hashCode),
+                                                                        phase.hashCode),
+                                                                    performedTestsToDate.hashCode),
+                                                                performedTests.hashCode),
+                                                            positiveTestsToDate.hashCode),
+                                                        positiveTests.hashCode),
+                                                    tests.hashCode),
+                                                femaleToDate.hashCode),
+                                            maleToDate.hashCode),
+                                        cases.hashCode),
+                                    statePerTreatment.hashCode),
+                                statePerRegion.hashCode),
+                            statePerAgeToDate.hashCode),
+                        deceasedPerAgeToDate.hashCode),
+                    deceasedPerType.hashCode),
+                deceasedToDate.hashCode),
+            deceased.hashCode),
+        vaccination.hashCode));
   }
 
   @override
@@ -367,7 +424,11 @@ class _$StatsDaily extends StatsDaily {
           ..add('statePerTreatment', statePerTreatment)
           ..add('statePerRegion', statePerRegion)
           ..add('statePerAgeToDate', statePerAgeToDate)
-          ..add('deceasedPerAgeToDate', deceasedPerAgeToDate))
+          ..add('deceasedPerAgeToDate', deceasedPerAgeToDate)
+          ..add('deceasedPerType', deceasedPerType)
+          ..add('deceasedToDate', deceasedToDate)
+          ..add('deceased', deceased)
+          ..add('vaccination', vaccination))
         .toString();
   }
 }
@@ -454,7 +515,30 @@ class StatsDailyBuilder implements Builder<StatsDaily, StatsDailyBuilder> {
   set deceasedPerAgeToDate(ListBuilder<PerAgeBucket> deceasedPerAgeToDate) =>
       _$this._deceasedPerAgeToDate = deceasedPerAgeToDate;
 
-  StatsDailyBuilder();
+  PerPersonTypeBuilder _deceasedPerType;
+  PerPersonTypeBuilder get deceasedPerType =>
+      _$this._deceasedPerType ??= new PerPersonTypeBuilder();
+  set deceasedPerType(PerPersonTypeBuilder deceasedPerType) =>
+      _$this._deceasedPerType = deceasedPerType;
+
+  int _deceasedToDate;
+  int get deceasedToDate => _$this._deceasedToDate;
+  set deceasedToDate(int deceasedToDate) =>
+      _$this._deceasedToDate = deceasedToDate;
+
+  int _deceased;
+  int get deceased => _$this._deceased;
+  set deceased(int deceased) => _$this._deceased = deceased;
+
+  VaccinationBuilder _vaccination;
+  VaccinationBuilder get vaccination =>
+      _$this._vaccination ??= new VaccinationBuilder();
+  set vaccination(VaccinationBuilder vaccination) =>
+      _$this._vaccination = vaccination;
+
+  StatsDailyBuilder() {
+    StatsDaily._initializeBuilder(this);
+  }
 
   StatsDailyBuilder get _$this {
     if (_$v != null) {
@@ -475,6 +559,10 @@ class StatsDailyBuilder implements Builder<StatsDaily, StatsDailyBuilder> {
       _statePerRegion = _$v.statePerRegion?.toBuilder();
       _statePerAgeToDate = _$v.statePerAgeToDate?.toBuilder();
       _deceasedPerAgeToDate = _$v.deceasedPerAgeToDate?.toBuilder();
+      _deceasedPerType = _$v.deceasedPerType?.toBuilder();
+      _deceasedToDate = _$v.deceasedToDate;
+      _deceased = _$v.deceased;
+      _vaccination = _$v.vaccination?.toBuilder();
       _$v = null;
     }
     return this;
@@ -515,7 +603,11 @@ class StatsDailyBuilder implements Builder<StatsDaily, StatsDailyBuilder> {
               statePerTreatment: _statePerTreatment?.build(),
               statePerRegion: _statePerRegion?.build(),
               statePerAgeToDate: _statePerAgeToDate?.build(),
-              deceasedPerAgeToDate: _deceasedPerAgeToDate?.build());
+              deceasedPerAgeToDate: _deceasedPerAgeToDate?.build(),
+              deceasedPerType: _deceasedPerType?.build(),
+              deceasedToDate: deceasedToDate,
+              deceased: deceased,
+              vaccination: _vaccination?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -532,6 +624,11 @@ class StatsDailyBuilder implements Builder<StatsDaily, StatsDailyBuilder> {
         _statePerAgeToDate?.build();
         _$failedField = 'deceasedPerAgeToDate';
         _deceasedPerAgeToDate?.build();
+        _$failedField = 'deceasedPerType';
+        _deceasedPerType?.build();
+
+        _$failedField = 'vaccination';
+        _vaccination?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'StatsDaily', _$failedField, e.toString());

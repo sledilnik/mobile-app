@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -37,13 +44,11 @@ abstract class PerTreatment
   @BuiltValueField(wireName: r'outOfHospital')
   int get outOfHospital;
 
-  @nullable
-  @BuiltValueField(wireName: r'recoveredToDate')
-  int get recoveredToDate;
-
   // Boilerplate code needed to wire-up generated code
   PerTreatment._();
 
-  factory PerTreatment([updates(PerTreatmentBuilder b)]) = _$PerTreatment;
+  static void _initializeBuilder(PerTreatmentBuilder b) => b;
+
+  factory PerTreatment([void updates(PerTreatmentBuilder b)]) = _$PerTreatment;
   static Serializer<PerTreatment> get serializer => _$perTreatmentSerializer;
 }

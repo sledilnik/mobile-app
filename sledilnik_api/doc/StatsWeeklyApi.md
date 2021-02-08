@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **statsWeeklyGet**
-> List<StatsWeeklyDay> statsWeeklyGet(from, to)
+> BuiltList<StatsWeeklyDay> statsWeeklyGet(from, to)
 
 
 
@@ -29,7 +29,7 @@ try {
     var result = api_instance.statsWeeklyGet(from, to);
     print(result);
 } catch (e) {
-    print("Exception when calling StatsWeeklyApi->statsWeeklyGet: $e\n");
+    print('Exception when calling StatsWeeklyApi->statsWeeklyGet: $e\n');
 }
 ```
 
@@ -37,12 +37,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **DateTime**|  | [optional] [default to null]
- **to** | **DateTime**|  | [optional] [default to null]
+ **from** | **DateTime**|  | [optional] 
+ **to** | **DateTime**|  | [optional] 
 
 ### Return type
 
-[**List<StatsWeeklyDay>**](StatsWeeklyDay.md)
+[**BuiltList<StatsWeeklyDay>**](StatsWeeklyDay.md)
 
 ### Authorization
 

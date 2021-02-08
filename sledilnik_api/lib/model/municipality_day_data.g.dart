@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'municipality_day_data.dart';
 
@@ -144,7 +145,9 @@ class MunicipalityDayDataBuilder
   set deceasedToDate(int deceasedToDate) =>
       _$this._deceasedToDate = deceasedToDate;
 
-  MunicipalityDayDataBuilder();
+  MunicipalityDayDataBuilder() {
+    MunicipalityDayData._initializeBuilder(this);
+  }
 
   MunicipalityDayDataBuilder get _$this {
     if (_$v != null) {

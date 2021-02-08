@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'health_system_s_cases.dart';
 
@@ -100,7 +101,9 @@ class HealthSystemSCasesBuilder
   set employeeConfirmedToDate(int employeeConfirmedToDate) =>
       _$this._employeeConfirmedToDate = employeeConfirmedToDate;
 
-  HealthSystemSCasesBuilder();
+  HealthSystemSCasesBuilder() {
+    HealthSystemSCases._initializeBuilder(this);
+  }
 
   HealthSystemSCasesBuilder get _$this {
     if (_$v != null) {

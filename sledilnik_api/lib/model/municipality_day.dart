@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:built_collection/built_collection.dart';
 import 'package:sledilnik_api/model/municipality_day_data.dart';
 import 'package:built_value/built_value.dart';
@@ -26,7 +33,9 @@ abstract class MunicipalityDay
   // Boilerplate code needed to wire-up generated code
   MunicipalityDay._();
 
-  factory MunicipalityDay([updates(MunicipalityDayBuilder b)]) =
+  static void _initializeBuilder(MunicipalityDayBuilder b) => b;
+
+  factory MunicipalityDay([void updates(MunicipalityDayBuilder b)]) =
       _$MunicipalityDay;
   static Serializer<MunicipalityDay> get serializer =>
       _$municipalityDaySerializer;

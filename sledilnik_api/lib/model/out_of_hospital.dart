@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -12,6 +19,9 @@ abstract class OutOfHospital
   // Boilerplate code needed to wire-up generated code
   OutOfHospital._();
 
-  factory OutOfHospital([updates(OutOfHospitalBuilder b)]) = _$OutOfHospital;
+  static void _initializeBuilder(OutOfHospitalBuilder b) => b;
+
+  factory OutOfHospital([void updates(OutOfHospitalBuilder b)]) =
+      _$OutOfHospital;
   static Serializer<OutOfHospital> get serializer => _$outOfHospitalSerializer;
 }

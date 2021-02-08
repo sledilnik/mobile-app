@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of serializers;
 
@@ -7,13 +8,24 @@ part of serializers;
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(AgeDailyDeathsSloveniaDay.serializer)
       ..add(BaseUnitOfHospitalDeceased.serializer)
       ..add(BaseUnitOfStateDeceased.serializer)
       ..add(Cases.serializer)
-      ..add(CommonTests.serializer)
+      ..add(CasesActive.serializer)
+      ..add(CasesActiveAllOf.serializer)
+      ..add(CasesActiveSubValues.serializer)
+      ..add(CasesAvg7Days.serializer)
+      ..add(CasesAvg7DaysAllOf.serializer)
+      ..add(CasesToDateSummary.serializer)
+      ..add(CasesToDateSummaryAllOf.serializer)
+      ..add(CasesToDateSummarySubValues.serializer)
+      ..add(DailyDeathsSlovenia.serializer)
       ..add(Date.serializer)
       ..add(Deceased.serializer)
-      ..add(DeceasedPerRegionsDay.serializer)
+      ..add(DeceasedToDate.serializer)
+      ..add(DeceasedToDateAllOf.serializer)
+      ..add(DeceasedToDateSubValues.serializer)
       ..add(GeneralUnit.serializer)
       ..add(GeneralUnitAllOf.serializer)
       ..add(HealthCentersDay.serializer)
@@ -33,7 +45,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(HospitalStats.serializer)
       ..add(HospitalStatsAllOf.serializer)
       ..add(HospitalVentDay.serializer)
+      ..add(HospitalizedCurrent.serializer)
+      ..add(HospitalizedCurrentAllOf.serializer)
+      ..add(HospitalizedCurrentSubValues.serializer)
       ..add(HospitalsDay.serializer)
+      ..add(ICUCurrent.serializer)
+      ..add(ICUCurrentAllOf.serializer)
+      ..add(ICUCurrentSubValues.serializer)
       ..add(LabTestData.serializer)
       ..add(LabTestDay.serializer)
       ..add(MonthlyDeathsSlovenia.serializer)
@@ -44,25 +62,60 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(OwidCountryDay.serializer)
       ..add(PatientsDay.serializer)
       ..add(PerAgeBucket.serializer)
+      ..add(PerPersonType.serializer)
       ..add(PerTreatment.serializer)
-      ..add(RegionsDay.serializer)
+      ..add(RegionCasesDay.serializer)
+      ..add(RegionCasesDayData.serializer)
       ..add(RegularTests.serializer)
       ..add(RetirementHome.serializer)
       ..add(RetirementHomeCases.serializer)
       ..add(RetirementHomeDay.serializer)
       ..add(RetirementHomesDay.serializer)
+      ..add(SchoolAbsenceDay.serializer)
+      ..add(SchoolCasesDay.serializer)
+      ..add(SchoolRegimeDay.serializer)
+      ..add(SchoolStatus.serializer)
+      ..add(SewageDay.serializer)
       ..add(StateDeceased.serializer)
       ..add(StateDeceasedAllOf.serializer)
       ..add(StatsDaily.serializer)
       ..add(StatsWeeklyDay.serializer)
       ..add(StatsWeeklySentTo.serializer)
+      ..add(Summary.serializer)
+      ..add(SummaryBase.serializer)
       ..add(Tests.serializer)
-      ..add(ToDateToday.serializer)
+      ..add(TestsToday.serializer)
+      ..add(TestsTodayHAT.serializer)
+      ..add(TestsTodaySubValues.serializer)
+      ..add(TodayToDate.serializer)
       ..add(UnclassifiedCases.serializer)
       ..add(Unit.serializer)
+      ..add(Vaccination.serializer)
+      ..add(VaccinationData.serializer)
+      ..add(VaccinationDay.serializer)
+      ..add(VaccinationSummary.serializer)
+      ..add(VaccinationSummaryAllOf.serializer)
+      ..add(VaccinationSummarySubValues.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(RetirementHomeDay)]),
           () => new ListBuilder<RetirementHomeDay>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(SchoolAbsenceDay)]),
+          () => new ListBuilder<SchoolAbsenceDay>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(SchoolRegimeDay)]),
+          () => new ListBuilder<SchoolRegimeDay>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType(BuiltMap, const [
+              const FullType(String),
+              const FullType(
+                  BuiltMap, const [const FullType(String), const FullType(int)])
+            ])
+          ]),
+          () =>
+              new MapBuilder<String, BuiltMap<String, BuiltMap<String, int>>>())
       ..addBuilderFactory(
           const FullType(BuiltMap, const [
             const FullType(String),
@@ -85,17 +138,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltMap, const [
             const FullType(String),
-            const FullType(
-                BuiltMap, const [const FullType(String), const FullType(int)])
+            const FullType(BuiltMap,
+                const [const FullType(String), const FullType(double)])
           ]),
-          () => new MapBuilder<String, BuiltMap<String, int>>())
-      ..addBuilderFactory(
-          const FullType(BuiltMap, const [
-            const FullType(String),
-            const FullType(
-                BuiltMap, const [const FullType(String), const FullType(int)])
-          ]),
-          () => new MapBuilder<String, BuiltMap<String, int>>())
+          () => new MapBuilder<String, BuiltMap<String, double>>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType(HospitalDay)]),
@@ -109,9 +155,19 @@ Serializers _$serializers = (new Serializers().toBuilder()
               const [const FullType(String), const FullType(LabTestData)]),
           () => new MapBuilder<String, LabTestData>())
       ..addBuilderFactory(
+          const FullType(BuiltMap, const [
+            const FullType(String),
+            const FullType(RegionCasesDayData)
+          ]),
+          () => new MapBuilder<String, RegionCasesDayData>())
+      ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(Unit)]),
           () => new MapBuilder<String, Unit>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltMap, const [const FullType(String), const FullType(int)]),
+          () => new MapBuilder<String, int>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(int)]),
@@ -122,6 +178,18 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(PerAgeBucket)]),
           () => new ListBuilder<PerAgeBucket>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltMap, const [const FullType(String), const FullType(int)]),
+          () => new MapBuilder<String, int>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltMap, const [const FullType(String), const FullType(int)]),
+          () => new MapBuilder<String, int>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltMap, const [const FullType(String), const FullType(int)]),
+          () => new MapBuilder<String, int>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(int)]),

@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -19,6 +26,8 @@ abstract class Date implements Built<Date, DateBuilder> {
   // Boilerplate code needed to wire-up generated code
   Date._();
 
-  factory Date([updates(DateBuilder b)]) = _$Date;
+  static void _initializeBuilder(DateBuilder b) => b;
+
+  factory Date([void updates(DateBuilder b)]) = _$Date;
   static Serializer<Date> get serializer => _$dateSerializer;
 }

@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'hospital.dart';
 
@@ -128,7 +129,9 @@ class HospitalBuilder implements Builder<Hospital, HospitalBuilder> {
   String get uri => _$this._uri;
   set uri(String uri) => _$this._uri = uri;
 
-  HospitalBuilder();
+  HospitalBuilder() {
+    Hospital._initializeBuilder(this);
+  }
 
   HospitalBuilder get _$this {
     if (_$v != null) {

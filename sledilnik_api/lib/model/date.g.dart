@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'date.dart';
 
@@ -128,7 +129,9 @@ class DateBuilder implements Builder<Date, DateBuilder> {
   int get day => _$this._day;
   set day(int day) => _$this._day = day;
 
-  DateBuilder();
+  DateBuilder() {
+    Date._initializeBuilder(this);
+  }
 
   DateBuilder get _$this {
     if (_$v != null) {

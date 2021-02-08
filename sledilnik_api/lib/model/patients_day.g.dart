@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'patients_day.dart';
 
@@ -200,7 +201,9 @@ class PatientsDayBuilder implements Builder<PatientsDay, PatientsDayBuilder> {
   set facilities(MapBuilder<String, Unit> facilities) =>
       _$this._facilities = facilities;
 
-  PatientsDayBuilder();
+  PatientsDayBuilder() {
+    PatientsDay._initializeBuilder(this);
+  }
 
   PatientsDayBuilder get _$this {
     if (_$v != null) {

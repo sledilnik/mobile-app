@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'hospital_movement.dart';
 
@@ -155,7 +156,9 @@ class HospitalMovementBuilder
   int get toDate => _$this._toDate;
   set toDate(int toDate) => _$this._toDate = toDate;
 
-  HospitalMovementBuilder();
+  HospitalMovementBuilder() {
+    HospitalMovement._initializeBuilder(this);
+  }
 
   HospitalMovementBuilder get _$this {
     if (_$v != null) {

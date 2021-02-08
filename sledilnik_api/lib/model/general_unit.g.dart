@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'general_unit.dart';
 
@@ -30,6 +31,12 @@ class _$GeneralUnitSerializer implements StructuredSerializer<GeneralUnit> {
         ..add(serializers.serialize(object.icu,
             specifiedType: const FullType(HospitalMovement)));
     }
+    if (object.niv != null) {
+      result
+        ..add('niv')
+        ..add(serializers.serialize(object.niv,
+            specifiedType: const FullType(HospitalMovement)));
+    }
     if (object.critical != null) {
       result
         ..add('critical')
@@ -52,7 +59,7 @@ class _$GeneralUnitSerializer implements StructuredSerializer<GeneralUnit> {
       result
         ..add('deceasedCare')
         ..add(serializers.serialize(object.deceasedCare,
-            specifiedType: const FullType(ToDateToday)));
+            specifiedType: const FullType(TodayToDate)));
     }
     if (object.outOfHospital != null) {
       result
@@ -84,6 +91,11 @@ class _$GeneralUnitSerializer implements StructuredSerializer<GeneralUnit> {
                   specifiedType: const FullType(HospitalMovement))
               as HospitalMovement);
           break;
+        case 'niv':
+          result.niv.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(HospitalMovement))
+              as HospitalMovement);
+          break;
         case 'critical':
           result.critical.replace(serializers.deserialize(value,
                   specifiedType: const FullType(HospitalMovement))
@@ -100,7 +112,7 @@ class _$GeneralUnitSerializer implements StructuredSerializer<GeneralUnit> {
           break;
         case 'deceasedCare':
           result.deceasedCare.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ToDateToday)) as ToDateToday);
+              specifiedType: const FullType(TodayToDate)) as TodayToDate);
           break;
         case 'outOfHospital':
           result.outOfHospital.replace(serializers.deserialize(value,
@@ -119,13 +131,15 @@ class _$GeneralUnit extends GeneralUnit {
   @override
   final HospitalMovement icu;
   @override
+  final HospitalMovement niv;
+  @override
   final HospitalMovement critical;
   @override
   final StateDeceased deceased;
   @override
   final HospitalMovement care;
   @override
-  final ToDateToday deceasedCare;
+  final TodayToDate deceasedCare;
   @override
   final OutOfHospital outOfHospital;
 
@@ -135,6 +149,7 @@ class _$GeneralUnit extends GeneralUnit {
   _$GeneralUnit._(
       {this.inHospital,
       this.icu,
+      this.niv,
       this.critical,
       this.deceased,
       this.care,
@@ -155,6 +170,7 @@ class _$GeneralUnit extends GeneralUnit {
     return other is GeneralUnit &&
         inHospital == other.inHospital &&
         icu == other.icu &&
+        niv == other.niv &&
         critical == other.critical &&
         deceased == other.deceased &&
         care == other.care &&
@@ -168,7 +184,9 @@ class _$GeneralUnit extends GeneralUnit {
         $jc(
             $jc(
                 $jc(
-                    $jc($jc($jc(0, inHospital.hashCode), icu.hashCode),
+                    $jc(
+                        $jc($jc($jc(0, inHospital.hashCode), icu.hashCode),
+                            niv.hashCode),
                         critical.hashCode),
                     deceased.hashCode),
                 care.hashCode),
@@ -181,6 +199,7 @@ class _$GeneralUnit extends GeneralUnit {
     return (newBuiltValueToStringHelper('GeneralUnit')
           ..add('inHospital', inHospital)
           ..add('icu', icu)
+          ..add('niv', niv)
           ..add('critical', critical)
           ..add('deceased', deceased)
           ..add('care', care)
@@ -204,6 +223,11 @@ class GeneralUnitBuilder implements Builder<GeneralUnit, GeneralUnitBuilder> {
       _$this._icu ??= new HospitalMovementBuilder();
   set icu(HospitalMovementBuilder icu) => _$this._icu = icu;
 
+  HospitalMovementBuilder _niv;
+  HospitalMovementBuilder get niv =>
+      _$this._niv ??= new HospitalMovementBuilder();
+  set niv(HospitalMovementBuilder niv) => _$this._niv = niv;
+
   HospitalMovementBuilder _critical;
   HospitalMovementBuilder get critical =>
       _$this._critical ??= new HospitalMovementBuilder();
@@ -219,10 +243,10 @@ class GeneralUnitBuilder implements Builder<GeneralUnit, GeneralUnitBuilder> {
       _$this._care ??= new HospitalMovementBuilder();
   set care(HospitalMovementBuilder care) => _$this._care = care;
 
-  ToDateTodayBuilder _deceasedCare;
-  ToDateTodayBuilder get deceasedCare =>
-      _$this._deceasedCare ??= new ToDateTodayBuilder();
-  set deceasedCare(ToDateTodayBuilder deceasedCare) =>
+  TodayToDateBuilder _deceasedCare;
+  TodayToDateBuilder get deceasedCare =>
+      _$this._deceasedCare ??= new TodayToDateBuilder();
+  set deceasedCare(TodayToDateBuilder deceasedCare) =>
       _$this._deceasedCare = deceasedCare;
 
   OutOfHospitalBuilder _outOfHospital;
@@ -231,12 +255,15 @@ class GeneralUnitBuilder implements Builder<GeneralUnit, GeneralUnitBuilder> {
   set outOfHospital(OutOfHospitalBuilder outOfHospital) =>
       _$this._outOfHospital = outOfHospital;
 
-  GeneralUnitBuilder();
+  GeneralUnitBuilder() {
+    GeneralUnit._initializeBuilder(this);
+  }
 
   GeneralUnitBuilder get _$this {
     if (_$v != null) {
       _inHospital = _$v.inHospital?.toBuilder();
       _icu = _$v.icu?.toBuilder();
+      _niv = _$v.niv?.toBuilder();
       _critical = _$v.critical?.toBuilder();
       _deceased = _$v.deceased?.toBuilder();
       _care = _$v.care?.toBuilder();
@@ -268,6 +295,7 @@ class GeneralUnitBuilder implements Builder<GeneralUnit, GeneralUnitBuilder> {
           new _$GeneralUnit._(
               inHospital: _inHospital?.build(),
               icu: _icu?.build(),
+              niv: _niv?.build(),
               critical: _critical?.build(),
               deceased: _deceased?.build(),
               care: _care?.build(),
@@ -280,6 +308,8 @@ class GeneralUnitBuilder implements Builder<GeneralUnit, GeneralUnitBuilder> {
         _inHospital?.build();
         _$failedField = 'icu';
         _icu?.build();
+        _$failedField = 'niv';
+        _niv?.build();
         _$failedField = 'critical';
         _critical?.build();
         _$failedField = 'deceased';

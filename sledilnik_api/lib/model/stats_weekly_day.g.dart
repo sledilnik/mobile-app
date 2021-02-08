@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'stats_weekly_day.dart';
 
@@ -68,6 +69,24 @@ class _$StatsWeeklyDaySerializer
         ..add(serializers.serialize(object.healthcare,
             specifiedType: const FullType(int)));
     }
+    if (object.healthcareMale != null) {
+      result
+        ..add('healthcareMale')
+        ..add(serializers.serialize(object.healthcareMale,
+            specifiedType: const FullType(int)));
+    }
+    if (object.healthcareFemale != null) {
+      result
+        ..add('healthcareFemale')
+        ..add(serializers.serialize(object.healthcareFemale,
+            specifiedType: const FullType(int)));
+    }
+    if (object.rhOccupant != null) {
+      result
+        ..add('rh-occupant')
+        ..add(serializers.serialize(object.rhOccupant,
+            specifiedType: const FullType(int)));
+    }
     if (object.sentTo != null) {
       result
         ..add('sentTo')
@@ -85,6 +104,13 @@ class _$StatsWeeklyDaySerializer
       result
         ..add('from')
         ..add(serializers.serialize(object.from,
+            specifiedType: const FullType(BuiltMap,
+                const [const FullType(String), const FullType(int)])));
+    }
+    if (object.locations != null) {
+      result
+        ..add('locations')
+        ..add(serializers.serialize(object.locations,
             specifiedType: const FullType(BuiltMap,
                 const [const FullType(String), const FullType(int)])));
     }
@@ -135,6 +161,18 @@ class _$StatsWeeklyDaySerializer
           result.healthcare = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
+        case 'healthcareMale':
+          result.healthcareMale = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'healthcareFemale':
+          result.healthcareFemale = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'rh-occupant':
+          result.rhOccupant = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
         case 'sentTo':
           result.sentTo.replace(serializers.deserialize(value,
                   specifiedType: const FullType(StatsWeeklySentTo))
@@ -147,6 +185,11 @@ class _$StatsWeeklyDaySerializer
           break;
         case 'from':
           result.from.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap,
+                  const [const FullType(String), const FullType(int)])));
+          break;
+        case 'locations':
+          result.locations.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap,
                   const [const FullType(String), const FullType(int)])));
           break;
@@ -175,11 +218,19 @@ class _$StatsWeeklyDay extends StatsWeeklyDay {
   @override
   final int healthcare;
   @override
+  final int healthcareMale;
+  @override
+  final int healthcareFemale;
+  @override
+  final int rhOccupant;
+  @override
   final StatsWeeklySentTo sentTo;
   @override
   final BuiltMap<String, int> source_;
   @override
   final BuiltMap<String, int> from;
+  @override
+  final BuiltMap<String, int> locations;
 
   factory _$StatsWeeklyDay([void Function(StatsWeeklyDayBuilder) updates]) =>
       (new StatsWeeklyDayBuilder()..update(updates)).build();
@@ -193,9 +244,13 @@ class _$StatsWeeklyDay extends StatsWeeklyDay {
       this.confirmed,
       this.investigated,
       this.healthcare,
+      this.healthcareMale,
+      this.healthcareFemale,
+      this.rhOccupant,
       this.sentTo,
       this.source_,
-      this.from})
+      this.from,
+      this.locations})
       : super._();
 
   @override
@@ -218,9 +273,13 @@ class _$StatsWeeklyDay extends StatsWeeklyDay {
         confirmed == other.confirmed &&
         investigated == other.investigated &&
         healthcare == other.healthcare &&
+        healthcareMale == other.healthcareMale &&
+        healthcareFemale == other.healthcareFemale &&
+        rhOccupant == other.rhOccupant &&
         sentTo == other.sentTo &&
         source_ == other.source_ &&
-        from == other.from;
+        from == other.from &&
+        locations == other.locations;
   }
 
   @override
@@ -234,17 +293,27 @@ class _$StatsWeeklyDay extends StatsWeeklyDay {
                             $jc(
                                 $jc(
                                     $jc(
-                                        $jc($jc(0, week.hashCode),
-                                            year.hashCode),
-                                        month.hashCode),
-                                    day.hashCode),
-                                to.hashCode),
-                            confirmed.hashCode),
-                        investigated.hashCode),
-                    healthcare.hashCode),
-                sentTo.hashCode),
-            source_.hashCode),
-        from.hashCode));
+                                        $jc(
+                                            $jc(
+                                                $jc(
+                                                    $jc(
+                                                        $jc(
+                                                            $jc(0,
+                                                                week.hashCode),
+                                                            year.hashCode),
+                                                        month.hashCode),
+                                                    day.hashCode),
+                                                to.hashCode),
+                                            confirmed.hashCode),
+                                        investigated.hashCode),
+                                    healthcare.hashCode),
+                                healthcareMale.hashCode),
+                            healthcareFemale.hashCode),
+                        rhOccupant.hashCode),
+                    sentTo.hashCode),
+                source_.hashCode),
+            from.hashCode),
+        locations.hashCode));
   }
 
   @override
@@ -258,9 +327,13 @@ class _$StatsWeeklyDay extends StatsWeeklyDay {
           ..add('confirmed', confirmed)
           ..add('investigated', investigated)
           ..add('healthcare', healthcare)
+          ..add('healthcareMale', healthcareMale)
+          ..add('healthcareFemale', healthcareFemale)
+          ..add('rhOccupant', rhOccupant)
           ..add('sentTo', sentTo)
           ..add('source_', source_)
-          ..add('from', from))
+          ..add('from', from)
+          ..add('locations', locations))
         .toString();
   }
 }
@@ -301,6 +374,20 @@ class StatsWeeklyDayBuilder
   int get healthcare => _$this._healthcare;
   set healthcare(int healthcare) => _$this._healthcare = healthcare;
 
+  int _healthcareMale;
+  int get healthcareMale => _$this._healthcareMale;
+  set healthcareMale(int healthcareMale) =>
+      _$this._healthcareMale = healthcareMale;
+
+  int _healthcareFemale;
+  int get healthcareFemale => _$this._healthcareFemale;
+  set healthcareFemale(int healthcareFemale) =>
+      _$this._healthcareFemale = healthcareFemale;
+
+  int _rhOccupant;
+  int get rhOccupant => _$this._rhOccupant;
+  set rhOccupant(int rhOccupant) => _$this._rhOccupant = rhOccupant;
+
   StatsWeeklySentToBuilder _sentTo;
   StatsWeeklySentToBuilder get sentTo =>
       _$this._sentTo ??= new StatsWeeklySentToBuilder();
@@ -316,7 +403,15 @@ class StatsWeeklyDayBuilder
       _$this._from ??= new MapBuilder<String, int>();
   set from(MapBuilder<String, int> from) => _$this._from = from;
 
-  StatsWeeklyDayBuilder();
+  MapBuilder<String, int> _locations;
+  MapBuilder<String, int> get locations =>
+      _$this._locations ??= new MapBuilder<String, int>();
+  set locations(MapBuilder<String, int> locations) =>
+      _$this._locations = locations;
+
+  StatsWeeklyDayBuilder() {
+    StatsWeeklyDay._initializeBuilder(this);
+  }
 
   StatsWeeklyDayBuilder get _$this {
     if (_$v != null) {
@@ -328,9 +423,13 @@ class StatsWeeklyDayBuilder
       _confirmed = _$v.confirmed;
       _investigated = _$v.investigated;
       _healthcare = _$v.healthcare;
+      _healthcareMale = _$v.healthcareMale;
+      _healthcareFemale = _$v.healthcareFemale;
+      _rhOccupant = _$v.rhOccupant;
       _sentTo = _$v.sentTo?.toBuilder();
       _source_ = _$v.source_?.toBuilder();
       _from = _$v.from?.toBuilder();
+      _locations = _$v.locations?.toBuilder();
       _$v = null;
     }
     return this;
@@ -363,9 +462,13 @@ class StatsWeeklyDayBuilder
               confirmed: confirmed,
               investigated: investigated,
               healthcare: healthcare,
+              healthcareMale: healthcareMale,
+              healthcareFemale: healthcareFemale,
+              rhOccupant: rhOccupant,
               sentTo: _sentTo?.build(),
               source_: _source_?.build(),
-              from: _from?.build());
+              from: _from?.build(),
+              locations: _locations?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -375,6 +478,8 @@ class StatsWeeklyDayBuilder
         _source_?.build();
         _$failedField = 'from';
         _from?.build();
+        _$failedField = 'locations';
+        _locations?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'StatsWeeklyDay', _$failedField, e.toString());

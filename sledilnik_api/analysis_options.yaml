@@ -1,6 +1,9 @@
 analyzer:
-  errors:
-    unused_import: ignore
-linter:
-  rules:
-    unused_import: false
+  language:
+    strict-inference: true
+    strict-raw-types: true
+  strong-mode:
+    implicit-dynamic: false
+    implicit-casts: false
+  exclude:
+    - test/*.dart

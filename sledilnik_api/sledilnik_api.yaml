@@ -1,4 +1,4 @@
-x-generator: NSwag v13.9.4.0 (NJsonSchema v10.3.1.0 (Newtonsoft.Json v12.0.0.0))
+x-generator: NSwag v13.10.2.0 (NJsonSchema v10.3.4.0 (Newtonsoft.Json v12.0.0.0))
 swagger: '2.0'
 info:
   title: slo-covid-19 data API
@@ -11,20 +11,20 @@ info:
   license:
     name: Use under MIT
     url: 'https://raw.githubusercontent.com/slo-covid-19/data-api/master/LICENSE'
-  version: v20
+  version: v41
 host: 'localhost:5000'
 schemes:
   - http
-produces:
-  - text/plain
-  - application/json
-  - text/json
 paths:
-  /api/deceased-regions:
+  /api/age-daily-deaths-slovenia:
     get:
       tags:
-        - DeceasedPerRegions
-      operationId: DeceasedPerRegions_Get
+        - AgeDailyDeathsSlovenia
+      operationId: AgeDailyDeathsSlovenia_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -43,12 +43,59 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/DeceasedPerRegionsDay'
+              $ref: '#/definitions/AgeDailyDeathsSloveniaDay'
+  /api/daily-deaths-slovenia:
+    get:
+      tags:
+        - DailyDeathsSlovenia
+      operationId: DailyDeathsSlovenia_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/DailyDeathsSlovenia'
+  /diagnostics/readyz:
+    head:
+      tags:
+        - Diagnostics
+      operationId: ReadyHead
+      responses:
+        '200':
+          description: ''
+    get:
+      tags:
+        - Diagnostics
+      operationId: ReadyGet
+      responses:
+        '200':
+          description: ''
   /api/health-centers:
     get:
       tags:
         - HealthCenters
       operationId: HealthCenters_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -73,6 +120,10 @@ paths:
       tags:
         - Hospitals
       operationId: Hospitals_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -97,6 +148,10 @@ paths:
       tags:
         - HospitalsList
       operationId: HospitalsList_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       responses:
         '200':
           x-nullable: true
@@ -110,6 +165,10 @@ paths:
       tags:
         - LabTests
       operationId: LabTests_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -134,6 +193,10 @@ paths:
       tags:
         - MonthlyDeathsSlovenia
       operationId: MonthlyDeathsSlovenia_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -158,6 +221,10 @@ paths:
       tags:
         - Municipalities
       operationId: Municipalities_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -182,6 +249,10 @@ paths:
       tags:
         - MunicipalityList
       operationId: MunicipalityList_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       responses:
         '200':
           x-nullable: true
@@ -232,6 +303,10 @@ paths:
       tags:
         - Patients
       operationId: Patients_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -255,7 +330,11 @@ paths:
     get:
       tags:
         - Regions
-      operationId: Regions_Get
+      operationId: Regions_GetRegionCases
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -274,12 +353,16 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/RegionsDay'
+              $ref: '#/definitions/RegionCasesDay'
   /api/retirement-homes:
     get:
       tags:
         - RetirementHomes
       operationId: RetirementHomes_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -304,6 +387,10 @@ paths:
       tags:
         - RetirementHomesList
       operationId: RetirementHomesList_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       responses:
         '200':
           x-nullable: true
@@ -312,11 +399,107 @@ paths:
             type: array
             items:
               $ref: '#/definitions/RetirementHome'
+  /api/schools:
+    get:
+      tags:
+        - SchoolCases
+      operationId: SchoolCases_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SchoolCasesDay'
+  /api/school-status:
+    get:
+      tags:
+        - SchoolStatus
+      operationId: SchoolStatus_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+        - text/csv
+      parameters:
+        - type: array
+          name: id
+          in: query
+          collectionFormat: multi
+          x-nullable: true
+          items:
+            type: string
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: false
+          description: ''
+          schema:
+            type: object
+            additionalProperties:
+              $ref: '#/definitions/SchoolStatus'
+  /api/Sewage:
+    get:
+      tags:
+        - Sewage
+      operationId: Sewage_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SewageDay'
   /api/Stats:
     get:
       tags:
         - Stats
       operationId: Stats_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -341,6 +524,10 @@ paths:
       tags:
         - StatsWeekly
       operationId: StatsWeekly_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
       parameters:
         - type: string
           name: from
@@ -360,8 +547,57 @@ paths:
             type: array
             items:
               $ref: '#/definitions/StatsWeeklyDay'
+  /api/summary:
+    get:
+      tags:
+        - Summary
+      operationId: Summary_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - type: string
+          name: toDate
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: false
+          description: ''
+          schema:
+            $ref: '#/definitions/Summary'
+  /api/vaccinations:
+    get:
+      tags:
+        - Vaccinations
+      operationId: Vaccinations_Get
+      produces:
+        - text/plain
+        - application/json
+        - text/json
+      parameters:
+        - type: string
+          name: from
+          in: query
+          format: date-time
+          x-nullable: true
+        - type: string
+          name: to
+          in: query
+          format: date-time
+          x-nullable: true
+      responses:
+        '200':
+          x-nullable: true
+          description: ''
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/VaccinationDay'
 definitions:
-  DeceasedPerRegionsDay:
+  AgeDailyDeathsSloveniaDay:
     type: object
     required:
       - year
@@ -377,13 +613,36 @@ definitions:
       day:
         type: integer
         format: int32
-      regions:
+      male:
         type: object
         additionalProperties:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
+          type: integer
+          format: int32
+      female:
+        type: object
+        additionalProperties:
+          type: integer
+          format: int32
+  DailyDeathsSlovenia:
+    type: object
+    required:
+      - year
+      - month
+      - day
+      - deceased
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      deceased:
+        type: integer
+        format: int32
   HealthCentersDay:
     type: object
     required:
@@ -587,10 +846,10 @@ definitions:
     type: object
     properties:
       performed:
-        $ref: '#/definitions/ToDateToday'
+        $ref: '#/definitions/TodayToDate'
       positive:
-        $ref: '#/definitions/ToDateToday'
-  ToDateToday:
+        $ref: '#/definitions/TodayToDate'
+  TodayToDate:
     type: object
     properties:
       today:
@@ -735,6 +994,8 @@ definitions:
         $ref: '#/definitions/HospitalMovement'
       icu:
         $ref: '#/definitions/HospitalMovement'
+      niv:
+        $ref: '#/definitions/HospitalMovement'
       critical:
         $ref: '#/definitions/HospitalMovement'
       deceased:
@@ -742,7 +1003,7 @@ definitions:
       care:
         $ref: '#/definitions/HospitalMovement'
       deceasedCare:
-        $ref: '#/definitions/ToDateToday'
+        $ref: '#/definitions/TodayToDate'
   HospitalMovement:
     type: object
     properties:
@@ -766,16 +1027,16 @@ definitions:
           hospital:
             $ref: '#/definitions/HospitalStats'
           care:
-            $ref: '#/definitions/ToDateToday'
+            $ref: '#/definitions/TodayToDate'
           home:
-            $ref: '#/definitions/ToDateToday'
+            $ref: '#/definitions/TodayToDate'
   HospitalStats:
     allOf:
-      - $ref: '#/definitions/ToDateToday'
+      - $ref: '#/definitions/TodayToDate'
       - type: object
         properties:
           icu:
-            $ref: '#/definitions/ToDateToday'
+            $ref: '#/definitions/TodayToDate'
   Deceased:
     type: object
     properties:
@@ -796,6 +1057,8 @@ definitions:
         $ref: '#/definitions/HospitalMovement'
       icu:
         $ref: '#/definitions/HospitalMovement'
+      niv:
+        $ref: '#/definitions/HospitalMovement'
       critical:
         $ref: '#/definitions/HospitalMovement'
       deceased:
@@ -803,15 +1066,15 @@ definitions:
       care:
         $ref: '#/definitions/HospitalMovement'
       deceasedCare:
-        $ref: '#/definitions/ToDateToday'
+        $ref: '#/definitions/TodayToDate'
   HospitalDeceased:
     allOf:
       - $ref: '#/definitions/Deceased'
       - type: object
         properties:
           icu:
-            $ref: '#/definitions/ToDateToday'
-  RegionsDay:
+            $ref: '#/definitions/TodayToDate'
+  RegionCasesDay:
     type: object
     required:
       - year
@@ -830,10 +1093,19 @@ definitions:
       regions:
         type: object
         additionalProperties:
-          type: object
-          additionalProperties:
-            type: integer
-            format: int32
+          $ref: '#/definitions/RegionCasesDayData'
+  RegionCasesDayData:
+    type: object
+    properties:
+      activeCases:
+        type: integer
+        format: int32
+      confirmedToDate:
+        type: integer
+        format: int32
+      deceasedToDate:
+        type: integer
+        format: int32
   RetirementHomesDay:
     type: object
     required:
@@ -897,6 +1169,147 @@ definitions:
         format: int32
       url:
         type: string
+  SchoolCasesDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      schoolType:
+        type: object
+        additionalProperties:
+          type: object
+          additionalProperties:
+            type: object
+            additionalProperties:
+              type: integer
+              format: int32
+  SchoolStatus:
+    type: object
+    required:
+      - absences
+      - regimes
+    properties:
+      absences:
+        type: array
+        items:
+          $ref: '#/definitions/SchoolAbsenceDay'
+      regimes:
+        type: array
+        items:
+          $ref: '#/definitions/SchoolRegimeDay'
+  SchoolAbsenceDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      absentFrom:
+        $ref: '#/definitions/Date'
+      absentTo:
+        $ref: '#/definitions/Date'
+      schoolType:
+        type: string
+      school:
+        type: string
+      personType:
+        type: string
+      personClass:
+        type: string
+      reason:
+        type: string
+  Date:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+  SchoolRegimeDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      changedFrom:
+        $ref: '#/definitions/Date'
+      changedTo:
+        $ref: '#/definitions/Date'
+      schoolType:
+        type: string
+      school:
+        type: string
+      personClass:
+        type: string
+      attendees:
+        type: integer
+        format: int32
+      regime:
+        type: string
+      reason:
+        type: string
+  SewageDay:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+      plants:
+        type: object
+        additionalProperties:
+          type: object
+          additionalProperties:
+            type: number
+            format: float
   StatsDaily:
     type: object
     required:
@@ -958,33 +1371,34 @@ definitions:
         type: array
         items:
           $ref: '#/definitions/PerAgeBucket'
+      deceasedPerType:
+        $ref: '#/definitions/PerPersonType'
+      deceasedToDate:
+        type: integer
+        format: int32
+      deceased:
+        type: integer
+        format: int32
+      vaccination:
+        $ref: '#/definitions/Vaccination'
   Tests:
     type: object
     properties:
       performed:
-        $ref: '#/definitions/CommonTests'
+        $ref: '#/definitions/TodayToDate'
       positive:
-        $ref: '#/definitions/CommonTests'
+        $ref: '#/definitions/TodayToDate'
       regular:
         $ref: '#/definitions/RegularTests'
       nsApr20:
         $ref: '#/definitions/RegularTests'
-  CommonTests:
-    type: object
-    properties:
-      toDate:
-        type: integer
-        format: int32
-      today:
-        type: integer
-        format: int32
   RegularTests:
     type: object
     properties:
       performed:
-        $ref: '#/definitions/CommonTests'
+        $ref: '#/definitions/TodayToDate'
       positive:
-        $ref: '#/definitions/CommonTests'
+        $ref: '#/definitions/TodayToDate'
   Cases:
     type: object
     properties:
@@ -1014,12 +1428,14 @@ definitions:
         $ref: '#/definitions/UnclassifiedCases'
   HealthSystemSCases:
     type: object
+    description: Health system cases
     properties:
       employeeConfirmedToDate:
         type: integer
         format: int32
   RetirementHomeCases:
     type: object
+    description: Retirement home cases
     properties:
       employeeConfirmedToDate:
         type: integer
@@ -1060,9 +1476,6 @@ definitions:
       outOfHospital:
         type: integer
         format: int32
-      recoveredToDate:
-        type: integer
-        format: int32
   PerAgeBucket:
     type: object
     properties:
@@ -1081,6 +1494,26 @@ definitions:
       maleToDate:
         type: integer
         format: int32
+  PerPersonType:
+    type: object
+    properties:
+      rhOccupant:
+        type: integer
+        format: int32
+      other:
+        type: integer
+        format: int32
+  Vaccination:
+    type: object
+    properties:
+      administered:
+        $ref: '#/definitions/TodayToDate'
+      administered2nd:
+        $ref: '#/definitions/TodayToDate'
+      used:
+        $ref: '#/definitions/TodayToDate'
+      delivered:
+        $ref: '#/definitions/TodayToDate'
   StatsWeeklyDay:
     type: object
     required:
@@ -1110,6 +1543,15 @@ definitions:
       healthcare:
         type: integer
         format: int32
+      healthcareMale:
+        type: integer
+        format: int32
+      healthcareFemale:
+        type: integer
+        format: int32
+      rh-occupant:
+        type: integer
+        format: int32
       sentTo:
         $ref: '#/definitions/StatsWeeklySentTo'
       source:
@@ -1122,7 +1564,236 @@ definitions:
         additionalProperties:
           type: integer
           format: int32
-  Date:
+      locations:
+        type: object
+        additionalProperties:
+          type: integer
+          format: int32
+  StatsWeeklySentTo:
+    type: object
+    properties:
+      quarantine:
+        type: integer
+        format: int32
+  Summary:
+    type: object
+    properties:
+      vaccinationSummary:
+        $ref: '#/definitions/VaccinationSummary'
+      casesToDateSummary:
+        $ref: '#/definitions/CasesToDateSummary'
+      casesActive:
+        $ref: '#/definitions/CasesActive'
+      casesAvg7Days:
+        $ref: '#/definitions/CasesAvg7Days'
+      hospitalizedCurrent:
+        $ref: '#/definitions/HospitalizedCurrent'
+      icuCurrent:
+        $ref: '#/definitions/ICUCurrent'
+      deceasedToDate:
+        $ref: '#/definitions/DeceasedToDate'
+      testsToday:
+        $ref: '#/definitions/TestsToday'
+      testsTodayHAT:
+        $ref: '#/definitions/TestsTodayHAT'
+  VaccinationSummary:
+    allOf:
+      - $ref: '#/definitions/SummaryBase'
+      - type: object
+        properties:
+          value:
+            type: integer
+            format: int32
+          subValues:
+            $ref: '#/definitions/VaccinationSummarySubValues'
+  VaccinationSummarySubValues:
+    type: object
+    properties:
+      in:
+        type: integer
+        format: int32
+      percent:
+        type: number
+        format: float
+  SummaryBase:
+    type: object
+    x-abstract: true
+    required:
+      - year
+      - month
+      - day
+    properties:
+      diffPercentage:
+        type: number
+        format: float
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+  CasesToDateSummary:
+    allOf:
+      - $ref: '#/definitions/SummaryBase'
+      - type: object
+        properties:
+          value:
+            type: integer
+            format: int32
+          subValues:
+            $ref: '#/definitions/CasesToDateSummarySubValues'
+  CasesToDateSummarySubValues:
+    type: object
+    properties:
+      in:
+        type: integer
+        format: int32
+  CasesActive:
+    allOf:
+      - $ref: '#/definitions/SummaryBase'
+      - type: object
+        properties:
+          value:
+            type: integer
+            format: int32
+          subValues:
+            $ref: '#/definitions/CasesActiveSubValues'
+  CasesActiveSubValues:
+    type: object
+    properties:
+      in:
+        type: integer
+        format: int32
+      out:
+        type: integer
+        format: int32
+  CasesAvg7Days:
+    allOf:
+      - $ref: '#/definitions/SummaryBase'
+      - type: object
+        required:
+          - sublabel
+        properties:
+          value:
+            type: number
+            format: float
+          sublabel:
+            type: boolean
+  HospitalizedCurrent:
+    allOf:
+      - $ref: '#/definitions/SummaryBase'
+      - type: object
+        properties:
+          value:
+            type: integer
+            format: int32
+          subValues:
+            $ref: '#/definitions/HospitalizedCurrentSubValues'
+  HospitalizedCurrentSubValues:
+    type: object
+    properties:
+      in:
+        type: integer
+        format: int32
+      out:
+        type: integer
+        format: int32
+      deceased:
+        type: integer
+        format: int32
+  ICUCurrent:
+    allOf:
+      - $ref: '#/definitions/SummaryBase'
+      - type: object
+        properties:
+          value:
+            type: integer
+            format: int32
+          subValues:
+            $ref: '#/definitions/ICUCurrentSubValues'
+  ICUCurrentSubValues:
+    type: object
+    properties:
+      in:
+        type: integer
+        format: int32
+      out:
+        type: integer
+        format: int32
+      deceased:
+        type: integer
+        format: int32
+  DeceasedToDate:
+    allOf:
+      - $ref: '#/definitions/SummaryBase'
+      - type: object
+        properties:
+          value:
+            type: integer
+            format: int32
+          subValues:
+            $ref: '#/definitions/DeceasedToDateSubValues'
+  DeceasedToDateSubValues:
+    type: object
+    properties:
+      deceased:
+        type: integer
+        format: int32
+  TestsToday:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      value:
+        type: integer
+        format: int32
+      subValues:
+        $ref: '#/definitions/TestsTodaySubValues'
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+  TestsTodaySubValues:
+    type: object
+    properties:
+      positive:
+        type: integer
+        format: int32
+      percent:
+        type: number
+        format: float
+  TestsTodayHAT:
+    type: object
+    required:
+      - year
+      - month
+      - day
+    properties:
+      value:
+        type: integer
+        format: int32
+      subValues:
+        $ref: '#/definitions/TestsTodaySubValues'
+      year:
+        type: integer
+        format: int32
+      month:
+        type: integer
+        format: int32
+      day:
+        type: integer
+        format: int32
+  VaccinationDay:
     type: object
     required:
       - year
@@ -1138,9 +1809,27 @@ definitions:
       day:
         type: integer
         format: int32
-  StatsWeeklySentTo:
+      administered:
+        $ref: '#/definitions/VaccinationData'
+      administered2nd:
+        $ref: '#/definitions/VaccinationData'
+      usedToDate:
+        type: integer
+        format: int32
+      deliveredToDate:
+        type: integer
+        format: int32
+      deliveredByManufacturer:
+        type: object
+        additionalProperties:
+          type: integer
+          format: int32
+  VaccinationData:
     type: object
     properties:
-      quarantine:
+      today:
+        type: integer
+        format: int32
+      toDate:
         type: integer
         format: int32

@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'hospital_bed_day.dart';
 
@@ -174,7 +175,9 @@ class HospitalBedDayBuilder
   int get maxFree => _$this._maxFree;
   set maxFree(int maxFree) => _$this._maxFree = maxFree;
 
-  HospitalBedDayBuilder();
+  HospitalBedDayBuilder() {
+    HospitalBedDay._initializeBuilder(this);
+  }
 
   HospitalBedDayBuilder get _$this {
     if (_$v != null) {

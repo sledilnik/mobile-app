@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **hospitalsGet**
-> List<HospitalsDay> hospitalsGet(from, to)
+> BuiltList<HospitalsDay> hospitalsGet(from, to)
 
 
 
@@ -29,7 +29,7 @@ try {
     var result = api_instance.hospitalsGet(from, to);
     print(result);
 } catch (e) {
-    print("Exception when calling HospitalsApi->hospitalsGet: $e\n");
+    print('Exception when calling HospitalsApi->hospitalsGet: $e\n');
 }
 ```
 
@@ -37,12 +37,12 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **DateTime**|  | [optional] [default to null]
- **to** | **DateTime**|  | [optional] [default to null]
+ **from** | **DateTime**|  | [optional] 
+ **to** | **DateTime**|  | [optional] 
 
 ### Return type
 
-[**List<HospitalsDay>**](HospitalsDay.md)
+[**BuiltList<HospitalsDay>**](HospitalsDay.md)
 
 ### Authorization
 

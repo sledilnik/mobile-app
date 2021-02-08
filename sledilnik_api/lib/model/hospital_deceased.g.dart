@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'hospital_deceased.dart';
 
@@ -36,7 +37,7 @@ class _$HospitalDeceasedSerializer
       result
         ..add('icu')
         ..add(serializers.serialize(object.icu,
-            specifiedType: const FullType(ToDateToday)));
+            specifiedType: const FullType(TodayToDate)));
     }
     return result;
   }
@@ -63,7 +64,7 @@ class _$HospitalDeceasedSerializer
           break;
         case 'icu':
           result.icu.replace(serializers.deserialize(value,
-              specifiedType: const FullType(ToDateToday)) as ToDateToday);
+              specifiedType: const FullType(TodayToDate)) as TodayToDate);
           break;
       }
     }
@@ -78,7 +79,7 @@ class _$HospitalDeceased extends HospitalDeceased {
   @override
   final int toDate;
   @override
-  final ToDateToday icu;
+  final TodayToDate icu;
 
   factory _$HospitalDeceased(
           [void Function(HospitalDeceasedBuilder) updates]) =>
@@ -130,11 +131,13 @@ class HospitalDeceasedBuilder
   int get toDate => _$this._toDate;
   set toDate(int toDate) => _$this._toDate = toDate;
 
-  ToDateTodayBuilder _icu;
-  ToDateTodayBuilder get icu => _$this._icu ??= new ToDateTodayBuilder();
-  set icu(ToDateTodayBuilder icu) => _$this._icu = icu;
+  TodayToDateBuilder _icu;
+  TodayToDateBuilder get icu => _$this._icu ??= new TodayToDateBuilder();
+  set icu(TodayToDateBuilder icu) => _$this._icu = icu;
 
-  HospitalDeceasedBuilder();
+  HospitalDeceasedBuilder() {
+    HospitalDeceased._initializeBuilder(this);
+  }
 
   HospitalDeceasedBuilder get _$this {
     if (_$v != null) {

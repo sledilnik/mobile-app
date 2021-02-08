@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **owidGet**
-> List<OwidCountryDay> owidGet(from, to, countries, columns)
+> BuiltList<OwidCountryDay> owidGet(from, to, countries, columns)
 
 
 
@@ -31,7 +31,7 @@ try {
     var result = api_instance.owidGet(from, to, countries, columns);
     print(result);
 } catch (e) {
-    print("Exception when calling OwidApi->owidGet: $e\n");
+    print('Exception when calling OwidApi->owidGet: $e\n');
 }
 ```
 
@@ -39,14 +39,14 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **from** | **DateTime**|  | [optional] [default to null]
- **to** | **DateTime**|  | [optional] [default to null]
- **countries** | **String**|  | [optional] [default to null]
- **columns** | **String**|  | [optional] [default to null]
+ **from** | **DateTime**|  | [optional] 
+ **to** | **DateTime**|  | [optional] 
+ **countries** | **String**|  | [optional] 
+ **columns** | **String**|  | [optional] 
 
 ### Return type
 
-[**List<OwidCountryDay>**](OwidCountryDay.md)
+[**BuiltList<OwidCountryDay>**](OwidCountryDay.md)
 
 ### Authorization
 

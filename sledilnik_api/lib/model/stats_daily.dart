@@ -1,8 +1,17 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:sledilnik_api/model/cases.dart';
 import 'package:sledilnik_api/model/per_age_bucket.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:sledilnik_api/model/per_person_type.dart';
 import 'package:sledilnik_api/model/tests.dart';
 import 'package:sledilnik_api/model/per_treatment.dart';
+import 'package:sledilnik_api/model/vaccination.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -77,9 +86,27 @@ abstract class StatsDaily implements Built<StatsDaily, StatsDailyBuilder> {
   @BuiltValueField(wireName: r'deceasedPerAgeToDate')
   BuiltList<PerAgeBucket> get deceasedPerAgeToDate;
 
+  @nullable
+  @BuiltValueField(wireName: r'deceasedPerType')
+  PerPersonType get deceasedPerType;
+
+  @nullable
+  @BuiltValueField(wireName: r'deceasedToDate')
+  int get deceasedToDate;
+
+  @nullable
+  @BuiltValueField(wireName: r'deceased')
+  int get deceased;
+
+  @nullable
+  @BuiltValueField(wireName: r'vaccination')
+  Vaccination get vaccination;
+
   // Boilerplate code needed to wire-up generated code
   StatsDaily._();
 
-  factory StatsDaily([updates(StatsDailyBuilder b)]) = _$StatsDaily;
+  static void _initializeBuilder(StatsDailyBuilder b) => b;
+
+  factory StatsDaily([void updates(StatsDailyBuilder b)]) = _$StatsDaily;
   static Serializer<StatsDaily> get serializer => _$statsDailySerializer;
 }

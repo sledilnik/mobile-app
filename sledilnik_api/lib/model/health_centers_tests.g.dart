@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'health_centers_tests.dart';
 
@@ -117,7 +118,9 @@ class HealthCentersTestsBuilder
   int get positive => _$this._positive;
   set positive(int positive) => _$this._positive = positive;
 
-  HealthCentersTestsBuilder();
+  HealthCentersTestsBuilder() {
+    HealthCentersTests._initializeBuilder(this);
+  }
 
   HealthCentersTestsBuilder get _$this {
     if (_$v != null) {

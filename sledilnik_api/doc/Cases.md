@@ -8,15 +8,15 @@ import 'package:sledilnik_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**confirmedToday** | **int** |  | [optional] [default to null]
-**confirmedToDate** | **int** |  | [optional] [default to null]
-**recoveredToDate** | **int** |  | [optional] [default to null]
-**closedToDate** | **int** |  | [optional] [default to null]
-**activeToDate** | **int** |  | [optional] [default to null]
-**active** | **int** |  | [optional] [default to null]
-**hs** | [**HealthSystemSCases**](HealthSystemSCases.md) |  | [optional] [default to null]
-**rh** | [**RetirementHomeCases**](RetirementHomeCases.md) |  | [optional] [default to null]
-**unclassified** | [**UnclassifiedCases**](UnclassifiedCases.md) |  | [optional] [default to null]
+**confirmedToday** | **int** |  | [optional] 
+**confirmedToDate** | **int** |  | [optional] 
+**recoveredToDate** | **int** |  | [optional] 
+**closedToDate** | **int** |  | [optional] 
+**activeToDate** | **int** |  | [optional] 
+**active** | **int** |  | [optional] 
+**hs** | [**HealthSystemSCases**](HealthSystemSCases.md) |  | [optional] 
+**rh** | [**RetirementHomeCases**](RetirementHomeCases.md) |  | [optional] 
+**unclassified** | [**UnclassifiedCases**](UnclassifiedCases.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

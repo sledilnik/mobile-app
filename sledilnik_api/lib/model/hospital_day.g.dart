@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'hospital_day.dart';
 
@@ -153,7 +154,9 @@ class HospitalDayBuilder implements Builder<HospitalDay, HospitalDayBuilder> {
       _$this._care ??= new HospitalCareDayBuilder();
   set care(HospitalCareDayBuilder care) => _$this._care = care;
 
-  HospitalDayBuilder();
+  HospitalDayBuilder() {
+    HospitalDay._initializeBuilder(this);
+  }
 
   HospitalDayBuilder get _$this {
     if (_$v != null) {

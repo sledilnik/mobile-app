@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
@@ -16,7 +23,9 @@ abstract class HealthCentersSentTo
   // Boilerplate code needed to wire-up generated code
   HealthCentersSentTo._();
 
-  factory HealthCentersSentTo([updates(HealthCentersSentToBuilder b)]) =
+  static void _initializeBuilder(HealthCentersSentToBuilder b) => b;
+
+  factory HealthCentersSentTo([void updates(HealthCentersSentToBuilder b)]) =
       _$HealthCentersSentTo;
   static Serializer<HealthCentersSentTo> get serializer =>
       _$healthCentersSentToSerializer;

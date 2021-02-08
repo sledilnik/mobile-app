@@ -13,7 +13,7 @@ Method | HTTP request | Description
 
 
 # **municipalityListGet**
-> List<Municipality> municipalityListGet()
+> BuiltList<Municipality> municipalityListGet()
 
 
 
@@ -27,7 +27,7 @@ try {
     var result = api_instance.municipalityListGet();
     print(result);
 } catch (e) {
-    print("Exception when calling MunicipalityListApi->municipalityListGet: $e\n");
+    print('Exception when calling MunicipalityListApi->municipalityListGet: $e\n');
 }
 ```
 
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**List<Municipality>**](Municipality.md)
+[**BuiltList<Municipality>**](Municipality.md)
 
 ### Authorization
 

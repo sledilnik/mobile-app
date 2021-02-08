@@ -1,4 +1,5 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// @dart=2.6
 
 part of 'hospital_care_day.dart';
 
@@ -154,7 +155,9 @@ class HospitalCareDayBuilder
   int get free => _$this._free;
   set free(int free) => _$this._free = free;
 
-  HospitalCareDayBuilder();
+  HospitalCareDayBuilder() {
+    HospitalCareDay._initializeBuilder(this);
+  }
 
   HospitalCareDayBuilder get _$this {
     if (_$v != null) {

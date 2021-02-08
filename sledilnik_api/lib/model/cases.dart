@@ -1,3 +1,10 @@
+//
+// AUTO-GENERATED FILE, DO NOT MODIFY!
+//
+// @dart=2.6
+
+// ignore_for_file: unused_import
+
 import 'package:sledilnik_api/model/health_system_s_cases.dart';
 import 'package:sledilnik_api/model/retirement_home_cases.dart';
 import 'package:sledilnik_api/model/unclassified_cases.dart';
@@ -46,6 +53,8 @@ abstract class Cases implements Built<Cases, CasesBuilder> {
   // Boilerplate code needed to wire-up generated code
   Cases._();
 
-  factory Cases([updates(CasesBuilder b)]) = _$Cases;
+  static void _initializeBuilder(CasesBuilder b) => b;
+
+  factory Cases([void updates(CasesBuilder b)]) = _$Cases;
   static Serializer<Cases> get serializer => _$casesSerializer;
 }
