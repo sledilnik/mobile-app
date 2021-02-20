@@ -15,7 +15,7 @@ class InfoBox extends StatelessWidget {
   final int deltaOut;
   final int death;
   final DateTime date;
-  double get _relativeDelta => (deltaIn ?? 0 - deltaOut ?? 0) / value * 100;
+  double get _relativeDelta => ((deltaIn ?? 0) - (deltaOut ?? 0)) / value * 100;
 
   const InfoBox(this.title, this.value, this.date, {this.deltaIn, this.deltaOut, this.death});
 
