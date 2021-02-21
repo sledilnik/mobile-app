@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dio/dio.dart';
+import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:sledilnik_api/api.dart';
 import 'package:sledilnik_api/model/summary.dart' as summary;
 import 'package:sledilnik_mobile_app/ui/widgets/info_box.dart';
@@ -16,10 +17,13 @@ class HospitalizedWidget extends StatefulWidget {
 }
 
 class _HospitalizedWidgetState extends State<HospitalizedWidget> {
-  var retrieval =
-      new SledilnikApi(basePathOverride: "https://api.sledilnik.org/")
-          .getSummaryApi()
-          .summaryGet();
+  var retrieval = new SledilnikApi(
+      basePathOverride: "https://api.sledilnik.org/",
+      interceptors: <Interceptor>[
+        DioCacheManager(
+          CacheConfig(baseUrl: "https://api.sledilnik.org/"),
+        ).interceptor
+      ]).getSummaryApi().summaryGet(extra: buildCacheOptions(Duration(days: 7)).extra);
 
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context);
