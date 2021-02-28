@@ -17,13 +17,15 @@ class InfoBox extends StatelessWidget {
   final DateTime date;
   double get _relativeDelta => ((deltaIn ?? 0) - (deltaOut ?? 0)) / value * 100;
 
-  const InfoBox(this.title, this.value, this.date, {this.deltaIn, this.deltaOut, this.death});
+  const InfoBox(this.title, this.value, this.date,
+      {this.deltaIn, this.deltaOut, this.death});
 
   @override
   Widget build(BuildContext context) {
     final localeName = AppLocalizations.of(context).localeName;
     final intl.DateFormat dateFormat = intl.DateFormat("E, d.MMM", localeName);
-    final intl.NumberFormat relativeDeltaFormat = intl.NumberFormat("#,##0.0", localeName);
+    final intl.NumberFormat relativeDeltaFormat =
+        intl.NumberFormat("#,##0.0", localeName);
     final intl.NumberFormat intFormat = intl.NumberFormat("#,##0", localeName);
     final colorScheme = Theme.of(context).colorScheme;
 
@@ -35,9 +37,11 @@ class InfoBox extends StatelessWidget {
 
     final trendColor = colorScheme.getTrendColor(trendType);
     return Container(
-        padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-        decoration: BoxDecoration(color: colorScheme.noticeBackgroundColor),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: <Widget>[
+      padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
+      decoration: BoxDecoration(color: colorScheme.noticeBackgroundColor),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
           Text(
             title,
             textDirection: TextDirection.ltr,
@@ -69,6 +73,8 @@ class InfoBox extends StatelessWidget {
             textDirection: TextDirection.ltr,
             style: TextStyle(fontSize: 10),
           ),
-        ]));
+        ],
+      ),
+    );
   }
 }
