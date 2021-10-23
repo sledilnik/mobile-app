@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**owidGet**](OwidApi.md#owidGet) | **get** /api/Owid | 
+[**owidGet**](OwidApi.md#owidget) | **GET** /api/Owid | 
 
 
 # **owidGet**
@@ -17,20 +17,20 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new OwidApi();
-var from = 2013-10-20T19:20:30+01:00; // DateTime | 
-var to = 2013-10-20T19:20:30+01:00; // DateTime | 
-var countries = countries_example; // String | 
-var columns = columns_example; // String | 
+final api = SledilnikApi().getOwidApi();
+final DateTime from = 2013-10-20T19:20:30+01:00; // DateTime | 
+final DateTime to = 2013-10-20T19:20:30+01:00; // DateTime | 
+final String countries = countries_example; // String | 
+final String columns = columns_example; // String | 
 
-try { 
-    var result = api_instance.owidGet(from, to, countries, columns);
-    print(result);
-} catch (e) {
+try {
+    final response = api.owidGet(from, to, countries, columns);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling OwidApi->owidGet: $e\n');
 }
 ```
@@ -46,7 +46,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<OwidCountryDay>**](OwidCountryDay.md)
+[**BuiltList&lt;OwidCountryDay&gt;**](OwidCountryDay.md)
 
 ### Authorization
 

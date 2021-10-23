@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**sewageGet**](SewageApi.md#sewageGet) | **get** /api/Sewage | 
+[**sewageGet**](SewageApi.md#sewageget) | **GET** /api/Sewage | 
 
 
 # **sewageGet**
@@ -17,18 +17,18 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new SewageApi();
-var from = 2013-10-20T19:20:30+01:00; // DateTime | 
-var to = 2013-10-20T19:20:30+01:00; // DateTime | 
+final api = SledilnikApi().getSewageApi();
+final DateTime from = 2013-10-20T19:20:30+01:00; // DateTime | 
+final DateTime to = 2013-10-20T19:20:30+01:00; // DateTime | 
 
-try { 
-    var result = api_instance.sewageGet(from, to);
-    print(result);
-} catch (e) {
+try {
+    final response = api.sewageGet(from, to);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SewageApi->sewageGet: $e\n');
 }
 ```
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<SewageDay>**](SewageDay.md)
+[**BuiltList&lt;SewageDay&gt;**](SewageDay.md)
 
 ### Authorization
 

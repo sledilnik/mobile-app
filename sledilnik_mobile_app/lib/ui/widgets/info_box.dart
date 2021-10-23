@@ -11,9 +11,9 @@ import '../../custom_color_scheme.dart';
 class InfoBox extends StatelessWidget {
   final String title;
   final int value;
-  final int deltaIn;
-  final int deltaOut;
-  final int death;
+  final int? deltaIn;
+  final int? deltaOut;
+  final int? death;
   final DateTime date;
   double get _relativeDelta => ((deltaIn ?? 0) - (deltaOut ?? 0)) / value * 100;
 
@@ -22,7 +22,7 @@ class InfoBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localeName = AppLocalizations.of(context).localeName;
+    final localeName = AppLocalizations.of(context)!.localeName;
     final intl.DateFormat dateFormat = intl.DateFormat("E, d.MMM", localeName);
     final intl.NumberFormat relativeDeltaFormat =
         intl.NumberFormat("#,##0.0", localeName);

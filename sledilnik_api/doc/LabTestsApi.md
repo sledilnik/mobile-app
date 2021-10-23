@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**labTestsGet**](LabTestsApi.md#labTestsGet) | **get** /api/lab-tests | 
+[**labTestsGet**](LabTestsApi.md#labtestsget) | **GET** /api/lab-tests | 
 
 
 # **labTestsGet**
@@ -17,18 +17,18 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new LabTestsApi();
-var from = 2013-10-20T19:20:30+01:00; // DateTime | 
-var to = 2013-10-20T19:20:30+01:00; // DateTime | 
+final api = SledilnikApi().getLabTestsApi();
+final DateTime from = 2013-10-20T19:20:30+01:00; // DateTime | 
+final DateTime to = 2013-10-20T19:20:30+01:00; // DateTime | 
 
-try { 
-    var result = api_instance.labTestsGet(from, to);
-    print(result);
-} catch (e) {
+try {
+    final response = api.labTestsGet(from, to);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling LabTestsApi->labTestsGet: $e\n');
 }
 ```
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<LabTestDay>**](LabTestDay.md)
+[**BuiltList&lt;LabTestDay&gt;**](LabTestDay.md)
 
 ### Authorization
 

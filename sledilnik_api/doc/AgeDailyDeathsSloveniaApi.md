@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ageDailyDeathsSloveniaGet**](AgeDailyDeathsSloveniaApi.md#ageDailyDeathsSloveniaGet) | **get** /api/age-daily-deaths-slovenia | 
+[**ageDailyDeathsSloveniaGet**](AgeDailyDeathsSloveniaApi.md#agedailydeathssloveniaget) | **GET** /api/age-daily-deaths-slovenia | 
 
 
 # **ageDailyDeathsSloveniaGet**
@@ -17,18 +17,18 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new AgeDailyDeathsSloveniaApi();
-var from = 2013-10-20T19:20:30+01:00; // DateTime | 
-var to = 2013-10-20T19:20:30+01:00; // DateTime | 
+final api = SledilnikApi().getAgeDailyDeathsSloveniaApi();
+final DateTime from = 2013-10-20T19:20:30+01:00; // DateTime | 
+final DateTime to = 2013-10-20T19:20:30+01:00; // DateTime | 
 
-try { 
-    var result = api_instance.ageDailyDeathsSloveniaGet(from, to);
-    print(result);
-} catch (e) {
+try {
+    final response = api.ageDailyDeathsSloveniaGet(from, to);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling AgeDailyDeathsSloveniaApi->ageDailyDeathsSloveniaGet: $e\n');
 }
 ```
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<AgeDailyDeathsSloveniaDay>**](AgeDailyDeathsSloveniaDay.md)
+[**BuiltList&lt;AgeDailyDeathsSloveniaDay&gt;**](AgeDailyDeathsSloveniaDay.md)
 
 ### Authorization
 

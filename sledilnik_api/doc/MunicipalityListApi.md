@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**municipalityListGet**](MunicipalityListApi.md#municipalityListGet) | **get** /api/municipalities-list | 
+[**municipalityListGet**](MunicipalityListApi.md#municipalitylistget) | **GET** /api/municipalities-list | 
 
 
 # **municipalityListGet**
@@ -17,16 +17,16 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new MunicipalityListApi();
+final api = SledilnikApi().getMunicipalityListApi();
 
-try { 
-    var result = api_instance.municipalityListGet();
-    print(result);
-} catch (e) {
+try {
+    final response = api.municipalityListGet();
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling MunicipalityListApi->municipalityListGet: $e\n');
 }
 ```
@@ -36,7 +36,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**BuiltList<Municipality>**](Municipality.md)
+[**BuiltList&lt;Municipality&gt;**](Municipality.md)
 
 ### Authorization
 

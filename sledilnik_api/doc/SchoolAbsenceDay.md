@@ -11,8 +11,8 @@ Name | Type | Description | Notes
 **year** | **int** |  | 
 **month** | **int** |  | 
 **day** | **int** |  | 
-**absentFrom** | [**DateTime**](DateTime.md) |  | [optional] 
-**absentTo** | [**DateTime**](DateTime.md) |  | [optional] 
+**absentFrom** | [**Date**](Date.md) |  | [optional] 
+**absentTo** | [**Date**](Date.md) |  | [optional] 
 **schoolType** | **String** |  | [optional] 
 **school** | **String** |  | [optional] 
 **personType** | **String** |  | [optional] 

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **administered2nd** | [**VaccinationData**](VaccinationData.md) |  | [optional] 
 **usedToDate** | **int** |  | [optional] 
 **deliveredToDate** | **int** |  | [optional] 
-**deliveredByManufacturer** | **BuiltMap<String, int>** |  | [optional] 
+**deliveredByManufacturer** | **BuiltMap&lt;String, int&gt;** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

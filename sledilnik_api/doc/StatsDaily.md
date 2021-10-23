@@ -22,9 +22,9 @@ Name | Type | Description | Notes
 **maleToDate** | **int** |  | [optional] 
 **cases** | [**Cases**](Cases.md) |  | [optional] 
 **statePerTreatment** | [**PerTreatment**](PerTreatment.md) |  | [optional] 
-**statePerRegion** | **BuiltMap<String, int>** |  | [optional] 
-**statePerAgeToDate** | [**BuiltList<PerAgeBucket>**](PerAgeBucket.md) |  | 
-**deceasedPerAgeToDate** | [**BuiltList<PerAgeBucket>**](PerAgeBucket.md) |  | 
+**statePerRegion** | **BuiltMap&lt;String, int&gt;** |  | [optional] 
+**statePerAgeToDate** | [**BuiltList&lt;PerAgeBucket&gt;**](PerAgeBucket.md) |  | 
+**deceasedPerAgeToDate** | [**BuiltList&lt;PerAgeBucket&gt;**](PerAgeBucket.md) |  | 
 **deceasedPerType** | [**PerPersonType**](PerPersonType.md) |  | [optional] 
 **deceasedToDate** | **int** |  | [optional] 
 **deceased** | **int** |  | [optional] 

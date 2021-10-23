@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **month** | **int** |  | 
 **day** | **int** |  | 
 **total** | [**LabTestData**](LabTestData.md) |  | [optional] 
-**data** | [**BuiltMap<String, LabTestData>**](LabTestData.md) |  | [optional] 
-**labs** | [**BuiltMap<String, LabTestData>**](LabTestData.md) |  | [optional] 
+**data** | [**BuiltMap&lt;String, LabTestData&gt;**](LabTestData.md) |  | [optional] 
+**labs** | [**BuiltMap&lt;String, LabTestData&gt;**](LabTestData.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

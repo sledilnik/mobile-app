@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**retirementHomesGet**](RetirementHomesApi.md#retirementHomesGet) | **get** /api/retirement-homes | 
+[**retirementHomesGet**](RetirementHomesApi.md#retirementhomesget) | **GET** /api/retirement-homes | 
 
 
 # **retirementHomesGet**
@@ -17,18 +17,18 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new RetirementHomesApi();
-var from = 2013-10-20T19:20:30+01:00; // DateTime | 
-var to = 2013-10-20T19:20:30+01:00; // DateTime | 
+final api = SledilnikApi().getRetirementHomesApi();
+final DateTime from = 2013-10-20T19:20:30+01:00; // DateTime | 
+final DateTime to = 2013-10-20T19:20:30+01:00; // DateTime | 
 
-try { 
-    var result = api_instance.retirementHomesGet(from, to);
-    print(result);
-} catch (e) {
+try {
+    final response = api.retirementHomesGet(from, to);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling RetirementHomesApi->retirementHomesGet: $e\n');
 }
 ```
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<RetirementHomesDay>**](RetirementHomesDay.md)
+[**BuiltList&lt;RetirementHomesDay&gt;**](RetirementHomesDay.md)
 
 ### Authorization
 

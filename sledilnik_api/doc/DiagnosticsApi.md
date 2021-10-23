@@ -9,8 +9,8 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**readyGet**](DiagnosticsApi.md#readyGet) | **get** /diagnostics/readyz | 
-[**readyHead**](DiagnosticsApi.md#readyHead) | **head** /diagnostics/readyz | 
+[**readyGet**](DiagnosticsApi.md#readyget) | **GET** /diagnostics/readyz | 
+[**readyHead**](DiagnosticsApi.md#readyhead) | **HEAD** /diagnostics/readyz | 
 
 
 # **readyGet**
@@ -18,15 +18,15 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new DiagnosticsApi();
+final api = SledilnikApi().getDiagnosticsApi();
 
-try { 
-    api_instance.readyGet();
-} catch (e) {
+try {
+    api.readyGet();
+} catch on DioError (e) {
     print('Exception when calling DiagnosticsApi->readyGet: $e\n');
 }
 ```
@@ -54,15 +54,15 @@ No authorization required
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new DiagnosticsApi();
+final api = SledilnikApi().getDiagnosticsApi();
 
-try { 
-    api_instance.readyHead();
-} catch (e) {
+try {
+    api.readyHead();
+} catch on DioError (e) {
     print('Exception when calling DiagnosticsApi->readyHead: $e\n');
 }
 ```

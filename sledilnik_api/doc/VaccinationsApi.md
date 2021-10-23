@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**vaccinationsGet**](VaccinationsApi.md#vaccinationsGet) | **get** /api/vaccinations | 
+[**vaccinationsGet**](VaccinationsApi.md#vaccinationsget) | **GET** /api/vaccinations | 
 
 
 # **vaccinationsGet**
@@ -17,18 +17,18 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new VaccinationsApi();
-var from = 2013-10-20T19:20:30+01:00; // DateTime | 
-var to = 2013-10-20T19:20:30+01:00; // DateTime | 
+final api = SledilnikApi().getVaccinationsApi();
+final DateTime from = 2013-10-20T19:20:30+01:00; // DateTime | 
+final DateTime to = 2013-10-20T19:20:30+01:00; // DateTime | 
 
-try { 
-    var result = api_instance.vaccinationsGet(from, to);
-    print(result);
-} catch (e) {
+try {
+    final response = api.vaccinationsGet(from, to);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling VaccinationsApi->vaccinationsGet: $e\n');
 }
 ```
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<VaccinationDay>**](VaccinationDay.md)
+[**BuiltList&lt;VaccinationDay&gt;**](VaccinationDay.md)
 
 ### Authorization
 

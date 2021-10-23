@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **year** | **int** |  | 
 **month** | **int** |  | 
 **day** | **int** |  | 
-**regions** | [**BuiltMap<String, RegionCasesDayData>**](RegionCasesDayData.md) |  | [optional] 
+**regions** | [**BuiltMap&lt;String, RegionCasesDayData&gt;**](RegionCasesDayData.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

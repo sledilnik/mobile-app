@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**summaryGet**](SummaryApi.md#summaryGet) | **get** /api/summary | 
+[**summaryGet**](SummaryApi.md#summaryget) | **GET** /api/summary | 
 
 
 # **summaryGet**
@@ -17,17 +17,17 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new SummaryApi();
-var toDate = 2013-10-20T19:20:30+01:00; // DateTime | 
+final api = SledilnikApi().getSummaryApi();
+final DateTime toDate = 2013-10-20T19:20:30+01:00; // DateTime | 
 
-try { 
-    var result = api_instance.summaryGet(toDate);
-    print(result);
-} catch (e) {
+try {
+    final response = api.summaryGet(toDate);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SummaryApi->summaryGet: $e\n');
 }
 ```

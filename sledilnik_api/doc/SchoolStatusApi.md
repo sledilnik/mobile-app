@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**schoolStatusGet**](SchoolStatusApi.md#schoolStatusGet) | **get** /api/school-status | 
+[**schoolStatusGet**](SchoolStatusApi.md#schoolstatusget) | **GET** /api/school-status | 
 
 
 # **schoolStatusGet**
@@ -17,19 +17,19 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new SchoolStatusApi();
-var id = []; // BuiltList<String> | 
-var from = 2013-10-20T19:20:30+01:00; // DateTime | 
-var to = 2013-10-20T19:20:30+01:00; // DateTime | 
+final api = SledilnikApi().getSchoolStatusApi();
+final BuiltList<String> id = ; // BuiltList<String> | 
+final DateTime from = 2013-10-20T19:20:30+01:00; // DateTime | 
+final DateTime to = 2013-10-20T19:20:30+01:00; // DateTime | 
 
-try { 
-    var result = api_instance.schoolStatusGet(id, from, to);
-    print(result);
-} catch (e) {
+try {
+    final response = api.schoolStatusGet(id, from, to);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling SchoolStatusApi->schoolStatusGet: $e\n');
 }
 ```
@@ -38,13 +38,13 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id** | [**BuiltList<String>**](String.md)|  | [optional] 
+ **id** | [**BuiltList&lt;String&gt;**](String.md)|  | [optional] 
  **from** | **DateTime**|  | [optional] 
  **to** | **DateTime**|  | [optional] 
 
 ### Return type
 
-[**BuiltMap<String, SchoolStatus>**](SchoolStatus.md)
+[**BuiltMap&lt;String, SchoolStatus&gt;**](SchoolStatus.md)
 
 ### Authorization
 

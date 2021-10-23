@@ -12,9 +12,9 @@ void main() {
 
 class _LocalizedApp extends InheritedWidget {
   _LocalizedApp({
-    Key key,
-    @required Widget child,
-    @required this.data,
+    Key? key,
+    required Widget child,
+    required this.data,
   }) : super(key: key, child: child);
 
   final LocalizedAppState data;
@@ -28,8 +28,8 @@ class _LocalizedApp extends InheritedWidget {
 // Manages current locale and allows child widgets to change it
 class LocalizedApp extends StatefulWidget {
   LocalizedApp({
-    Key key,
-    @required this.defaultLocaleName,
+    Key? key,
+    required this.defaultLocaleName,
   }) : super(key: key);
 
   final String defaultLocaleName;
@@ -38,13 +38,13 @@ class LocalizedApp extends StatefulWidget {
   LocalizedAppState createState() => new LocalizedAppState();
 
   static LocalizedAppState of(BuildContext context) {
-    return (context.dependOnInheritedWidgetOfExactType<_LocalizedApp>().data);
+    return (context.dependOnInheritedWidgetOfExactType<_LocalizedApp>()!.data);
   }
 }
 
 class LocalizedAppState extends State<LocalizedApp> {
-  Locale _locale;
-  Locale get locale => _locale;
+  Locale? _locale;
+  Locale get locale => _locale!;
 
   @override
   void initState() {

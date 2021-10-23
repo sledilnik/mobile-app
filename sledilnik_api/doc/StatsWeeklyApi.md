@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**statsWeeklyGet**](StatsWeeklyApi.md#statsWeeklyGet) | **get** /api/stats-weekly | 
+[**statsWeeklyGet**](StatsWeeklyApi.md#statsweeklyget) | **GET** /api/stats-weekly | 
 
 
 # **statsWeeklyGet**
@@ -17,18 +17,18 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new StatsWeeklyApi();
-var from = 2013-10-20T19:20:30+01:00; // DateTime | 
-var to = 2013-10-20T19:20:30+01:00; // DateTime | 
+final api = SledilnikApi().getStatsWeeklyApi();
+final DateTime from = 2013-10-20T19:20:30+01:00; // DateTime | 
+final DateTime to = 2013-10-20T19:20:30+01:00; // DateTime | 
 
-try { 
-    var result = api_instance.statsWeeklyGet(from, to);
-    print(result);
-} catch (e) {
+try {
+    final response = api.statsWeeklyGet(from, to);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling StatsWeeklyApi->statsWeeklyGet: $e\n');
 }
 ```
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<StatsWeeklyDay>**](StatsWeeklyDay.md)
+[**BuiltList&lt;StatsWeeklyDay&gt;**](StatsWeeklyDay.md)
 
 ### Authorization
 

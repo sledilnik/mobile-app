@@ -9,7 +9,7 @@ All URIs are relative to *http://localhost:5000*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**hospitalsGet**](HospitalsApi.md#hospitalsGet) | **get** /api/Hospitals | 
+[**hospitalsGet**](HospitalsApi.md#hospitalsget) | **GET** /api/Hospitals | 
 
 
 # **hospitalsGet**
@@ -17,18 +17,18 @@ Method | HTTP request | Description
 
 
 
-### Example 
+### Example
 ```dart
 import 'package:sledilnik_api/api.dart';
 
-var api_instance = new HospitalsApi();
-var from = 2013-10-20T19:20:30+01:00; // DateTime | 
-var to = 2013-10-20T19:20:30+01:00; // DateTime | 
+final api = SledilnikApi().getHospitalsApi();
+final DateTime from = 2013-10-20T19:20:30+01:00; // DateTime | 
+final DateTime to = 2013-10-20T19:20:30+01:00; // DateTime | 
 
-try { 
-    var result = api_instance.hospitalsGet(from, to);
-    print(result);
-} catch (e) {
+try {
+    final response = api.hospitalsGet(from, to);
+    print(response);
+} catch on DioError (e) {
     print('Exception when calling HospitalsApi->hospitalsGet: $e\n');
 }
 ```
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**BuiltList<HospitalsDay>**](HospitalsDay.md)
+[**BuiltList&lt;HospitalsDay&gt;**](HospitalsDay.md)
 
 ### Authorization
 
