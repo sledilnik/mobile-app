@@ -4,7 +4,7 @@ import 'enums.dart';
 
 MaterialColor createMaterialColor(Color color) {
   List strengths = <double>[.05];
-  Map swatch = <int, Color>{};
+  Map<int, Color> swatch = {};
   final int r = color.red, g = color.green, b = color.blue;
 
   for (int i = 1; i < 10; i++) {

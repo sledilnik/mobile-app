@@ -1,0 +1,7 @@
+# Config options for the dart-dio generator
+pubName: sledilnik_api
+pubVersion: 0.0.1
+pubDescription: "Sledilnik API Client"
+typeMappings:
+  Date: dynamic
+modelTests: false

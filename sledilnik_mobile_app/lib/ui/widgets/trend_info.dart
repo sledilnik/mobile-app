@@ -11,7 +11,7 @@ import '../../enums.dart';
 
 class TrendInfo extends StatelessWidget {
   final TrendType _trendType;
-  final int _value;
+  final int? _value;
 
   const TrendInfo(this._trendType, this._value);
 
@@ -19,7 +19,7 @@ class TrendInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final color = colorScheme.getTextColor(_trendType);
-    final intl.NumberFormat intFormat = intl.NumberFormat("#,##0", AppLocalizations.of(context).localeName);
+    final intl.NumberFormat intFormat = intl.NumberFormat("#,##0", AppLocalizations.of(context)!.localeName);
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
       TrendIcon(_trendType),
       SizedBox(width: 2),

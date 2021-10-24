@@ -16,5 +16,9 @@
   "goToGraph": "Go to chart",
   "@goToGraph": {
       "type": "text"
+  },
+  "pcrTestsPerDay": "Tests per day: PCR",
+  "@pcrTestsPerDay": {
+	  "type": "text"
   }
 }
