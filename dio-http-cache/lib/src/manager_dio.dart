@@ -14,8 +14,7 @@ const DIO_CACHE_KEY_SUB_KEY = "dio_cache_sub_key";
 const DIO_CACHE_KEY_FORCE_REFRESH = "dio_cache_force_refresh";
 const DIO_CACHE_HEADER_KEY_DATA_SOURCE = "dio_cache_header_key_data_source";
 
-typedef _ParseHeadCallback = void Function(
-    Duration? _maxAge, Duration? _maxStale);
+typedef _ParseHeadCallback = void Function(Duration? _maxAge, Duration? _maxStale);
 
 class DioCacheManager {
   late CacheManager _manager;
@@ -32,8 +31,7 @@ class DioCacheManager {
   /// interceptor for http cache.
   get interceptor {
     if (null == _interceptor) {
-      _interceptor = InterceptorsWrapper(
-          onRequest: _onRequest, onResponse: _onResponse, onError: _onError);
+      _interceptor = InterceptorsWrapper(onRequest: _onRequest, onResponse: _onResponse, onError: _onError);
     }
     return _interceptor;
   }
@@ -46,33 +44,35 @@ class DioCacheManager {
       return handler.next(options);
     }
     var responseDataFromCache = await _pullFromCacheBeforeMaxAge(options);
-    if (null != responseDataFromCache) {
-      return handler.resolve(
-          _buildResponse(
-              responseDataFromCache, responseDataFromCache.statusCode, options),
-          true);
+    if (null != responseDataFromCache && responseDataFromCache.headers != null) {
+     final headers = jsonDecode(utf8.decode(responseDataFromCache.headers!));
+     options.headers[HttpHeaders.ifNoneMatchHeader] = headers[HttpHeaders.etagHeader]?.join(",");
+     //return handler.resolve(_buildResponse(responseDataFromCache, responseDataFromCache.statusCode, options), true);
     }
     return handler.next(options);
   }
 
   _onResponse(Response response, ResponseInterceptorHandler handler) async {
-    if ((response.requestOptions.extra[DIO_CACHE_KEY_TRY_CACHE] ?? false) ==
-            true &&
-        response.statusCode != null &&
-        response.statusCode! >= 200 &&
-        response.statusCode! < 300) {
-      await _pushToCache(response);
+    if ((response.requestOptions.extra[DIO_CACHE_KEY_TRY_CACHE] ?? false) == true && response.statusCode != null) {
+      if (response.statusCode! >= 200 && response.statusCode! < 300) {
+        if (null != response.headers[HttpHeaders.etagHeader]) {
+          await _pushToCache(response);
+        }
+      } else if (response.statusCode == 304) {
+        var responseDataFromCache = await _pullFromCacheBeforeMaxAge(response.requestOptions);
+        if (responseDataFromCache != null) {
+          response = _buildResponse(responseDataFromCache, response.statusCode, response.requestOptions);
+        }
+      }
     }
     return handler.next(response);
   }
 
   _onError(DioError e, ErrorInterceptorHandler handler) async {
     if ((e.requestOptions.extra[DIO_CACHE_KEY_TRY_CACHE] ?? false) == true) {
-      var responseDataFromCache =
-          await _pullFromCacheBeforeMaxStale(e.requestOptions);
+      var responseDataFromCache = await _pullFromCacheBeforeMaxStale(e.requestOptions);
       if (null != responseDataFromCache) {
-        var response = _buildResponse(responseDataFromCache,
-            responseDataFromCache.statusCode, e.requestOptions);
+        var response = _buildResponse(responseDataFromCache, responseDataFromCache.statusCode, e.requestOptions);
 
         return handler.resolve(response);
       }
@@ -80,13 +80,10 @@ class DioCacheManager {
     return handler.next(e);
   }
 
-  Response _buildResponse(
-      CacheObj obj, int? statusCode, RequestOptions options) {
+  Response _buildResponse(CacheObj obj, int? statusCode, RequestOptions options) {
     Headers? headers;
     if (null != obj.headers) {
-      headers = Headers.fromMap((Map<String, List<dynamic>>.from(
-              jsonDecode(utf8.decode(obj.headers!))))
-          .map((k, v) => MapEntry(k, List<String>.from(v))));
+      headers = Headers.fromMap((Map<String, List<dynamic>>.from(jsonDecode(utf8.decode(obj.headers!)))).map((k, v) => MapEntry(k, List<String>.from(v))));
     }
     if (null == headers) {
       headers = Headers();
@@ -99,23 +96,15 @@ class DioCacheManager {
       data = jsonDecode(utf8.decode(data));
     }
     return Response(
-        data: data,
-        headers: headers,
-        requestOptions: options.copyWith(
-            extra: options.extra..remove(DIO_CACHE_KEY_TRY_CACHE)),
-        statusCode: statusCode ?? 200);
+        data: data, headers: headers, requestOptions: options.copyWith(extra: options.extra..remove(DIO_CACHE_KEY_TRY_CACHE)), statusCode: statusCode ?? 200);
   }
 
   Future<CacheObj?> _pullFromCacheBeforeMaxAge(RequestOptions options) {
-    return _manager.pullFromCacheBeforeMaxAge(
-        _getPrimaryKeyFromOptions(options),
-        subKey: _getSubKeyFromOptions(options));
+    return _manager.pullFromCacheBeforeMaxAge(_getPrimaryKeyFromOptions(options), subKey: _getSubKeyFromOptions(options));
   }
 
   Future<CacheObj?> _pullFromCacheBeforeMaxStale(RequestOptions options) {
-    return _manager.pullFromCacheBeforeMaxStale(
-        _getPrimaryKeyFromOptions(options),
-        subKey: _getSubKeyFromOptions(options));
+    return _manager.pullFromCacheBeforeMaxStale(_getPrimaryKeyFromOptions(options), subKey: _getSubKeyFromOptions(options));
   }
 
   Future<bool> _pushToCache(Response response) {
@@ -144,19 +133,14 @@ class DioCacheManager {
   }
 
   // try to get maxAge and maxStale from http headers
-  void _tryParseHead(
-      Response response, Duration? maxStale, _ParseHeadCallback callback) {
+  void _tryParseHead(Response response, Duration? maxStale, _ParseHeadCallback callback) {
     Duration? _maxAge;
     var cacheControl = response.headers.value(HttpHeaders.cacheControlHeader);
     if (null != cacheControl) {
       // try to get maxAge and maxStale from cacheControl
       Map<String, String?> parameters;
       try {
-        parameters = HeaderValue.parse(
-                "${HttpHeaders.cacheControlHeader}: $cacheControl",
-                parameterSeparator: ",",
-                valueSeparator: "=")
-            .parameters;
+        parameters = HeaderValue.parse("${HttpHeaders.cacheControlHeader}: $cacheControl", parameterSeparator: ",", valueSeparator: "=").parameters;
         _maxAge = _tryGetDurationFromMap(parameters, "s-maxage");
         if (null == _maxAge) {
           _maxAge = _tryGetDurationFromMap(parameters, "max-age");
@@ -186,8 +170,7 @@ class DioCacheManager {
     callback(_maxAge, maxStale);
   }
 
-  Duration? _tryGetDurationFromMap(
-      Map<String, String?> parameters, String key) {
+  Duration? _tryGetDurationFromMap(Map<String, String?> parameters, String key) {
     if (parameters.containsKey(key)) {
       var value = int.tryParse(parameters[key]!);
       if (null != value && value >= 0) {
@@ -198,9 +181,7 @@ class DioCacheManager {
   }
 
   String _getPrimaryKeyFromOptions(RequestOptions options) {
-    var primaryKey = options.extra.containsKey(DIO_CACHE_KEY_PRIMARY_KEY)
-        ? options.extra[DIO_CACHE_KEY_PRIMARY_KEY]
-        : _getPrimaryKeyFromUri(options.uri);
+    var primaryKey = options.extra.containsKey(DIO_CACHE_KEY_PRIMARY_KEY) ? options.extra[DIO_CACHE_KEY_PRIMARY_KEY] : _getPrimaryKeyFromUri(options.uri);
 
     return "${_getRequestMethod(options.method)}-$primaryKey";
   }
@@ -213,48 +194,30 @@ class DioCacheManager {
   }
 
   String? _getSubKeyFromOptions(RequestOptions options) {
-    return options.extra.containsKey(DIO_CACHE_KEY_SUB_KEY)
-        ? options.extra[DIO_CACHE_KEY_SUB_KEY]
-        : _getSubKeyFromUri(options.uri, data: options.data);
+    return options.extra.containsKey(DIO_CACHE_KEY_SUB_KEY) ? options.extra[DIO_CACHE_KEY_SUB_KEY] : _getSubKeyFromUri(options.uri, data: options.data);
   }
 
   String _getPrimaryKeyFromUri(Uri uri) => "${uri.host}${uri.path}";
 
-  String _getSubKeyFromUri(Uri uri, {dynamic data}) =>
-      "${data?.toString()}_${uri.query}";
+  String _getSubKeyFromUri(Uri uri, {dynamic data}) => "${data?.toString()}_${uri.query}";
 
   /// delete local cache by primaryKey and optional subKey
-  Future<bool> delete(String primaryKey,
-          {String? requestMethod, String? subKey}) =>
-      _manager.delete("${_getRequestMethod(requestMethod)}-$primaryKey",
-          subKey: subKey);
+  Future<bool> delete(String primaryKey, {String? requestMethod, String? subKey}) =>
+      _manager.delete("${_getRequestMethod(requestMethod)}-$primaryKey", subKey: subKey);
 
   /// no matter what subKey is, delete local cache if primary matched.
-  Future<bool> deleteByPrimaryKeyWithUri(Uri uri, {String? requestMethod}) =>
-      delete(_getPrimaryKeyFromUri(uri), requestMethod: requestMethod);
+  Future<bool> deleteByPrimaryKeyWithUri(Uri uri, {String? requestMethod}) => delete(_getPrimaryKeyFromUri(uri), requestMethod: requestMethod);
 
   Future<bool> deleteByPrimaryKey(String path, {String? requestMethod}) =>
-      deleteByPrimaryKeyWithUri(_getUriByPath(_baseUrl, path),
-          requestMethod: requestMethod);
+      deleteByPrimaryKeyWithUri(_getUriByPath(_baseUrl, path), requestMethod: requestMethod);
 
   /// delete local cache when both primaryKey and subKey matched.
-  Future<bool> deleteByPrimaryKeyAndSubKeyWithUri(Uri uri,
-          {String? requestMethod, String? subKey, dynamic data}) =>
-      delete(_getPrimaryKeyFromUri(uri),
-          requestMethod: requestMethod,
-          subKey: subKey ?? _getSubKeyFromUri(uri, data: data));
+  Future<bool> deleteByPrimaryKeyAndSubKeyWithUri(Uri uri, {String? requestMethod, String? subKey, dynamic data}) =>
+      delete(_getPrimaryKeyFromUri(uri), requestMethod: requestMethod, subKey: subKey ?? _getSubKeyFromUri(uri, data: data));
 
-  Future<bool> deleteByPrimaryKeyAndSubKey(String path,
-          {String? requestMethod,
-          Map<String, dynamic>? queryParameters,
-          String? subKey,
-          dynamic data}) =>
-      deleteByPrimaryKeyAndSubKeyWithUri(
-          _getUriByPath(_baseUrl, path,
-              data: data, queryParameters: queryParameters),
-          requestMethod: requestMethod,
-          subKey: subKey,
-          data: data);
+  Future<bool> deleteByPrimaryKeyAndSubKey(String path, {String? requestMethod, Map<String, dynamic>? queryParameters, String? subKey, dynamic data}) =>
+      deleteByPrimaryKeyAndSubKeyWithUri(_getUriByPath(_baseUrl, path, data: data, queryParameters: queryParameters),
+          requestMethod: requestMethod, subKey: subKey, data: data);
 
   /// clear all expired cache.
   Future<bool> clearExpired() => _manager.clearExpired();
@@ -262,16 +225,10 @@ class DioCacheManager {
   /// empty local cache.
   Future<bool> clearAll() => _manager.clearAll();
 
-  Uri _getUriByPath(String? baseUrl, String path,
-      {dynamic data, Map<String, dynamic>? queryParameters}) {
+  Uri _getUriByPath(String? baseUrl, String path, {dynamic data, Map<String, dynamic>? queryParameters}) {
     if (!path.startsWith(RegExp(r"https?:"))) {
       assert(baseUrl != null && baseUrl.length > 0);
     }
-    return RequestOptions(
-            baseUrl: baseUrl,
-            path: path,
-            data: data,
-            queryParameters: queryParameters)
-        .uri;
+    return RequestOptions(baseUrl: baseUrl, path: path, data: data, queryParameters: queryParameters).uri;
   }
 }

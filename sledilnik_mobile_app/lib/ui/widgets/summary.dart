@@ -19,8 +19,14 @@ class Summary extends StatefulWidget {
 class SummaryState extends State<Summary> {
   @override
   Widget build(BuildContext context) {
+    final dio = Dio(BaseOptions(
+              baseUrl: "https://api.sledilnik.org/",
+              connectTimeout: 5000,
+              receiveTimeout: 3000,
+              validateStatus: (int? status) => status != null && (status >= 200 && status < 300 || status == 304),
+            ));
     final retrieval = new SledilnikApi(
-      basePathOverride: "https://api.sledilnik.org/",
+      dio: dio,
       interceptors: <Interceptor>[
         DioCacheManager(
           CacheConfig(baseUrl: "https://api.sledilnik.org/"),
@@ -28,7 +34,7 @@ class SummaryState extends State<Summary> {
       ],
     )
         .getSummaryApi()
-        .summaryGet(extra: buildCacheOptions(Duration(days: 7)).extra);
+        .summaryGet(extra: buildCacheOptions(Duration(days: 1)).extra);
     final localization = AppLocalizations.of(context)!;
 
     return FutureBuilder<Response<summary.Summary>>(
