@@ -28,7 +28,6 @@ jobs:
     - name: Build Android APK
       working-directory: sledilnik_mobile_app
       run: |
-        # flutter build apk --split-per-abi
         flutter build apk
         ls -la `find . -type f -name "*.apk"`
 
