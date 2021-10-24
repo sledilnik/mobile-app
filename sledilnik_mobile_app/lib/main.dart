@@ -4,6 +4,7 @@ import 'package:sledilnik_mobile_app/custom_color_scheme.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'package:sledilnik_mobile_app/ui/widgets/communication.dart';
 import "ui/pages/home.dart";
 
 void main() {
@@ -60,18 +61,20 @@ class LocalizedAppState extends State<LocalizedApp> {
 
   @override
   Widget build(BuildContext context) {
-    return new _LocalizedApp(
-      data: this,
-      child: MaterialApp(
-        localizationsDelegates: AppLocalizations.localizationsDelegates,
-        supportedLocales: AppLocalizations.supportedLocales,
-        locale: _locale,
-        title: 'Mobilni sledilnik',
-        theme: ThemeData(
-          primarySwatch: sledilnikPrimarySwatch,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
+    return new CommunicationWidget(
+      child: new _LocalizedApp(
+        data: this,
+        child: MaterialApp(
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          locale: _locale,
+          title: 'Mobilni sledilnik',
+          theme: ThemeData(
+            primarySwatch: sledilnikPrimarySwatch,
+            visualDensity: VisualDensity.adaptivePlatformDensity,
+          ),
+          home: HomePage(),
         ),
-        home: HomePage(),
       ),
     );
   }

@@ -5,6 +5,7 @@ import 'package:dio/dio.dart';
 import 'package:dio_http_cache/dio_http_cache.dart';
 import 'package:sledilnik_api/sledilnik_api.dart';
 import 'package:sledilnik_api/src/model/summary.dart' as summary;
+import 'package:sledilnik_mobile_app/ui/widgets/communication.dart';
 import 'package:sledilnik_mobile_app/ui/widgets/info_box.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -19,26 +20,11 @@ class Summary extends StatefulWidget {
 class SummaryState extends State<Summary> {
   @override
   Widget build(BuildContext context) {
-    final dio = Dio(BaseOptions(
-              baseUrl: "https://api.sledilnik.org/",
-              connectTimeout: 5000,
-              receiveTimeout: 3000,
-              validateStatus: (int? status) => status != null && (status >= 200 && status < 300 || status == 304),
-            ));
-    final retrieval = new SledilnikApi(
-      dio: dio,
-      interceptors: <Interceptor>[
-        DioCacheManager(
-          CacheConfig(baseUrl: "https://api.sledilnik.org/"),
-        ).interceptor
-      ],
-    )
-        .getSummaryApi()
-        .summaryGet(extra: buildCacheOptions(Duration(days: 1)).extra);
+    final communication = CommunicationWidget.of(context);
     final localization = AppLocalizations.of(context)!;
 
     return FutureBuilder<Response<summary.Summary>>(
-        future: retrieval,
+        future: communication.getSummary(),
         builder: (BuildContext context,
             AsyncSnapshot<Response<summary.Summary>> snapshot) {
           if (snapshot.hasData) {
