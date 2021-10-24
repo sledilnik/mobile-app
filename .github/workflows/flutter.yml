@@ -14,6 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: subosito/flutter-action@v1.4.0
+      with:
+        flutter-version: '2.5.3'
 
     - name: Install dependencies
       working-directory: sledilnik_mobile_app
