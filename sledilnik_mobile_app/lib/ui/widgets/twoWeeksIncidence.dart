@@ -7,28 +7,31 @@ import 'package:sledilnik_mobile_app/ui/widgets/trend_info.dart';
 import 'info_box.dart';
 
 
-class PCRTestsToday extends StatelessWidget {
+class TwoWeeksIncidence extends StatelessWidget {
   final data.Summary summary;
 
-  const PCRTestsToday({Key? key, required this.summary}): super(key: key);
+  const TwoWeeksIncidence({Key? key, required this.summary}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
-    final testsToday = summary.testsToday;
+    final group = summary.casesActive100k;
     return InfoBox(
-      localization.pcrTestsPerDay,
-      testsToday?.value ?? -1,
-      testsToday != null
+      localization.fourteenDaysIncidence,
+      group?.value?.toInt() ?? -1,
+      group != null
           ? DateTime(
-              testsToday.year,
-              testsToday.month,
-              testsToday.day,
+              group.year,
+              group.month,
+              group.day,
             )
           : DateTime(1970),
+      percentage: group?.diffPercentage,      
       trends: [
-        new TrendInfo(TrendType.Positive, testsToday?.subValues?.positive),
-        new TrendInfo(TrendType.Percentage, testsToday?.subValues?.positive),
+        Text(
+          localization.per100k_people,
+          style: TextStyle(fontSize: 10),
+        ),
       ],
     );
   }

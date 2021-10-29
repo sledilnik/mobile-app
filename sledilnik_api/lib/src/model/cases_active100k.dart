@@ -7,9 +7,9 @@ import 'package:sledilnik_api/src/model/cases_active100k_all_of.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
-part 'cases_avg7_days.g.dart';
+part 'cases_active100k.g.dart';
 
-/// CasesAvg7Days
+/// CasesActive100k
 ///
 /// Properties:
 /// * [diffPercentage]
@@ -18,8 +18,8 @@ part 'cases_avg7_days.g.dart';
 /// * [day]
 /// * [value]
 /// * [sublabel]
-abstract class CasesAvg7Days
-    implements Built<CasesAvg7Days, CasesAvg7DaysBuilder> {
+abstract class CasesActive100k
+    implements Built<CasesActive100k, CasesActive100kBuilder> {
   @BuiltValueField(wireName: r'diffPercentage')
   double? get diffPercentage;
 
@@ -38,28 +38,29 @@ abstract class CasesAvg7Days
   @BuiltValueField(wireName: r'sublabel')
   bool get sublabel;
 
-  CasesAvg7Days._();
+  CasesActive100k._();
 
   @BuiltValueHook(initializeBuilder: true)
-  static void _defaults(CasesAvg7DaysBuilder b) => b;
+  static void _defaults(CasesActive100kBuilder b) => b;
 
-  factory CasesAvg7Days([void updates(CasesAvg7DaysBuilder b)]) =
-      _$CasesAvg7Days;
+  factory CasesActive100k([void updates(CasesActive100kBuilder b)]) =
+      _$CasesActive100k;
 
   @BuiltValueSerializer(custom: true)
-  static Serializer<CasesAvg7Days> get serializer =>
-      _$CasesAvg7DaysSerializer();
+  static Serializer<CasesActive100k> get serializer =>
+      _$CasesActive100kSerializer();
 }
 
-class _$CasesAvg7DaysSerializer implements StructuredSerializer<CasesAvg7Days> {
+class _$CasesActive100kSerializer
+    implements StructuredSerializer<CasesActive100k> {
   @override
-  final Iterable<Type> types = const [CasesAvg7Days, _$CasesAvg7Days];
+  final Iterable<Type> types = const [CasesActive100k, _$CasesActive100k];
 
   @override
-  final String wireName = r'CasesAvg7Days';
+  final String wireName = r'CasesActive100k';
 
   @override
-  Iterable<Object?> serialize(Serializers serializers, CasesAvg7Days object,
+  Iterable<Object?> serialize(Serializers serializers, CasesActive100k object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     if (object.diffPercentage != null) {
@@ -94,10 +95,10 @@ class _$CasesAvg7DaysSerializer implements StructuredSerializer<CasesAvg7Days> {
   }
 
   @override
-  CasesAvg7Days deserialize(
+  CasesActive100k deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = CasesAvg7DaysBuilder();
+    final result = CasesActive100kBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {

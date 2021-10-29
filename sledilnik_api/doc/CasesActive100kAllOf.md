@@ -1,4 +1,4 @@
-# sledilnik_api.model.MonthlyDeathsSlovenia
+# sledilnik_api.model.CasesActive100kAllOf
 
 ## Load the model package
 ```dart
@@ -8,10 +8,8 @@ import 'package:sledilnik_api/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**year** | **int** |  | 
-**month** | **int** |  | 
-**deceased** | **int** |  | 
-**day** | **int** |  | 
+**value** | **double** |  | [optional] 
+**sublabel** | **bool** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

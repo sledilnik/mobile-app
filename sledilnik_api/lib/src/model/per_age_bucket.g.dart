@@ -17,6 +17,12 @@ class _$PerAgeBucket extends PerAgeBucket {
   final int? femaleToDate;
   @override
   final int? maleToDate;
+  @override
+  final int? administered;
+  @override
+  final int? administered2nd;
+  @override
+  final int? administered3rd;
 
   factory _$PerAgeBucket([void Function(PerAgeBucketBuilder)? updates]) =>
       (new PerAgeBucketBuilder()..update(updates)).build();
@@ -26,7 +32,10 @@ class _$PerAgeBucket extends PerAgeBucket {
       this.ageTo,
       this.allToDate,
       this.femaleToDate,
-      this.maleToDate})
+      this.maleToDate,
+      this.administered,
+      this.administered2nd,
+      this.administered3rd})
       : super._();
 
   @override
@@ -44,17 +53,26 @@ class _$PerAgeBucket extends PerAgeBucket {
         ageTo == other.ageTo &&
         allToDate == other.allToDate &&
         femaleToDate == other.femaleToDate &&
-        maleToDate == other.maleToDate;
+        maleToDate == other.maleToDate &&
+        administered == other.administered &&
+        administered2nd == other.administered2nd &&
+        administered3rd == other.administered3rd;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc(0, ageFrom.hashCode), ageTo.hashCode),
-                allToDate.hashCode),
-            femaleToDate.hashCode),
-        maleToDate.hashCode));
+            $jc(
+                $jc(
+                    $jc(
+                        $jc($jc($jc(0, ageFrom.hashCode), ageTo.hashCode),
+                            allToDate.hashCode),
+                        femaleToDate.hashCode),
+                    maleToDate.hashCode),
+                administered.hashCode),
+            administered2nd.hashCode),
+        administered3rd.hashCode));
   }
 
   @override
@@ -64,7 +82,10 @@ class _$PerAgeBucket extends PerAgeBucket {
           ..add('ageTo', ageTo)
           ..add('allToDate', allToDate)
           ..add('femaleToDate', femaleToDate)
-          ..add('maleToDate', maleToDate))
+          ..add('maleToDate', maleToDate)
+          ..add('administered', administered)
+          ..add('administered2nd', administered2nd)
+          ..add('administered3rd', administered3rd))
         .toString();
   }
 }
@@ -93,6 +114,20 @@ class PerAgeBucketBuilder
   int? get maleToDate => _$this._maleToDate;
   set maleToDate(int? maleToDate) => _$this._maleToDate = maleToDate;
 
+  int? _administered;
+  int? get administered => _$this._administered;
+  set administered(int? administered) => _$this._administered = administered;
+
+  int? _administered2nd;
+  int? get administered2nd => _$this._administered2nd;
+  set administered2nd(int? administered2nd) =>
+      _$this._administered2nd = administered2nd;
+
+  int? _administered3rd;
+  int? get administered3rd => _$this._administered3rd;
+  set administered3rd(int? administered3rd) =>
+      _$this._administered3rd = administered3rd;
+
   PerAgeBucketBuilder() {
     PerAgeBucket._defaults(this);
   }
@@ -105,6 +140,9 @@ class PerAgeBucketBuilder
       _allToDate = $v.allToDate;
       _femaleToDate = $v.femaleToDate;
       _maleToDate = $v.maleToDate;
+      _administered = $v.administered;
+      _administered2nd = $v.administered2nd;
+      _administered3rd = $v.administered3rd;
       _$v = null;
     }
     return this;
@@ -129,7 +167,10 @@ class PerAgeBucketBuilder
             ageTo: ageTo,
             allToDate: allToDate,
             femaleToDate: femaleToDate,
-            maleToDate: maleToDate);
+            maleToDate: maleToDate,
+            administered: administered,
+            administered2nd: administered2nd,
+            administered3rd: administered3rd);
     replace(_$result);
     return _$result;
   }

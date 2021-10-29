@@ -13,6 +13,7 @@ part 'monthly_deaths_slovenia.g.dart';
 /// * [year]
 /// * [month]
 /// * [deceased]
+/// * [day]
 abstract class MonthlyDeathsSlovenia
     implements Built<MonthlyDeathsSlovenia, MonthlyDeathsSloveniaBuilder> {
   @BuiltValueField(wireName: r'year')
@@ -23,6 +24,9 @@ abstract class MonthlyDeathsSlovenia
 
   @BuiltValueField(wireName: r'deceased')
   int get deceased;
+
+  @BuiltValueField(wireName: r'day')
+  int get day;
 
   MonthlyDeathsSlovenia._();
 
@@ -65,6 +69,10 @@ class _$MonthlyDeathsSloveniaSerializer
       ..add(r'deceased')
       ..add(serializers.serialize(object.deceased,
           specifiedType: const FullType(int)));
+    result
+      ..add(r'day')
+      ..add(serializers.serialize(object.day,
+          specifiedType: const FullType(int)));
     return result;
   }
 
@@ -95,6 +103,11 @@ class _$MonthlyDeathsSloveniaSerializer
           final valueDes = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           result.deceased = valueDes;
+          break;
+        case r'day':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.day = valueDes;
           break;
       }
     }

@@ -13,6 +13,9 @@ Name | Type | Description | Notes
 **allToDate** | **int** |  | [optional] 
 **femaleToDate** | **int** |  | [optional] 
 **maleToDate** | **int** |  | [optional] 
+**administered** | **int** |  | [optional] 
+**administered2nd** | **int** |  | [optional] 
+**administered3rd** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

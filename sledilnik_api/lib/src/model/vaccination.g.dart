@@ -12,6 +12,8 @@ class _$Vaccination extends Vaccination {
   @override
   final TodayToDate? administered2nd;
   @override
+  final TodayToDate? administered3rd;
+  @override
   final TodayToDate? used;
   @override
   final TodayToDate? delivered;
@@ -20,7 +22,11 @@ class _$Vaccination extends Vaccination {
       (new VaccinationBuilder()..update(updates)).build();
 
   _$Vaccination._(
-      {this.administered, this.administered2nd, this.used, this.delivered})
+      {this.administered,
+      this.administered2nd,
+      this.administered3rd,
+      this.used,
+      this.delivered})
       : super._();
 
   @override
@@ -36,6 +42,7 @@ class _$Vaccination extends Vaccination {
     return other is Vaccination &&
         administered == other.administered &&
         administered2nd == other.administered2nd &&
+        administered3rd == other.administered3rd &&
         used == other.used &&
         delivered == other.delivered;
   }
@@ -43,7 +50,9 @@ class _$Vaccination extends Vaccination {
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, administered.hashCode), administered2nd.hashCode),
+        $jc(
+            $jc($jc($jc(0, administered.hashCode), administered2nd.hashCode),
+                administered3rd.hashCode),
             used.hashCode),
         delivered.hashCode));
   }
@@ -53,6 +62,7 @@ class _$Vaccination extends Vaccination {
     return (newBuiltValueToStringHelper('Vaccination')
           ..add('administered', administered)
           ..add('administered2nd', administered2nd)
+          ..add('administered3rd', administered3rd)
           ..add('used', used)
           ..add('delivered', delivered))
         .toString();
@@ -74,6 +84,12 @@ class VaccinationBuilder implements Builder<Vaccination, VaccinationBuilder> {
   set administered2nd(TodayToDateBuilder? administered2nd) =>
       _$this._administered2nd = administered2nd;
 
+  TodayToDateBuilder? _administered3rd;
+  TodayToDateBuilder get administered3rd =>
+      _$this._administered3rd ??= new TodayToDateBuilder();
+  set administered3rd(TodayToDateBuilder? administered3rd) =>
+      _$this._administered3rd = administered3rd;
+
   TodayToDateBuilder? _used;
   TodayToDateBuilder get used => _$this._used ??= new TodayToDateBuilder();
   set used(TodayToDateBuilder? used) => _$this._used = used;
@@ -92,6 +108,7 @@ class VaccinationBuilder implements Builder<Vaccination, VaccinationBuilder> {
     if ($v != null) {
       _administered = $v.administered?.toBuilder();
       _administered2nd = $v.administered2nd?.toBuilder();
+      _administered3rd = $v.administered3rd?.toBuilder();
       _used = $v.used?.toBuilder();
       _delivered = $v.delivered?.toBuilder();
       _$v = null;
@@ -118,6 +135,7 @@ class VaccinationBuilder implements Builder<Vaccination, VaccinationBuilder> {
           new _$Vaccination._(
               administered: _administered?.build(),
               administered2nd: _administered2nd?.build(),
+              administered3rd: _administered3rd?.build(),
               used: _used?.build(),
               delivered: _delivered?.build());
     } catch (_) {
@@ -127,6 +145,8 @@ class VaccinationBuilder implements Builder<Vaccination, VaccinationBuilder> {
         _administered?.build();
         _$failedField = 'administered2nd';
         _administered2nd?.build();
+        _$failedField = 'administered3rd';
+        _administered3rd?.build();
         _$failedField = 'used';
         _used?.build();
         _$failedField = 'delivered';

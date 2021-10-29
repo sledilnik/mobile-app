@@ -25,6 +25,8 @@ class _$Cases extends Cases {
   final RetirementHomeCases? rh;
   @override
   final UnclassifiedCases? unclassified;
+  @override
+  final int? vaccinatedConfirmedToDate;
 
   factory _$Cases([void Function(CasesBuilder)? updates]) =>
       (new CasesBuilder()..update(updates)).build();
@@ -38,7 +40,8 @@ class _$Cases extends Cases {
       this.active,
       this.hs,
       this.rh,
-      this.unclassified})
+      this.unclassified,
+      this.vaccinatedConfirmedToDate})
       : super._();
 
   @override
@@ -60,7 +63,8 @@ class _$Cases extends Cases {
         active == other.active &&
         hs == other.hs &&
         rh == other.rh &&
-        unclassified == other.unclassified;
+        unclassified == other.unclassified &&
+        vaccinatedConfirmedToDate == other.vaccinatedConfirmedToDate;
   }
 
   @override
@@ -72,15 +76,17 @@ class _$Cases extends Cases {
                     $jc(
                         $jc(
                             $jc(
-                                $jc($jc(0, confirmedToday.hashCode),
-                                    confirmedToDate.hashCode),
-                                recoveredToDate.hashCode),
-                            closedToDate.hashCode),
-                        activeToDate.hashCode),
-                    active.hashCode),
-                hs.hashCode),
-            rh.hashCode),
-        unclassified.hashCode));
+                                $jc(
+                                    $jc($jc(0, confirmedToday.hashCode),
+                                        confirmedToDate.hashCode),
+                                    recoveredToDate.hashCode),
+                                closedToDate.hashCode),
+                            activeToDate.hashCode),
+                        active.hashCode),
+                    hs.hashCode),
+                rh.hashCode),
+            unclassified.hashCode),
+        vaccinatedConfirmedToDate.hashCode));
   }
 
   @override
@@ -94,7 +100,8 @@ class _$Cases extends Cases {
           ..add('active', active)
           ..add('hs', hs)
           ..add('rh', rh)
-          ..add('unclassified', unclassified))
+          ..add('unclassified', unclassified)
+          ..add('vaccinatedConfirmedToDate', vaccinatedConfirmedToDate))
         .toString();
   }
 }
@@ -145,6 +152,11 @@ class CasesBuilder implements Builder<Cases, CasesBuilder> {
   set unclassified(UnclassifiedCasesBuilder? unclassified) =>
       _$this._unclassified = unclassified;
 
+  int? _vaccinatedConfirmedToDate;
+  int? get vaccinatedConfirmedToDate => _$this._vaccinatedConfirmedToDate;
+  set vaccinatedConfirmedToDate(int? vaccinatedConfirmedToDate) =>
+      _$this._vaccinatedConfirmedToDate = vaccinatedConfirmedToDate;
+
   CasesBuilder() {
     Cases._defaults(this);
   }
@@ -161,6 +173,7 @@ class CasesBuilder implements Builder<Cases, CasesBuilder> {
       _hs = $v.hs?.toBuilder();
       _rh = $v.rh?.toBuilder();
       _unclassified = $v.unclassified?.toBuilder();
+      _vaccinatedConfirmedToDate = $v.vaccinatedConfirmedToDate;
       _$v = null;
     }
     return this;
@@ -191,7 +204,8 @@ class CasesBuilder implements Builder<Cases, CasesBuilder> {
               active: active,
               hs: _hs?.build(),
               rh: _rh?.build(),
-              unclassified: _unclassified?.build());
+              unclassified: _unclassified?.build(),
+              vaccinatedConfirmedToDate: vaccinatedConfirmedToDate);
     } catch (_) {
       late String _$failedField;
       try {

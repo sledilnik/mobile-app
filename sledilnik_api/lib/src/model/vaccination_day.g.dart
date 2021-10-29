@@ -18,11 +18,17 @@ class _$VaccinationDay extends VaccinationDay {
   @override
   final VaccinationData? administered2nd;
   @override
+  final VaccinationData? administered3rd;
+  @override
   final int? usedToDate;
+  @override
+  final BuiltMap<String, int>? usedByManufacturer;
   @override
   final int? deliveredToDate;
   @override
   final BuiltMap<String, int>? deliveredByManufacturer;
+  @override
+  final BuiltList<PerAgeBucket> administeredPerAge;
 
   factory _$VaccinationDay([void Function(VaccinationDayBuilder)? updates]) =>
       (new VaccinationDayBuilder()..update(updates)).build();
@@ -33,13 +39,18 @@ class _$VaccinationDay extends VaccinationDay {
       required this.day,
       this.administered,
       this.administered2nd,
+      this.administered3rd,
       this.usedToDate,
+      this.usedByManufacturer,
       this.deliveredToDate,
-      this.deliveredByManufacturer})
+      this.deliveredByManufacturer,
+      required this.administeredPerAge})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(year, 'VaccinationDay', 'year');
     BuiltValueNullFieldError.checkNotNull(month, 'VaccinationDay', 'month');
     BuiltValueNullFieldError.checkNotNull(day, 'VaccinationDay', 'day');
+    BuiltValueNullFieldError.checkNotNull(
+        administeredPerAge, 'VaccinationDay', 'administeredPerAge');
   }
 
   @override
@@ -59,9 +70,12 @@ class _$VaccinationDay extends VaccinationDay {
         day == other.day &&
         administered == other.administered &&
         administered2nd == other.administered2nd &&
+        administered3rd == other.administered3rd &&
         usedToDate == other.usedToDate &&
+        usedByManufacturer == other.usedByManufacturer &&
         deliveredToDate == other.deliveredToDate &&
-        deliveredByManufacturer == other.deliveredByManufacturer;
+        deliveredByManufacturer == other.deliveredByManufacturer &&
+        administeredPerAge == other.administeredPerAge;
   }
 
   @override
@@ -71,13 +85,21 @@ class _$VaccinationDay extends VaccinationDay {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, year.hashCode), month.hashCode),
-                            day.hashCode),
-                        administered.hashCode),
-                    administered2nd.hashCode),
-                usedToDate.hashCode),
-            deliveredToDate.hashCode),
-        deliveredByManufacturer.hashCode));
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc($jc(0, year.hashCode),
+                                            month.hashCode),
+                                        day.hashCode),
+                                    administered.hashCode),
+                                administered2nd.hashCode),
+                            administered3rd.hashCode),
+                        usedToDate.hashCode),
+                    usedByManufacturer.hashCode),
+                deliveredToDate.hashCode),
+            deliveredByManufacturer.hashCode),
+        administeredPerAge.hashCode));
   }
 
   @override
@@ -88,9 +110,12 @@ class _$VaccinationDay extends VaccinationDay {
           ..add('day', day)
           ..add('administered', administered)
           ..add('administered2nd', administered2nd)
+          ..add('administered3rd', administered3rd)
           ..add('usedToDate', usedToDate)
+          ..add('usedByManufacturer', usedByManufacturer)
           ..add('deliveredToDate', deliveredToDate)
-          ..add('deliveredByManufacturer', deliveredByManufacturer))
+          ..add('deliveredByManufacturer', deliveredByManufacturer)
+          ..add('administeredPerAge', administeredPerAge))
         .toString();
   }
 }
@@ -123,9 +148,21 @@ class VaccinationDayBuilder
   set administered2nd(VaccinationDataBuilder? administered2nd) =>
       _$this._administered2nd = administered2nd;
 
+  VaccinationDataBuilder? _administered3rd;
+  VaccinationDataBuilder get administered3rd =>
+      _$this._administered3rd ??= new VaccinationDataBuilder();
+  set administered3rd(VaccinationDataBuilder? administered3rd) =>
+      _$this._administered3rd = administered3rd;
+
   int? _usedToDate;
   int? get usedToDate => _$this._usedToDate;
   set usedToDate(int? usedToDate) => _$this._usedToDate = usedToDate;
+
+  MapBuilder<String, int>? _usedByManufacturer;
+  MapBuilder<String, int> get usedByManufacturer =>
+      _$this._usedByManufacturer ??= new MapBuilder<String, int>();
+  set usedByManufacturer(MapBuilder<String, int>? usedByManufacturer) =>
+      _$this._usedByManufacturer = usedByManufacturer;
 
   int? _deliveredToDate;
   int? get deliveredToDate => _$this._deliveredToDate;
@@ -139,6 +176,12 @@ class VaccinationDayBuilder
           MapBuilder<String, int>? deliveredByManufacturer) =>
       _$this._deliveredByManufacturer = deliveredByManufacturer;
 
+  ListBuilder<PerAgeBucket>? _administeredPerAge;
+  ListBuilder<PerAgeBucket> get administeredPerAge =>
+      _$this._administeredPerAge ??= new ListBuilder<PerAgeBucket>();
+  set administeredPerAge(ListBuilder<PerAgeBucket>? administeredPerAge) =>
+      _$this._administeredPerAge = administeredPerAge;
+
   VaccinationDayBuilder() {
     VaccinationDay._defaults(this);
   }
@@ -151,9 +194,12 @@ class VaccinationDayBuilder
       _day = $v.day;
       _administered = $v.administered?.toBuilder();
       _administered2nd = $v.administered2nd?.toBuilder();
+      _administered3rd = $v.administered3rd?.toBuilder();
       _usedToDate = $v.usedToDate;
+      _usedByManufacturer = $v.usedByManufacturer?.toBuilder();
       _deliveredToDate = $v.deliveredToDate;
       _deliveredByManufacturer = $v.deliveredByManufacturer?.toBuilder();
+      _administeredPerAge = $v.administeredPerAge.toBuilder();
       _$v = null;
     }
     return this;
@@ -184,9 +230,12 @@ class VaccinationDayBuilder
                   day, 'VaccinationDay', 'day'),
               administered: _administered?.build(),
               administered2nd: _administered2nd?.build(),
+              administered3rd: _administered3rd?.build(),
               usedToDate: usedToDate,
+              usedByManufacturer: _usedByManufacturer?.build(),
               deliveredToDate: deliveredToDate,
-              deliveredByManufacturer: _deliveredByManufacturer?.build());
+              deliveredByManufacturer: _deliveredByManufacturer?.build(),
+              administeredPerAge: administeredPerAge.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -194,9 +243,16 @@ class VaccinationDayBuilder
         _administered?.build();
         _$failedField = 'administered2nd';
         _administered2nd?.build();
+        _$failedField = 'administered3rd';
+        _administered3rd?.build();
+
+        _$failedField = 'usedByManufacturer';
+        _usedByManufacturer?.build();
 
         _$failedField = 'deliveredByManufacturer';
         _deliveredByManufacturer?.build();
+        _$failedField = 'administeredPerAge';
+        administeredPerAge.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'VaccinationDay', _$failedField, e.toString());

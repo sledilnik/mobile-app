@@ -5,7 +5,7 @@
 import 'package:sledilnik_api/api.dart';
 ```
 
-All URIs are relative to *http://localhost:5000*
+All URIs are relative to *https://api.sledilnik.org*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------

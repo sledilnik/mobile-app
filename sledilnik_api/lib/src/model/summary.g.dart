@@ -14,6 +14,8 @@ class _$Summary extends Summary {
   @override
   final CasesActive? casesActive;
   @override
+  final CasesActive100k? casesActive100k;
+  @override
   final CasesAvg7Days? casesAvg7Days;
   @override
   final HospitalizedCurrent? hospitalizedCurrent;
@@ -33,6 +35,7 @@ class _$Summary extends Summary {
       {this.vaccinationSummary,
       this.casesToDateSummary,
       this.casesActive,
+      this.casesActive100k,
       this.casesAvg7Days,
       this.hospitalizedCurrent,
       this.icuCurrent,
@@ -55,6 +58,7 @@ class _$Summary extends Summary {
         vaccinationSummary == other.vaccinationSummary &&
         casesToDateSummary == other.casesToDateSummary &&
         casesActive == other.casesActive &&
+        casesActive100k == other.casesActive100k &&
         casesAvg7Days == other.casesAvg7Days &&
         hospitalizedCurrent == other.hospitalizedCurrent &&
         icuCurrent == other.icuCurrent &&
@@ -72,9 +76,11 @@ class _$Summary extends Summary {
                     $jc(
                         $jc(
                             $jc(
-                                $jc($jc(0, vaccinationSummary.hashCode),
-                                    casesToDateSummary.hashCode),
-                                casesActive.hashCode),
+                                $jc(
+                                    $jc($jc(0, vaccinationSummary.hashCode),
+                                        casesToDateSummary.hashCode),
+                                    casesActive.hashCode),
+                                casesActive100k.hashCode),
                             casesAvg7Days.hashCode),
                         hospitalizedCurrent.hashCode),
                     icuCurrent.hashCode),
@@ -89,6 +95,7 @@ class _$Summary extends Summary {
           ..add('vaccinationSummary', vaccinationSummary)
           ..add('casesToDateSummary', casesToDateSummary)
           ..add('casesActive', casesActive)
+          ..add('casesActive100k', casesActive100k)
           ..add('casesAvg7Days', casesAvg7Days)
           ..add('hospitalizedCurrent', hospitalizedCurrent)
           ..add('icuCurrent', icuCurrent)
@@ -119,6 +126,12 @@ class SummaryBuilder implements Builder<Summary, SummaryBuilder> {
       _$this._casesActive ??= new CasesActiveBuilder();
   set casesActive(CasesActiveBuilder? casesActive) =>
       _$this._casesActive = casesActive;
+
+  CasesActive100kBuilder? _casesActive100k;
+  CasesActive100kBuilder get casesActive100k =>
+      _$this._casesActive100k ??= new CasesActive100kBuilder();
+  set casesActive100k(CasesActive100kBuilder? casesActive100k) =>
+      _$this._casesActive100k = casesActive100k;
 
   CasesAvg7DaysBuilder? _casesAvg7Days;
   CasesAvg7DaysBuilder get casesAvg7Days =>
@@ -166,6 +179,7 @@ class SummaryBuilder implements Builder<Summary, SummaryBuilder> {
       _vaccinationSummary = $v.vaccinationSummary?.toBuilder();
       _casesToDateSummary = $v.casesToDateSummary?.toBuilder();
       _casesActive = $v.casesActive?.toBuilder();
+      _casesActive100k = $v.casesActive100k?.toBuilder();
       _casesAvg7Days = $v.casesAvg7Days?.toBuilder();
       _hospitalizedCurrent = $v.hospitalizedCurrent?.toBuilder();
       _icuCurrent = $v.icuCurrent?.toBuilder();
@@ -197,6 +211,7 @@ class SummaryBuilder implements Builder<Summary, SummaryBuilder> {
               vaccinationSummary: _vaccinationSummary?.build(),
               casesToDateSummary: _casesToDateSummary?.build(),
               casesActive: _casesActive?.build(),
+              casesActive100k: _casesActive100k?.build(),
               casesAvg7Days: _casesAvg7Days?.build(),
               hospitalizedCurrent: _hospitalizedCurrent?.build(),
               icuCurrent: _icuCurrent?.build(),
@@ -212,6 +227,8 @@ class SummaryBuilder implements Builder<Summary, SummaryBuilder> {
         _casesToDateSummary?.build();
         _$failedField = 'casesActive';
         _casesActive?.build();
+        _$failedField = 'casesActive100k';
+        _casesActive100k?.build();
         _$failedField = 'casesAvg7Days';
         _casesAvg7Days?.build();
         _$failedField = 'hospitalizedCurrent';

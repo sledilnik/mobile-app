@@ -18,6 +18,18 @@ class _$StatsWeeklyDay extends StatsWeeklyDay {
   @override
   final Date? to;
   @override
+  final int? hospitalizedVaccinated;
+  @override
+  final int? hospitalizedOther;
+  @override
+  final int? icuVaccinated;
+  @override
+  final int? icuVaccinatedPartially;
+  @override
+  final int? icuRecovered;
+  @override
+  final int? icuOther;
+  @override
   final int? confirmed;
   @override
   final int? investigated;
@@ -47,6 +59,12 @@ class _$StatsWeeklyDay extends StatsWeeklyDay {
       required this.month,
       required this.day,
       this.to,
+      this.hospitalizedVaccinated,
+      this.hospitalizedOther,
+      this.icuVaccinated,
+      this.icuVaccinatedPartially,
+      this.icuRecovered,
+      this.icuOther,
       this.confirmed,
       this.investigated,
       this.healthcare,
@@ -80,6 +98,12 @@ class _$StatsWeeklyDay extends StatsWeeklyDay {
         month == other.month &&
         day == other.day &&
         to == other.to &&
+        hospitalizedVaccinated == other.hospitalizedVaccinated &&
+        hospitalizedOther == other.hospitalizedOther &&
+        icuVaccinated == other.icuVaccinated &&
+        icuVaccinatedPartially == other.icuVaccinatedPartially &&
+        icuRecovered == other.icuRecovered &&
+        icuOther == other.icuOther &&
         confirmed == other.confirmed &&
         investigated == other.investigated &&
         healthcare == other.healthcare &&
@@ -108,12 +132,20 @@ class _$StatsWeeklyDay extends StatsWeeklyDay {
                                                 $jc(
                                                     $jc(
                                                         $jc(
-                                                            $jc(0,
-                                                                week.hashCode),
-                                                            year.hashCode),
-                                                        month.hashCode),
-                                                    day.hashCode),
-                                                to.hashCode),
+                                                            $jc(
+                                                                $jc(
+                                                                    $jc(
+                                                                        $jc(
+                                                                            $jc($jc($jc(0, week.hashCode), year.hashCode),
+                                                                                month.hashCode),
+                                                                            day.hashCode),
+                                                                        to.hashCode),
+                                                                    hospitalizedVaccinated.hashCode),
+                                                                hospitalizedOther.hashCode),
+                                                            icuVaccinated.hashCode),
+                                                        icuVaccinatedPartially.hashCode),
+                                                    icuRecovered.hashCode),
+                                                icuOther.hashCode),
                                             confirmed.hashCode),
                                         investigated.hashCode),
                                     healthcare.hashCode),
@@ -134,6 +166,12 @@ class _$StatsWeeklyDay extends StatsWeeklyDay {
           ..add('month', month)
           ..add('day', day)
           ..add('to', to)
+          ..add('hospitalizedVaccinated', hospitalizedVaccinated)
+          ..add('hospitalizedOther', hospitalizedOther)
+          ..add('icuVaccinated', icuVaccinated)
+          ..add('icuVaccinatedPartially', icuVaccinatedPartially)
+          ..add('icuRecovered', icuRecovered)
+          ..add('icuOther', icuOther)
           ..add('confirmed', confirmed)
           ..add('investigated', investigated)
           ..add('healthcare', healthcare)
@@ -171,6 +209,34 @@ class StatsWeeklyDayBuilder
   Date? _to;
   Date? get to => _$this._to;
   set to(Date? to) => _$this._to = to;
+
+  int? _hospitalizedVaccinated;
+  int? get hospitalizedVaccinated => _$this._hospitalizedVaccinated;
+  set hospitalizedVaccinated(int? hospitalizedVaccinated) =>
+      _$this._hospitalizedVaccinated = hospitalizedVaccinated;
+
+  int? _hospitalizedOther;
+  int? get hospitalizedOther => _$this._hospitalizedOther;
+  set hospitalizedOther(int? hospitalizedOther) =>
+      _$this._hospitalizedOther = hospitalizedOther;
+
+  int? _icuVaccinated;
+  int? get icuVaccinated => _$this._icuVaccinated;
+  set icuVaccinated(int? icuVaccinated) =>
+      _$this._icuVaccinated = icuVaccinated;
+
+  int? _icuVaccinatedPartially;
+  int? get icuVaccinatedPartially => _$this._icuVaccinatedPartially;
+  set icuVaccinatedPartially(int? icuVaccinatedPartially) =>
+      _$this._icuVaccinatedPartially = icuVaccinatedPartially;
+
+  int? _icuRecovered;
+  int? get icuRecovered => _$this._icuRecovered;
+  set icuRecovered(int? icuRecovered) => _$this._icuRecovered = icuRecovered;
+
+  int? _icuOther;
+  int? get icuOther => _$this._icuOther;
+  set icuOther(int? icuOther) => _$this._icuOther = icuOther;
 
   int? _confirmed;
   int? get confirmed => _$this._confirmed;
@@ -231,6 +297,12 @@ class StatsWeeklyDayBuilder
       _month = $v.month;
       _day = $v.day;
       _to = $v.to;
+      _hospitalizedVaccinated = $v.hospitalizedVaccinated;
+      _hospitalizedOther = $v.hospitalizedOther;
+      _icuVaccinated = $v.icuVaccinated;
+      _icuVaccinatedPartially = $v.icuVaccinatedPartially;
+      _icuRecovered = $v.icuRecovered;
+      _icuOther = $v.icuOther;
       _confirmed = $v.confirmed;
       _investigated = $v.investigated;
       _healthcare = $v.healthcare;
@@ -271,6 +343,12 @@ class StatsWeeklyDayBuilder
               day: BuiltValueNullFieldError.checkNotNull(
                   day, 'StatsWeeklyDay', 'day'),
               to: to,
+              hospitalizedVaccinated: hospitalizedVaccinated,
+              hospitalizedOther: hospitalizedOther,
+              icuVaccinated: icuVaccinated,
+              icuVaccinatedPartially: icuVaccinatedPartially,
+              icuRecovered: icuRecovered,
+              icuOther: icuOther,
               confirmed: confirmed,
               investigated: investigated,
               healthcare: healthcare,

@@ -7,7 +7,7 @@ import 'package:built_value/serializer.dart';
 
 part 'summary_base.g.dart';
 
-/// SummaryBase
+/// Base class for summary items
 ///
 /// Properties:
 /// * [diffPercentage]

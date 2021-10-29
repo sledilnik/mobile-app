@@ -21,8 +21,12 @@
   "@pcrTestsPerDay": {
 	  "type": "text"
   },
-  "hatTestsPerDay": "Tests per day: RAT",
-  "@hatTestsPerDay": {
+  "ratTestsPerDay": "Tests per day: RAT",
+  "@ratTestsPerDay": {
 	  "type": "text"
-  }
+  },
+  "newCases": "New Cases",
+  "fourteenDaysIncidence": "14-days incidence",
+  "averageOfLast7Days": "average of last 7 days",
+  "per100k_people": "per 100,000 people"
 }

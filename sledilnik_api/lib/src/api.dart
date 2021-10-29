@@ -33,7 +33,7 @@ import 'package:sledilnik_api/src/api/summary_api.dart';
 import 'package:sledilnik_api/src/api/vaccinations_api.dart';
 
 class SledilnikApi {
-  static const String basePath = r'http://localhost:5000';
+  static const String basePath = r'https://api.sledilnik.org';
 
   final Dio dio;
   final Serializers serializers;

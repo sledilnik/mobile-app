@@ -13,6 +13,7 @@ part 'vaccination.g.dart';
 /// Properties:
 /// * [administered]
 /// * [administered2nd]
+/// * [administered3rd]
 /// * [used]
 /// * [delivered]
 abstract class Vaccination implements Built<Vaccination, VaccinationBuilder> {
@@ -21,6 +22,9 @@ abstract class Vaccination implements Built<Vaccination, VaccinationBuilder> {
 
   @BuiltValueField(wireName: r'administered2nd')
   TodayToDate? get administered2nd;
+
+  @BuiltValueField(wireName: r'administered3rd')
+  TodayToDate? get administered3rd;
 
   @BuiltValueField(wireName: r'used')
   TodayToDate? get used;
@@ -62,6 +66,12 @@ class _$VaccinationSerializer implements StructuredSerializer<Vaccination> {
         ..add(serializers.serialize(object.administered2nd,
             specifiedType: const FullType(TodayToDate)));
     }
+    if (object.administered3rd != null) {
+      result
+        ..add(r'administered3rd')
+        ..add(serializers.serialize(object.administered3rd,
+            specifiedType: const FullType(TodayToDate)));
+    }
     if (object.used != null) {
       result
         ..add(r'used')
@@ -98,6 +108,11 @@ class _$VaccinationSerializer implements StructuredSerializer<Vaccination> {
           final valueDes = serializers.deserialize(value,
               specifiedType: const FullType(TodayToDate)) as TodayToDate;
           result.administered2nd.replace(valueDes);
+          break;
+        case r'administered3rd':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(TodayToDate)) as TodayToDate;
+          result.administered3rd.replace(valueDes);
           break;
         case r'used':
           final valueDes = serializers.deserialize(value,

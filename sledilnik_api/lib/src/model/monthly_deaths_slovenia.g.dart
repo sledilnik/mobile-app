@@ -13,13 +13,18 @@ class _$MonthlyDeathsSlovenia extends MonthlyDeathsSlovenia {
   final int month;
   @override
   final int deceased;
+  @override
+  final int day;
 
   factory _$MonthlyDeathsSlovenia(
           [void Function(MonthlyDeathsSloveniaBuilder)? updates]) =>
       (new MonthlyDeathsSloveniaBuilder()..update(updates)).build();
 
   _$MonthlyDeathsSlovenia._(
-      {required this.year, required this.month, required this.deceased})
+      {required this.year,
+      required this.month,
+      required this.deceased,
+      required this.day})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         year, 'MonthlyDeathsSlovenia', 'year');
@@ -27,6 +32,7 @@ class _$MonthlyDeathsSlovenia extends MonthlyDeathsSlovenia {
         month, 'MonthlyDeathsSlovenia', 'month');
     BuiltValueNullFieldError.checkNotNull(
         deceased, 'MonthlyDeathsSlovenia', 'deceased');
+    BuiltValueNullFieldError.checkNotNull(day, 'MonthlyDeathsSlovenia', 'day');
   }
 
   @override
@@ -44,13 +50,15 @@ class _$MonthlyDeathsSlovenia extends MonthlyDeathsSlovenia {
     return other is MonthlyDeathsSlovenia &&
         year == other.year &&
         month == other.month &&
-        deceased == other.deceased;
+        deceased == other.deceased &&
+        day == other.day;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, year.hashCode), month.hashCode), deceased.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, year.hashCode), month.hashCode), deceased.hashCode),
+        day.hashCode));
   }
 
   @override
@@ -58,7 +66,8 @@ class _$MonthlyDeathsSlovenia extends MonthlyDeathsSlovenia {
     return (newBuiltValueToStringHelper('MonthlyDeathsSlovenia')
           ..add('year', year)
           ..add('month', month)
-          ..add('deceased', deceased))
+          ..add('deceased', deceased)
+          ..add('day', day))
         .toString();
   }
 }
@@ -79,6 +88,10 @@ class MonthlyDeathsSloveniaBuilder
   int? get deceased => _$this._deceased;
   set deceased(int? deceased) => _$this._deceased = deceased;
 
+  int? _day;
+  int? get day => _$this._day;
+  set day(int? day) => _$this._day = day;
+
   MonthlyDeathsSloveniaBuilder() {
     MonthlyDeathsSlovenia._defaults(this);
   }
@@ -89,6 +102,7 @@ class MonthlyDeathsSloveniaBuilder
       _year = $v.year;
       _month = $v.month;
       _deceased = $v.deceased;
+      _day = $v.day;
       _$v = null;
     }
     return this;
@@ -114,7 +128,9 @@ class MonthlyDeathsSloveniaBuilder
             month: BuiltValueNullFieldError.checkNotNull(
                 month, 'MonthlyDeathsSlovenia', 'month'),
             deceased: BuiltValueNullFieldError.checkNotNull(
-                deceased, 'MonthlyDeathsSlovenia', 'deceased'));
+                deceased, 'MonthlyDeathsSlovenia', 'deceased'),
+            day: BuiltValueNullFieldError.checkNotNull(
+                day, 'MonthlyDeathsSlovenia', 'day'));
     replace(_$result);
     return _$result;
   }

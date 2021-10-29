@@ -37,8 +37,8 @@ class _HospitalizedWidgetState extends State<HospitalizedWidget> {
               localization.activeCases,
               casesActive?.value ?? 0,
               casesActive != null ? DateTime(casesActive.year, casesActive.month, casesActive.day): DateTime(1970, 1, 1),
-              deltaIn: casesActive?.subValues?.in_,
-              deltaOut: casesActive?.subValues?.out_,
+              //deltaIn: casesActive?.subValues?.in_,
+              //deltaOut: casesActive?.subValues?.out_,
             );
           } else if (snapshot.hasError) {
             return Text("Error " + snapshot.error.toString());

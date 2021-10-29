@@ -7,10 +7,11 @@ doc/BaseUnitOfHospitalDeceased.md
 doc/BaseUnitOfStateDeceased.md
 doc/Cases.md
 doc/CasesActive.md
+doc/CasesActive100k.md
+doc/CasesActive100kAllOf.md
 doc/CasesActiveAllOf.md
 doc/CasesActiveSubValues.md
 doc/CasesAvg7Days.md
-doc/CasesAvg7DaysAllOf.md
 doc/CasesToDateSummary.md
 doc/CasesToDateSummaryAllOf.md
 doc/CasesToDateSummarySubValues.md
@@ -146,10 +147,11 @@ lib/src/model/base_unit_of_hospital_deceased.dart
 lib/src/model/base_unit_of_state_deceased.dart
 lib/src/model/cases.dart
 lib/src/model/cases_active.dart
+lib/src/model/cases_active100k.dart
+lib/src/model/cases_active100k_all_of.dart
 lib/src/model/cases_active_all_of.dart
 lib/src/model/cases_active_sub_values.dart
 lib/src/model/cases_avg7_days.dart
-lib/src/model/cases_avg7_days_all_of.dart
 lib/src/model/cases_to_date_summary.dart
 lib/src/model/cases_to_date_summary_all_of.dart
 lib/src/model/cases_to_date_summary_sub_values.dart

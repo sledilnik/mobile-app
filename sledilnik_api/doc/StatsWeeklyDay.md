@@ -13,6 +13,12 @@ Name | Type | Description | Notes
 **month** | **int** |  | 
 **day** | **int** |  | 
 **to** | [**Date**](Date.md) |  | [optional] 
+**hospitalizedVaccinated** | **int** |  | [optional] 
+**hospitalizedOther** | **int** |  | [optional] 
+**icuVaccinated** | **int** |  | [optional] 
+**icuVaccinatedPartially** | **int** |  | [optional] 
+**icuRecovered** | **int** |  | [optional] 
+**icuOther** | **int** |  | [optional] 
 **confirmed** | **int** |  | [optional] 
 **investigated** | **int** |  | [optional] 
 **healthcare** | **int** |  | [optional] 

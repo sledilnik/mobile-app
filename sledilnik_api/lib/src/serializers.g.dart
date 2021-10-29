@@ -12,10 +12,11 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(BaseUnitOfStateDeceased.serializer)
       ..add(Cases.serializer)
       ..add(CasesActive.serializer)
+      ..add(CasesActive100k.serializer)
+      ..add(CasesActive100kAllOf.serializer)
       ..add(CasesActiveAllOf.serializer)
       ..add(CasesActiveSubValues.serializer)
       ..add(CasesAvg7Days.serializer)
-      ..add(CasesAvg7DaysAllOf.serializer)
       ..add(CasesToDateSummary.serializer)
       ..add(CasesToDateSummaryAllOf.serializer)
       ..add(CasesToDateSummarySubValues.serializer)
@@ -167,10 +168,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltMap, const [const FullType(String), const FullType(int)]),
           () => new MapBuilder<String, int>())
       ..addBuilderFactory(
-          const FullType(
-              BuiltMap, const [const FullType(String), const FullType(int)]),
-          () => new MapBuilder<String, int>())
-      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(PerAgeBucket)]),
           () => new ListBuilder<PerAgeBucket>())
       ..addBuilderFactory(
@@ -184,6 +181,17 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(int)]),
           () => new MapBuilder<String, int>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltMap, const [const FullType(String), const FullType(int)]),
+          () => new MapBuilder<String, int>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltMap, const [const FullType(String), const FullType(int)]),
+          () => new MapBuilder<String, int>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(PerAgeBucket)]),
+          () => new ListBuilder<PerAgeBucket>())
       ..addBuilderFactory(
           const FullType(
               BuiltMap, const [const FullType(String), const FullType(int)]),

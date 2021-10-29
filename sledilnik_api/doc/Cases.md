@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **hs** | [**HealthSystemSCases**](HealthSystemSCases.md) |  | [optional] 
 **rh** | [**RetirementHomeCases**](RetirementHomeCases.md) |  | [optional] 
 **unclassified** | [**UnclassifiedCases**](UnclassifiedCases.md) |  | [optional] 
+**vaccinatedConfirmedToDate** | **int** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

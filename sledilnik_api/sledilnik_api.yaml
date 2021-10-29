@@ -1,4 +1,4 @@
-x-generator: NSwag v13.10.2.0 (NJsonSchema v10.3.4.0 (Newtonsoft.Json v12.0.0.0))
+x-generator: NSwag v13.11.1.0 (NJsonSchema v10.4.3.0 (Newtonsoft.Json v13.0.0.0))
 swagger: '2.0'
 info:
   title: slo-covid-19 data API
@@ -6,15 +6,15 @@ info:
   termsOfService: None
   contact:
     name: Miha Markič
-    url: 'https://blog.rthand.com/'
+    url: https://blog.rthand.com/
     email: miha@rthand.com
   license:
     name: Use under MIT
-    url: 'https://raw.githubusercontent.com/slo-covid-19/data-api/master/LICENSE'
-  version: v41
-host: 'localhost:5000'
+    url: https://raw.githubusercontent.com/slo-covid-19/data-api/master/LICENSE
+  version: v45
+host: api.sledilnik.org
 schemes:
-  - http
+  - https
 paths:
   /api/age-daily-deaths-slovenia:
     get:
@@ -864,6 +864,7 @@ definitions:
       - year
       - month
       - deceased
+      - day
     properties:
       year:
         type: integer
@@ -872,6 +873,9 @@ definitions:
         type: integer
         format: int32
       deceased:
+        type: integer
+        format: int32
+      day:
         type: integer
         format: int32
   MunicipalityDay:
@@ -1240,6 +1244,7 @@ definitions:
         type: string
   Date:
     type: object
+    description: Represents REST date
     required:
       - year
       - month
@@ -1426,6 +1431,9 @@ definitions:
         $ref: '#/definitions/RetirementHomeCases'
       unclassified:
         $ref: '#/definitions/UnclassifiedCases'
+      vaccinatedConfirmedToDate:
+        type: integer
+        format: int32
   HealthSystemSCases:
     type: object
     description: Health system cases
@@ -1494,6 +1502,15 @@ definitions:
       maleToDate:
         type: integer
         format: int32
+      administered:
+        type: integer
+        format: int32
+      administered2nd:
+        type: integer
+        format: int32
+      administered3rd:
+        type: integer
+        format: int32
   PerPersonType:
     type: object
     properties:
@@ -1509,6 +1526,8 @@ definitions:
       administered:
         $ref: '#/definitions/TodayToDate'
       administered2nd:
+        $ref: '#/definitions/TodayToDate'
+      administered3rd:
         $ref: '#/definitions/TodayToDate'
       used:
         $ref: '#/definitions/TodayToDate'
@@ -1534,6 +1553,24 @@ definitions:
         format: int32
       to:
         $ref: '#/definitions/Date'
+      hospitalizedVaccinated:
+        type: integer
+        format: int32
+      hospitalizedOther:
+        type: integer
+        format: int32
+      icuVaccinated:
+        type: integer
+        format: int32
+      icuVaccinatedPartially:
+        type: integer
+        format: int32
+      icuRecovered:
+        type: integer
+        format: int32
+      icuOther:
+        type: integer
+        format: int32
       confirmed:
         type: integer
         format: int32
@@ -1549,7 +1586,7 @@ definitions:
       healthcareFemale:
         type: integer
         format: int32
-      rh-occupant:
+      rhOccupant:
         type: integer
         format: int32
       sentTo:
@@ -1577,6 +1614,7 @@ definitions:
         format: int32
   Summary:
     type: object
+    description: Total summary
     properties:
       vaccinationSummary:
         $ref: '#/definitions/VaccinationSummary'
@@ -1584,6 +1622,8 @@ definitions:
         $ref: '#/definitions/CasesToDateSummary'
       casesActive:
         $ref: '#/definitions/CasesActive'
+      casesActive100k:
+        $ref: '#/definitions/CasesActive100k'
       casesAvg7Days:
         $ref: '#/definitions/CasesAvg7Days'
       hospitalizedCurrent:
@@ -1617,6 +1657,7 @@ definitions:
         format: float
   SummaryBase:
     type: object
+    description: Base class for summary items
     x-abstract: true
     required:
       - year
@@ -1670,6 +1711,18 @@ definitions:
       out:
         type: integer
         format: int32
+  CasesActive100k:
+    allOf:
+      - $ref: '#/definitions/SummaryBase'
+      - type: object
+        required:
+          - sublabel
+        properties:
+          value:
+            type: number
+            format: float
+          sublabel:
+            type: boolean
   CasesAvg7Days:
     allOf:
       - $ref: '#/definitions/SummaryBase'
@@ -1799,6 +1852,7 @@ definitions:
       - year
       - month
       - day
+      - administeredPerAge
     properties:
       year:
         type: integer
@@ -1813,9 +1867,16 @@ definitions:
         $ref: '#/definitions/VaccinationData'
       administered2nd:
         $ref: '#/definitions/VaccinationData'
+      administered3rd:
+        $ref: '#/definitions/VaccinationData'
       usedToDate:
         type: integer
         format: int32
+      usedByManufacturer:
+        type: object
+        additionalProperties:
+          type: integer
+          format: int32
       deliveredToDate:
         type: integer
         format: int32
@@ -1824,6 +1885,10 @@ definitions:
         additionalProperties:
           type: integer
           format: int32
+      administeredPerAge:
+        type: array
+        items:
+          $ref: '#/definitions/PerAgeBucket'
   VaccinationData:
     type: object
     properties:

@@ -13,9 +13,12 @@ Name | Type | Description | Notes
 **day** | **int** |  | 
 **administered** | [**VaccinationData**](VaccinationData.md) |  | [optional] 
 **administered2nd** | [**VaccinationData**](VaccinationData.md) |  | [optional] 
+**administered3rd** | [**VaccinationData**](VaccinationData.md) |  | [optional] 
 **usedToDate** | **int** |  | [optional] 
+**usedByManufacturer** | **BuiltMap&lt;String, int&gt;** |  | [optional] 
 **deliveredToDate** | **int** |  | [optional] 
 **deliveredByManufacturer** | **BuiltMap&lt;String, int&gt;** |  | [optional] 
+**administeredPerAge** | [**BuiltList&lt;PerAgeBucket&gt;**](PerAgeBucket.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

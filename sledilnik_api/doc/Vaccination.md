@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **administered** | [**TodayToDate**](TodayToDate.md) |  | [optional] 
 **administered2nd** | [**TodayToDate**](TodayToDate.md) |  | [optional] 
+**administered3rd** | [**TodayToDate**](TodayToDate.md) |  | [optional] 
 **used** | [**TodayToDate**](TodayToDate.md) |  | [optional] 
 **delivered** | [**TodayToDate**](TodayToDate.md) |  | [optional] 
 

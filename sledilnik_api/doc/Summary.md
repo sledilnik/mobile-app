@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **vaccinationSummary** | [**VaccinationSummary**](VaccinationSummary.md) |  | [optional] 
 **casesToDateSummary** | [**CasesToDateSummary**](CasesToDateSummary.md) |  | [optional] 
 **casesActive** | [**CasesActive**](CasesActive.md) |  | [optional] 
+**casesActive100k** | [**CasesActive100k**](CasesActive100k.md) |  | [optional] 
 **casesAvg7Days** | [**CasesAvg7Days**](CasesAvg7Days.md) |  | [optional] 
 **hospitalizedCurrent** | [**HospitalizedCurrent**](HospitalizedCurrent.md) |  | [optional] 
 **icuCurrent** | [**ICUCurrent**](ICUCurrent.md) |  | [optional] 

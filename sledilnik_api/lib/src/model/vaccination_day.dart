@@ -2,6 +2,7 @@
 // AUTO-GENERATED FILE, DO NOT MODIFY!
 //
 
+import 'package:sledilnik_api/src/model/per_age_bucket.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:sledilnik_api/src/model/vaccination_data.dart';
 import 'package:built_value/built_value.dart';
@@ -17,9 +18,12 @@ part 'vaccination_day.g.dart';
 /// * [day]
 /// * [administered]
 /// * [administered2nd]
+/// * [administered3rd]
 /// * [usedToDate]
+/// * [usedByManufacturer]
 /// * [deliveredToDate]
 /// * [deliveredByManufacturer]
+/// * [administeredPerAge]
 abstract class VaccinationDay
     implements Built<VaccinationDay, VaccinationDayBuilder> {
   @BuiltValueField(wireName: r'year')
@@ -37,14 +41,23 @@ abstract class VaccinationDay
   @BuiltValueField(wireName: r'administered2nd')
   VaccinationData? get administered2nd;
 
+  @BuiltValueField(wireName: r'administered3rd')
+  VaccinationData? get administered3rd;
+
   @BuiltValueField(wireName: r'usedToDate')
   int? get usedToDate;
+
+  @BuiltValueField(wireName: r'usedByManufacturer')
+  BuiltMap<String, int>? get usedByManufacturer;
 
   @BuiltValueField(wireName: r'deliveredToDate')
   int? get deliveredToDate;
 
   @BuiltValueField(wireName: r'deliveredByManufacturer')
   BuiltMap<String, int>? get deliveredByManufacturer;
+
+  @BuiltValueField(wireName: r'administeredPerAge')
+  BuiltList<PerAgeBucket> get administeredPerAge;
 
   VaccinationDay._();
 
@@ -95,11 +108,24 @@ class _$VaccinationDaySerializer
         ..add(serializers.serialize(object.administered2nd,
             specifiedType: const FullType(VaccinationData)));
     }
+    if (object.administered3rd != null) {
+      result
+        ..add(r'administered3rd')
+        ..add(serializers.serialize(object.administered3rd,
+            specifiedType: const FullType(VaccinationData)));
+    }
     if (object.usedToDate != null) {
       result
         ..add(r'usedToDate')
         ..add(serializers.serialize(object.usedToDate,
             specifiedType: const FullType(int)));
+    }
+    if (object.usedByManufacturer != null) {
+      result
+        ..add(r'usedByManufacturer')
+        ..add(serializers.serialize(object.usedByManufacturer,
+            specifiedType:
+                const FullType(BuiltMap, [FullType(String), FullType(int)])));
     }
     if (object.deliveredToDate != null) {
       result
@@ -114,6 +140,10 @@ class _$VaccinationDaySerializer
             specifiedType:
                 const FullType(BuiltMap, [FullType(String), FullType(int)])));
     }
+    result
+      ..add(r'administeredPerAge')
+      ..add(serializers.serialize(object.administeredPerAge,
+          specifiedType: const FullType(BuiltList, [FullType(PerAgeBucket)])));
     return result;
   }
 
@@ -157,10 +187,23 @@ class _$VaccinationDaySerializer
               as VaccinationData;
           result.administered2nd.replace(valueDes);
           break;
+        case r'administered3rd':
+          final valueDes = serializers.deserialize(value,
+                  specifiedType: const FullType(VaccinationData))
+              as VaccinationData;
+          result.administered3rd.replace(valueDes);
+          break;
         case r'usedToDate':
           final valueDes = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           result.usedToDate = valueDes;
+          break;
+        case r'usedByManufacturer':
+          final valueDes = serializers.deserialize(value,
+                  specifiedType: const FullType(
+                      BuiltMap, [FullType(String), FullType(int)]))
+              as BuiltMap<String, int>;
+          result.usedByManufacturer.replace(valueDes);
           break;
         case r'deliveredToDate':
           final valueDes = serializers.deserialize(value,
@@ -173,6 +216,13 @@ class _$VaccinationDaySerializer
                       BuiltMap, [FullType(String), FullType(int)]))
               as BuiltMap<String, int>;
           result.deliveredByManufacturer.replace(valueDes);
+          break;
+        case r'administeredPerAge':
+          final valueDes = serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, [FullType(PerAgeBucket)]))
+              as BuiltList<PerAgeBucket>;
+          result.administeredPerAge.replace(valueDes);
           break;
       }
     }

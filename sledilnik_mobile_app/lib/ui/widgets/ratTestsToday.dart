@@ -2,22 +2,20 @@ import 'package:flutter/cupertino.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:sledilnik_api/src/model/summary.dart' as data;
-import 'package:sledilnik_mobile_app/enums.dart';
-import 'package:sledilnik_mobile_app/ui/widgets/trend_info.dart';
 import 'info_box.dart';
 
 
-class PCRTestsToday extends StatelessWidget {
+class RATTestsToday extends StatelessWidget {
   final data.Summary summary;
 
-  const PCRTestsToday({Key? key, required this.summary}): super(key: key);
+  const RATTestsToday({Key? key, required this.summary}): super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
-    final testsToday = summary.testsToday;
+    final testsToday = summary.testsTodayHAT;
     return InfoBox(
-      localization.pcrTestsPerDay,
+      localization.ratTestsPerDay,
       testsToday?.value ?? -1,
       testsToday != null
           ? DateTime(
@@ -26,10 +24,7 @@ class PCRTestsToday extends StatelessWidget {
               testsToday.day,
             )
           : DateTime(1970),
-      trends: [
-        new TrendInfo(TrendType.Positive, testsToday?.subValues?.positive),
-        new TrendInfo(TrendType.Percentage, testsToday?.subValues?.positive),
-      ],
+      trends: [],
     );
   }
 }

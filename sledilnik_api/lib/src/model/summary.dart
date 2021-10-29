@@ -10,18 +10,20 @@ import 'package:sledilnik_api/src/model/hospitalized_current.dart';
 import 'package:sledilnik_api/src/model/cases_avg7_days.dart';
 import 'package:sledilnik_api/src/model/deceased_to_date.dart';
 import 'package:sledilnik_api/src/model/tests_today_hat.dart';
+import 'package:sledilnik_api/src/model/cases_active100k.dart';
 import 'package:sledilnik_api/src/model/cases_to_date_summary.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 
 part 'summary.g.dart';
 
-/// Summary
+/// Total summary
 ///
 /// Properties:
 /// * [vaccinationSummary]
 /// * [casesToDateSummary]
 /// * [casesActive]
+/// * [casesActive100k]
 /// * [casesAvg7Days]
 /// * [hospitalizedCurrent]
 /// * [icuCurrent]
@@ -37,6 +39,9 @@ abstract class Summary implements Built<Summary, SummaryBuilder> {
 
   @BuiltValueField(wireName: r'casesActive')
   CasesActive? get casesActive;
+
+  @BuiltValueField(wireName: r'casesActive100k')
+  CasesActive100k? get casesActive100k;
 
   @BuiltValueField(wireName: r'casesAvg7Days')
   CasesAvg7Days? get casesAvg7Days;
@@ -95,6 +100,12 @@ class _$SummarySerializer implements StructuredSerializer<Summary> {
         ..add(r'casesActive')
         ..add(serializers.serialize(object.casesActive,
             specifiedType: const FullType(CasesActive)));
+    }
+    if (object.casesActive100k != null) {
+      result
+        ..add(r'casesActive100k')
+        ..add(serializers.serialize(object.casesActive100k,
+            specifiedType: const FullType(CasesActive100k)));
     }
     if (object.casesAvg7Days != null) {
       result
@@ -163,6 +174,12 @@ class _$SummarySerializer implements StructuredSerializer<Summary> {
           final valueDes = serializers.deserialize(value,
               specifiedType: const FullType(CasesActive)) as CasesActive;
           result.casesActive.replace(valueDes);
+          break;
+        case r'casesActive100k':
+          final valueDes = serializers.deserialize(value,
+                  specifiedType: const FullType(CasesActive100k))
+              as CasesActive100k;
+          result.casesActive100k.replace(valueDes);
           break;
         case r'casesAvg7Days':
           final valueDes = serializers.deserialize(value,

@@ -17,10 +17,11 @@ import 'package:sledilnik_api/src/model/base_unit_of_hospital_deceased.dart';
 import 'package:sledilnik_api/src/model/base_unit_of_state_deceased.dart';
 import 'package:sledilnik_api/src/model/cases.dart';
 import 'package:sledilnik_api/src/model/cases_active.dart';
+import 'package:sledilnik_api/src/model/cases_active100k.dart';
+import 'package:sledilnik_api/src/model/cases_active100k_all_of.dart';
 import 'package:sledilnik_api/src/model/cases_active_all_of.dart';
 import 'package:sledilnik_api/src/model/cases_active_sub_values.dart';
 import 'package:sledilnik_api/src/model/cases_avg7_days.dart';
-import 'package:sledilnik_api/src/model/cases_avg7_days_all_of.dart';
 import 'package:sledilnik_api/src/model/cases_to_date_summary.dart';
 import 'package:sledilnik_api/src/model/cases_to_date_summary_all_of.dart';
 import 'package:sledilnik_api/src/model/cases_to_date_summary_sub_values.dart';
@@ -108,10 +109,11 @@ part 'serializers.g.dart';
   BaseUnitOfStateDeceased,
   Cases,
   CasesActive,
+  CasesActive100k,
+  CasesActive100kAllOf,
   CasesActiveAllOf,
   CasesActiveSubValues,
   CasesAvg7Days,
-  CasesAvg7DaysAllOf,
   CasesToDateSummary,
   CasesToDateSummaryAllOf,
   CasesToDateSummarySubValues,

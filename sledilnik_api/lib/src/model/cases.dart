@@ -22,6 +22,7 @@ part 'cases.g.dart';
 /// * [hs]
 /// * [rh]
 /// * [unclassified]
+/// * [vaccinatedConfirmedToDate]
 abstract class Cases implements Built<Cases, CasesBuilder> {
   @BuiltValueField(wireName: r'confirmedToday')
   int? get confirmedToday;
@@ -49,6 +50,9 @@ abstract class Cases implements Built<Cases, CasesBuilder> {
 
   @BuiltValueField(wireName: r'unclassified')
   UnclassifiedCases? get unclassified;
+
+  @BuiltValueField(wireName: r'vaccinatedConfirmedToDate')
+  int? get vaccinatedConfirmedToDate;
 
   Cases._();
 
@@ -126,6 +130,12 @@ class _$CasesSerializer implements StructuredSerializer<Cases> {
         ..add(serializers.serialize(object.unclassified,
             specifiedType: const FullType(UnclassifiedCases)));
     }
+    if (object.vaccinatedConfirmedToDate != null) {
+      result
+        ..add(r'vaccinatedConfirmedToDate')
+        ..add(serializers.serialize(object.vaccinatedConfirmedToDate,
+            specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -188,6 +198,11 @@ class _$CasesSerializer implements StructuredSerializer<Cases> {
                   specifiedType: const FullType(UnclassifiedCases))
               as UnclassifiedCases;
           result.unclassified.replace(valueDes);
+          break;
+        case r'vaccinatedConfirmedToDate':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.vaccinatedConfirmedToDate = valueDes;
           break;
       }
     }

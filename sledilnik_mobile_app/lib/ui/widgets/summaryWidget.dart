@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:dio/dio.dart';
 import 'package:sledilnik_api/src/model/summary.dart' as summary;
 import 'package:sledilnik_mobile_app/ui/widgets/communication.dart';
-import 'package:sledilnik_mobile_app/ui/widgets/info_box.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'pcrTestsToday.dart';
+import 'ratTestsToday.dart';
+import 'newCasesAvg7.dart';
+import 'twoWeeksIncidence.dart';
 
 class SummaryWidget extends StatefulWidget {
   SummaryWidget({Key? key}) : super(key: key);
@@ -21,7 +23,6 @@ class SummaryWidgetState extends State<SummaryWidget> {
   @override
   Widget build(BuildContext context) {
     final communication = CommunicationWidget.of(context);
-    final localization = AppLocalizations.of(context)!;
 
     return FutureBuilder<Response<summary.Summary>>(
         future: communication.getSummary(),
@@ -29,8 +30,6 @@ class SummaryWidgetState extends State<SummaryWidget> {
             AsyncSnapshot<Response<summary.Summary>> snapshot) {
           final data = snapshot.data?.data;
           if (data != null) {
-            final casesActive = data.casesActive;
-            final testsToday = data.testsToday;
             return Center(
               child: GridView.extent(
                 maxCrossAxisExtent: 200.0,
@@ -40,6 +39,9 @@ class SummaryWidgetState extends State<SummaryWidget> {
                 childAspectRatio: 2,
                 children: <Widget>[
                   PCRTestsToday(summary: data),
+                  RATTestsToday(summary: data),
+                  NewCasesAvg7(summary: data),
+                  TwoWeeksIncidence(summary: data),
                   // hospitalized
                   // InfoBox(
                   //   localization.activeCases,

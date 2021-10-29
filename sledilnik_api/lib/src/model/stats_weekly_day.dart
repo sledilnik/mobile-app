@@ -18,6 +18,12 @@ part 'stats_weekly_day.g.dart';
 /// * [month]
 /// * [day]
 /// * [to]
+/// * [hospitalizedVaccinated]
+/// * [hospitalizedOther]
+/// * [icuVaccinated]
+/// * [icuVaccinatedPartially]
+/// * [icuRecovered]
+/// * [icuOther]
 /// * [confirmed]
 /// * [investigated]
 /// * [healthcare]
@@ -45,6 +51,24 @@ abstract class StatsWeeklyDay
   @BuiltValueField(wireName: r'to')
   Date? get to;
 
+  @BuiltValueField(wireName: r'hospitalizedVaccinated')
+  int? get hospitalizedVaccinated;
+
+  @BuiltValueField(wireName: r'hospitalizedOther')
+  int? get hospitalizedOther;
+
+  @BuiltValueField(wireName: r'icuVaccinated')
+  int? get icuVaccinated;
+
+  @BuiltValueField(wireName: r'icuVaccinatedPartially')
+  int? get icuVaccinatedPartially;
+
+  @BuiltValueField(wireName: r'icuRecovered')
+  int? get icuRecovered;
+
+  @BuiltValueField(wireName: r'icuOther')
+  int? get icuOther;
+
   @BuiltValueField(wireName: r'confirmed')
   int? get confirmed;
 
@@ -60,7 +84,7 @@ abstract class StatsWeeklyDay
   @BuiltValueField(wireName: r'healthcareFemale')
   int? get healthcareFemale;
 
-  @BuiltValueField(wireName: r'rh-occupant')
+  @BuiltValueField(wireName: r'rhOccupant')
   int? get rhOccupant;
 
   @BuiltValueField(wireName: r'sentTo')
@@ -124,6 +148,42 @@ class _$StatsWeeklyDaySerializer
         ..add(serializers.serialize(object.to,
             specifiedType: const FullType(Date)));
     }
+    if (object.hospitalizedVaccinated != null) {
+      result
+        ..add(r'hospitalizedVaccinated')
+        ..add(serializers.serialize(object.hospitalizedVaccinated,
+            specifiedType: const FullType(int)));
+    }
+    if (object.hospitalizedOther != null) {
+      result
+        ..add(r'hospitalizedOther')
+        ..add(serializers.serialize(object.hospitalizedOther,
+            specifiedType: const FullType(int)));
+    }
+    if (object.icuVaccinated != null) {
+      result
+        ..add(r'icuVaccinated')
+        ..add(serializers.serialize(object.icuVaccinated,
+            specifiedType: const FullType(int)));
+    }
+    if (object.icuVaccinatedPartially != null) {
+      result
+        ..add(r'icuVaccinatedPartially')
+        ..add(serializers.serialize(object.icuVaccinatedPartially,
+            specifiedType: const FullType(int)));
+    }
+    if (object.icuRecovered != null) {
+      result
+        ..add(r'icuRecovered')
+        ..add(serializers.serialize(object.icuRecovered,
+            specifiedType: const FullType(int)));
+    }
+    if (object.icuOther != null) {
+      result
+        ..add(r'icuOther')
+        ..add(serializers.serialize(object.icuOther,
+            specifiedType: const FullType(int)));
+    }
     if (object.confirmed != null) {
       result
         ..add(r'confirmed')
@@ -156,7 +216,7 @@ class _$StatsWeeklyDaySerializer
     }
     if (object.rhOccupant != null) {
       result
-        ..add(r'rh-occupant')
+        ..add(r'rhOccupant')
         ..add(serializers.serialize(object.rhOccupant,
             specifiedType: const FullType(int)));
     }
@@ -228,6 +288,36 @@ class _$StatsWeeklyDaySerializer
               specifiedType: const FullType(Date)) as Date;
           result.to?.replace(valueDes);
           break;
+        case r'hospitalizedVaccinated':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.hospitalizedVaccinated = valueDes;
+          break;
+        case r'hospitalizedOther':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.hospitalizedOther = valueDes;
+          break;
+        case r'icuVaccinated':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.icuVaccinated = valueDes;
+          break;
+        case r'icuVaccinatedPartially':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.icuVaccinatedPartially = valueDes;
+          break;
+        case r'icuRecovered':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.icuRecovered = valueDes;
+          break;
+        case r'icuOther':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.icuOther = valueDes;
+          break;
         case r'confirmed':
           final valueDes = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
@@ -253,7 +343,7 @@ class _$StatsWeeklyDaySerializer
               specifiedType: const FullType(int)) as int;
           result.healthcareFemale = valueDes;
           break;
-        case r'rh-occupant':
+        case r'rhOccupant':
           final valueDes = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           result.rhOccupant = valueDes;

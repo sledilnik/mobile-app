@@ -15,6 +15,9 @@ part 'per_age_bucket.g.dart';
 /// * [allToDate]
 /// * [femaleToDate]
 /// * [maleToDate]
+/// * [administered]
+/// * [administered2nd]
+/// * [administered3rd]
 abstract class PerAgeBucket
     implements Built<PerAgeBucket, PerAgeBucketBuilder> {
   @BuiltValueField(wireName: r'ageFrom')
@@ -31,6 +34,15 @@ abstract class PerAgeBucket
 
   @BuiltValueField(wireName: r'maleToDate')
   int? get maleToDate;
+
+  @BuiltValueField(wireName: r'administered')
+  int? get administered;
+
+  @BuiltValueField(wireName: r'administered2nd')
+  int? get administered2nd;
+
+  @BuiltValueField(wireName: r'administered3rd')
+  int? get administered3rd;
 
   PerAgeBucket._();
 
@@ -84,6 +96,24 @@ class _$PerAgeBucketSerializer implements StructuredSerializer<PerAgeBucket> {
         ..add(serializers.serialize(object.maleToDate,
             specifiedType: const FullType(int)));
     }
+    if (object.administered != null) {
+      result
+        ..add(r'administered')
+        ..add(serializers.serialize(object.administered,
+            specifiedType: const FullType(int)));
+    }
+    if (object.administered2nd != null) {
+      result
+        ..add(r'administered2nd')
+        ..add(serializers.serialize(object.administered2nd,
+            specifiedType: const FullType(int)));
+    }
+    if (object.administered3rd != null) {
+      result
+        ..add(r'administered3rd')
+        ..add(serializers.serialize(object.administered3rd,
+            specifiedType: const FullType(int)));
+    }
     return result;
   }
 
@@ -124,6 +154,21 @@ class _$PerAgeBucketSerializer implements StructuredSerializer<PerAgeBucket> {
           final valueDes = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           result.maleToDate = valueDes;
+          break;
+        case r'administered':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.administered = valueDes;
+          break;
+        case r'administered2nd':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.administered2nd = valueDes;
+          break;
+        case r'administered3rd':
+          final valueDes = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          result.administered3rd = valueDes;
           break;
       }
     }

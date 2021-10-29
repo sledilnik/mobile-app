@@ -11,14 +11,12 @@ import '../../custom_color_scheme.dart';
 class InfoBox extends StatelessWidget {
   final String title;
   final int value;
-  final int? deltaIn;
-  final int? deltaOut;
+  final double? percentage;
   final DateTime date;
-  double get _relativeDelta => ((deltaIn ?? 0) - (deltaOut ?? 0)) / value * 100;
-  final List<TrendInfo>? trends;
+  final List<Widget>? trends;
 
   const InfoBox(this.title, this.value, this.date,
-      {this.deltaIn, this.deltaOut, this.trends});
+      {this.percentage, this.trends});
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +26,8 @@ class InfoBox extends StatelessWidget {
         intl.NumberFormat("#,##0.0", localeName);
     final intl.NumberFormat intFormat = intl.NumberFormat("#,##0", localeName);
     final colorScheme = Theme.of(context).colorScheme;
-    final percentageTrend = _relativeDelta >= 0 ? TrendType.Bad: TrendType.Good;
+    final percentageTrend = (percentage ?? 0) >= 0 ? TrendType.Bad: TrendType.Good;
     final percentageColor = colorScheme.getTrendColor(percentageTrend);
-    final hasPercentage = deltaIn != null || deltaOut != null;
 
     // final trendColor = colorScheme.getTrendColor(trendType);
     return Container(
@@ -53,9 +50,9 @@ class InfoBox extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(width: 4),
-            if (hasPercentage)
+            if (percentage != null)
               Text(
-                '${_relativeDelta > 0 ? "+" : ""}${relativeDeltaFormat.format(_relativeDelta)}%',
+                '${percentage! > 0 ? "+" : ""}${relativeDeltaFormat.format(percentage)}%',
                 textDirection: TextDirection.ltr,
                 style: TextStyle(fontSize: 12, color: percentageColor),
               ),
@@ -65,11 +62,15 @@ class InfoBox extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: trends ?? [],
           ),
-          SizedBox(height: 4),
-          Text(
-            dateFormat.format(date),
-            textDirection: TextDirection.ltr,
-            style: TextStyle(fontSize: 10),
+          Expanded(
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: Text(
+                dateFormat.format(date),
+                textDirection: TextDirection.ltr,
+                style: TextStyle(fontSize: 10),
+              ),
+            ),
           ),
         ],
       ),
