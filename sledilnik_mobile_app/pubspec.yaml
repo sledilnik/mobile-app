@@ -38,9 +38,5 @@ flutter_icons:
 flutter:
   uses-material-design: true
   assets:
-    - assets/floating-nav-inner.svg
-  fonts:
-    - family: Fontello
-      fonts:
-        - asset: fonts/fontello.ttf
+    - assets/icons/
   generate: true

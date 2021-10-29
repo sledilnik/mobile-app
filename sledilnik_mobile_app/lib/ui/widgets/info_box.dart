@@ -13,12 +13,12 @@ class InfoBox extends StatelessWidget {
   final int value;
   final int? deltaIn;
   final int? deltaOut;
-  final int? death;
   final DateTime date;
   double get _relativeDelta => ((deltaIn ?? 0) - (deltaOut ?? 0)) / value * 100;
+  final List<TrendInfo>? trends;
 
   const InfoBox(this.title, this.value, this.date,
-      {this.deltaIn, this.deltaOut, this.death});
+      {this.deltaIn, this.deltaOut, this.trends});
 
   @override
   Widget build(BuildContext context) {
@@ -28,17 +28,15 @@ class InfoBox extends StatelessWidget {
         intl.NumberFormat("#,##0.0", localeName);
     final intl.NumberFormat intFormat = intl.NumberFormat("#,##0", localeName);
     final colorScheme = Theme.of(context).colorScheme;
+    final percentageTrend = _relativeDelta >= 0 ? TrendType.Bad: TrendType.Good;
+    final percentageColor = colorScheme.getTrendColor(percentageTrend);
+    final hasPercentage = deltaIn != null || deltaOut != null;
 
-    TrendType trendType = (death != null && deltaIn == null)
-        ? TrendType.Death
-        : _relativeDelta < 0
-            ? TrendType.Good
-            : TrendType.Bad;
-
-    final trendColor = colorScheme.getTrendColor(trendType);
+    // final trendColor = colorScheme.getTrendColor(trendType);
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-      decoration: BoxDecoration(color: colorScheme.noticeBackgroundColor),
+      //decoration: BoxDecoration(color: colorScheme.noticeBackgroundColor),
+      decoration: BoxDecoration(color: Colors.yellow),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -55,18 +53,18 @@ class InfoBox extends StatelessWidget {
               style: TextStyle(fontSize: 20),
             ),
             SizedBox(width: 4),
-            Text(
-              '${_relativeDelta > 0 ? "+" : ""}${relativeDeltaFormat.format(_relativeDelta)}%',
-              textDirection: TextDirection.ltr,
-              style: TextStyle(fontSize: 12, color: trendColor),
-            ),
+            if (hasPercentage)
+              Text(
+                '${_relativeDelta > 0 ? "+" : ""}${relativeDeltaFormat.format(_relativeDelta)}%',
+                textDirection: TextDirection.ltr,
+                style: TextStyle(fontSize: 12, color: percentageColor),
+              ),
           ]),
           SizedBox(height: 4),
-          Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
-            if (deltaIn != null) TrendInfo(TrendType.Bad, deltaIn),
-            if (deltaOut != null) TrendInfo(TrendType.Good, deltaOut),
-            if (death != null) TrendInfo(TrendType.Death, death)
-          ]),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: trends ?? [],
+          ),
           SizedBox(height: 4),
           Text(
             dateFormat.format(date),

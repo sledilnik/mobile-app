@@ -26,31 +26,41 @@ final primaryYellow = Color(0xffffd922);
 final MaterialColor sledilnikPrimarySwatch = createMaterialColor(primaryYellow);
 
 extension CustomColorScheme on ColorScheme {
+  Color get positiveTrend => Color(0xe0bf5747);
   Color get goodTrend => Color(0xe020b16d);
   Color get badTrend => Color(0xe0bf5747);
-  Color get death => Color(0xe0404040);
+  Color get deathTrend => Color(0xe0404040);
+  Color get percentageTrend => Color(0xFF665191);
   Color get deathText => Color(0xffa0a0a0);
   Color get noticeBackgroundColor => Color(0xfffffbe8);
 
   Color getTrendColor(final TrendType trendType) {
     switch (trendType) {
+      case TrendType.Positive:
+        return positiveTrend;
       case TrendType.Bad:
         return badTrend;
       case TrendType.Good:
         return goodTrend;
-      case TrendType.Death:
+      case TrendType.Percentage:
+        return percentageTrend;
+      case TrendType.Deceased:
       default:
-        return death;
+        return deathTrend;
     }
   }
 
   Color getTextColor(final TrendType trendType) {
     switch (trendType) {
+      case TrendType.Positive:
+        return positiveTrend;
       case TrendType.Bad:
         return badTrend;
       case TrendType.Good:
         return goodTrend;
-      case TrendType.Death:
+      case TrendType.Percentage:
+        return percentageTrend;
+      case TrendType.Deceased:
       default:
         return deathText;
     }

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../widgets/summary.dart';
+import '../widgets/summaryWidget.dart';
 import "../assets.dart";
 
 class HomePage extends StatefulWidget {
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: RefreshIndicator(
-          child: Summary(),
+          child: SummaryWidget(),
           onRefresh: _getData,
         ),
       ),

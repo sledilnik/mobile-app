@@ -1,58 +1,45 @@
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../custom_color_scheme.dart';
 import '../../enums.dart';
+import '../assets.dart';
 
 class TrendIcon extends StatelessWidget {
   final TrendType _trendType;
-  final double _iconAngle;
-  final String _iconChar;
 
-  TrendIcon(this._trendType)
-      : _iconAngle = _geticonAngle(_trendType),
-        _iconChar = _getIconChar(_trendType);
+  const TrendIcon(this._trendType);
 
-  static double _geticonAngle(TrendType trendType) {
+  static SvgPicture _getIcon(TrendType trendType, Color color) {
+    const double size = 16;
+    String asset;
     switch (trendType) {
+      case TrendType.Positive:
+        asset = Assets.closeCirclePlus;
+        break;
+      case TrendType.Percentage:
+        asset = Assets.closeCirclePercent;
+        break;
       case TrendType.Bad:
-        return -math.pi / 4;
+        asset = Assets.closeCircleDown;
+        break;
       case TrendType.Good:
-        return math.pi / 4;
+        asset = Assets.closeCircleUp;
+        break;
+      case TrendType.Deceased:
+        asset = Assets.closeCircleDeceased;
+        break;
       default:
-        return 0;
+        throw Exception("Not supported icon for trend $trendType");
     }
-  }
-
-  static String _getIconChar(TrendType trendType) {
-    switch (trendType) {
-      case TrendType.Bad:
-      case TrendType.Good:
-        return "\u2192";
-      case TrendType.Death:
-        return "\ue82f";
-      default:
-        throw ArgumentError("Unknwon trend $trendType");
-    }
+    return SvgPicture.asset(asset, width: size, height: size, color: color);
   }
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final color = colorScheme.getTrendColor(_trendType);
-    return Container(
-      width: 12,
-      height: 12,
-      decoration: BoxDecoration(color: color, shape: BoxShape.circle),
-      alignment: Alignment(0.0, 0.0),
-      child: Transform.rotate(
-          angle: _iconAngle,
-          child: Text(
-            _iconChar,
-            style: TextStyle(color: Colors.white, fontSize: 9, fontFamily: "Fontello"),
-            textAlign: TextAlign.center,
-          )),
-    );
+    final _icon = _getIcon(_trendType, color);
+    return _icon;
   }
 }

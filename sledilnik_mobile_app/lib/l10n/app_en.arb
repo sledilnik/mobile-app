@@ -20,5 +20,9 @@
   "pcrTestsPerDay": "Tests per day: PCR",
   "@pcrTestsPerDay": {
 	  "type": "text"
+  },
+  "hatTestsPerDay": "Tests per day: RAT",
+  "@hatTestsPerDay": {
+	  "type: "text"
   }
 }

@@ -1,1 +1,1 @@
-enum TrendType { Bad, Good, Death }
+enum TrendType { Positive, Bad, Good, Deceased, Percentage }
