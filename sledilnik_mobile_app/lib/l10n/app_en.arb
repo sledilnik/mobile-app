@@ -23,6 +23,6 @@
   },
   "hatTestsPerDay": "Tests per day: RAT",
   "@hatTestsPerDay": {
-	  "type: "text"
+	  "type": "text"
   }
 }
