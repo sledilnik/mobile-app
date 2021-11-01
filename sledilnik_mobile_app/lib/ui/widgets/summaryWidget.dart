@@ -7,10 +7,10 @@ import 'package:sledilnik_mobile_app/ui/widgets/communication.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import 'pcrTestsToday.dart';
-import 'ratTestsToday.dart';
-import 'newCasesAvg7.dart';
-import 'twoWeeksIncidence.dart';
+import 'summary/pcrTestsToday.dart';
+import 'summary/ratTestsToday.dart';
+import 'summary/newCasesAvg7.dart';
+import 'summary/twoWeeksIncidence.dart';
 
 class SummaryWidget extends StatefulWidget {
   SummaryWidget({Key? key}) : super(key: key);
@@ -26,8 +26,7 @@ class SummaryWidgetState extends State<SummaryWidget> {
 
     return FutureBuilder<Response<summary.Summary>>(
         future: communication.getSummary(),
-        builder: (BuildContext context,
-            AsyncSnapshot<Response<summary.Summary>> snapshot) {
+        builder: (BuildContext context, AsyncSnapshot<Response<summary.Summary>> snapshot) {
           final data = snapshot.data?.data;
           if (data != null) {
             return Center(

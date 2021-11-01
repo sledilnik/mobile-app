@@ -28,5 +28,9 @@
   "newCases": "New Cases",
   "fourteenDaysIncidence": "14-days incidence",
   "averageOfLast7Days": "average of last 7 days",
-  "per100k_people": "per 100,000 people"
+  "per100k_people": "per 100,000 people",
+  "fullyVaccinated": "Fully Vaccinated",
+  "hospitalized": "Hospitalized",
+  "inICU": "In ICU",
+  "confirmedDeaths": "Confirmed Deaths"
 }
