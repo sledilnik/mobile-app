@@ -49,3 +49,4 @@ flutter:
 
 flutter_native_splash:
   color: "#ffd922"
+  image: assets/covid-19.png
