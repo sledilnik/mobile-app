@@ -1,4 +1,4 @@
-package com.example.sledilnik_mobile_app
+package com.rthand.sledilnik.app
 
 import io.flutter.embedding.android.FlutterActivity
 
