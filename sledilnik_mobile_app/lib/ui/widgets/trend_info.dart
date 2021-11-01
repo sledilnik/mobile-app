@@ -9,20 +9,20 @@ import 'trend_icon.dart';
 import '../../custom_color_scheme.dart';
 import '../../enums.dart';
 
-class TrendInfo extends StatelessWidget {
+abstract class TrendInfo<T> extends StatelessWidget {
   final TrendType _trendType;
-  final int? _value;
+  final T? _value;
+  final String numericFormat;
 
-  const TrendInfo(this._trendType, this._value);
+  const TrendInfo(this._trendType, this._value, this.numericFormat);
 
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final color = colorScheme.getTextColor(_trendType);
-    final intl.NumberFormat intFormat = intl.NumberFormat("#,##0", AppLocalizations.of(context)!.localeName);
+    final intl.NumberFormat intFormat = intl.NumberFormat(numericFormat, AppLocalizations.of(context)!.localeName);
     return Row(mainAxisAlignment: MainAxisAlignment.start, children: <Widget>[
       TrendIcon(_trendType),
-      SizedBox(width: 2),
       Text(
         intFormat.format(_value),
         textDirection: TextDirection.ltr,
@@ -31,4 +31,12 @@ class TrendInfo extends StatelessWidget {
       SizedBox(width: 6),
     ]);
   }
+}
+
+class TrendInfoInt extends TrendInfo<int> {
+  TrendInfoInt(TrendType trendType, int? value) : super(trendType, value, "#,##0");
+}
+
+class TrendInfoDouble extends TrendInfo<double> {
+  TrendInfoDouble(TrendType trendType, double? value) : super(trendType, value, "#,##0.0");
 }

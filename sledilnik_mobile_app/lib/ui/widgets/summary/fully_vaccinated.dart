@@ -6,28 +6,27 @@ import 'package:sledilnik_mobile_app/enums.dart';
 import 'package:sledilnik_mobile_app/ui/widgets/trend_info.dart';
 import '../info_box.dart';
 
-class PCRTestsToday extends StatelessWidget {
+class FullyVaccinated extends StatelessWidget {
   final data.Summary summary;
 
-  const PCRTestsToday({Key? key, required this.summary}) : super(key: key);
+  const FullyVaccinated({Key? key, required this.summary}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
-    final testsToday = summary.testsToday;
+    final results = summary.vaccinationSummary;
     return InfoBox(
-      localization.pcrTestsPerDay,
-      testsToday?.value ?? -1,
-      testsToday != null
+      localization.fullyVaccinated,
+      results?.value ?? -1,
+      results != null
           ? DateTime(
-              testsToday.year,
-              testsToday.month,
-              testsToday.day,
+              results.year,
+              results.month,
+              results.day,
             )
           : DateTime(1970),
       trends: [
-        new TrendInfo(TrendType.Positive, testsToday?.subValues?.positive),
-        new TrendInfo(TrendType.Percentage, testsToday?.subValues?.positive),
+        new TrendInfoDouble(TrendType.Percentage, results?.subValues?.percent),
       ],
     );
   }

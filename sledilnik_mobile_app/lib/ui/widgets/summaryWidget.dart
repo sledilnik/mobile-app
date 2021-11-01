@@ -6,11 +6,15 @@ import 'package:sledilnik_api/src/model/summary.dart' as summary;
 import 'package:sledilnik_mobile_app/ui/widgets/communication.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:sledilnik_mobile_app/ui/widgets/summary/confirmed_deaths.dart';
 
-import 'summary/pcrTestsToday.dart';
-import 'summary/ratTestsToday.dart';
-import 'summary/newCasesAvg7.dart';
-import 'summary/twoWeeksIncidence.dart';
+import 'summary/pcr_tests_today.dart';
+import 'summary/rat_tests_today.dart';
+import 'summary/new_cases_avg_7.dart';
+import 'summary/two_weeks_incidence.dart';
+import 'summary/fully_vaccinated.dart';
+import 'summary/hospitalized.dart';
+import 'summary/in_icu.dart';
 
 class SummaryWidget extends StatefulWidget {
   SummaryWidget({Key? key}) : super(key: key);
@@ -41,18 +45,10 @@ class SummaryWidgetState extends State<SummaryWidget> {
                   RATTestsToday(summary: data),
                   NewCasesAvg7(summary: data),
                   TwoWeeksIncidence(summary: data),
-                  // hospitalized
-                  // InfoBox(
-                  //   localization.activeCases,
-                  //   casesActive?.value ?? -1,
-                  //   casesActive != null ? DateTime(
-                  //     casesActive.year,
-                  //     casesActive.month,
-                  //     casesActive.day,
-                  //   ): DateTime(1970),
-                  //   deltaIn: casesActive?.subValues?.in_,
-                  //   deltaOut: casesActive?.subValues?.out_,
-                  // ),
+                  FullyVaccinated(summary: data),
+                  Hopspitalized(summary: data),
+                  InICU(summary: data),
+                  ConfirmedDeaths(summary: data),
                 ],
               ),
             );

@@ -21,10 +21,10 @@ class TrendIcon extends StatelessWidget {
         asset = Assets.closeCirclePercent;
         break;
       case TrendType.Bad:
-        asset = Assets.closeCircleDown;
+        asset = Assets.closeCircleUp;
         break;
       case TrendType.Good:
-        asset = Assets.closeCircleUp;
+        asset = Assets.closeCircleDown;
         break;
       case TrendType.Deceased:
         asset = Assets.closeCircleDeceased;
