@@ -16,5 +16,29 @@
   "goToGraph": "Pojdi na graf",
   "@goToGraph": {
     "type": "text"
-  }
+  },
+  "ratTestsPerDay": "Testi na dan: HAT",
+  "@ratTestsPerDay": {
+    "type": "text"
+  },
+  "newCases": "Novi primeri",
+  "@newCases": {},
+  "fourteenDaysIncidence": "14-dnevna pojavnost",
+  "@fourteenDaysIncidence": {},
+  "averageOfLast7Days": "povprečje zadnjih 7 dni",
+  "@averageOfLast7Days": {},
+  "per100k_people": "na 100.000 prebivalcev",
+  "@per100k_people": {},
+  "fullyVaccinated": "Polno cepljeni",
+  "@fullyVaccinated": {},
+  "pcrTestsPerDay": "Testi na dan: PCR",
+  "@pcrTestsPerDay": {
+    "type": "text"
+  },
+  "hospitalized": "Hospitalizirani",
+  "@hospitalized": {},
+  "inICU": "V intenzivni terapiji",
+  "@inICU": {},
+  "confirmedDeaths": "Umrli",
+  "@confirmedDeaths": {}
 }
