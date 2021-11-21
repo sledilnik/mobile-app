@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widgets/summaryWidget.dart';
+import '../widgets/title_bar.dart';
 import '../../custom_color_scheme.dart';
 import "../assets.dart";
 
@@ -28,7 +29,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: colorScheme.backgroundColor,
       appBar: AppBar(
-        title: Text(localization.title),
+        title: TitleBar(),
       ),
       body: Center(
         child: RefreshIndicator(

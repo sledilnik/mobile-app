@@ -3,7 +3,7 @@ description: Covid-19 sledilnik.
 
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.1+2
+version: 1.0.2+3
 
 environment:
   sdk: ">=2.12.0 <3.0.0"
@@ -45,6 +45,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/icons/
+    - assets/covid-19.svg
+  fonts:
+    - family: IBMPlexSans
+      fonts:
+        - asset: fonts/ibm_plex_sans/IBMPlexSans-Regular.ttf
+        - asset: fonts/ibm_plex_sans/IBMPlexSans-Bold.ttf
+          weight: 700
   generate: true
 
 flutter_native_splash:

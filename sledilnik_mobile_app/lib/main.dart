@@ -72,6 +72,7 @@ class LocalizedAppState extends State<LocalizedApp> {
           theme: ThemeData(
             primarySwatch: sledilnikPrimarySwatch,
             visualDensity: VisualDensity.adaptivePlatformDensity,
+            fontFamily: 'IBMPlexSans',
           ),
           home: HomePage(),
         ),
