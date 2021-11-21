@@ -33,7 +33,13 @@ class InfoBox extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
       //decoration: BoxDecoration(color: colorScheme.noticeBackgroundColor),
-      decoration: BoxDecoration(color: Colors.yellow),
+      decoration: BoxDecoration(
+        color: colorScheme.infoBoxBackgroundColor,
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+          border: Border.all(
+            color: colorScheme.infoBoxBorderColor,
+            width: 1,
+          )),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
@@ -47,7 +53,7 @@ class InfoBox extends StatelessWidget {
             Text(
               intFormat.format(value),
               textDirection: TextDirection.ltr,
-              style: TextStyle(fontSize: 20),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             SizedBox(width: 4),
             if (percentage != null)
@@ -68,7 +74,7 @@ class InfoBox extends StatelessWidget {
               child: Text(
                 dateFormat.format(date),
                 textDirection: TextDirection.ltr,
-                style: TextStyle(fontSize: 10),
+                style: TextStyle(fontSize: 10, color: colorScheme.dateColor),
               ),
             ),
           ),

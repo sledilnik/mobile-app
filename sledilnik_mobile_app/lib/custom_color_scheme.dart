@@ -30,9 +30,13 @@ extension CustomColorScheme on ColorScheme {
   Color get goodTrend => Color(0xe020b16d);
   Color get badTrend => Color(0xe0bf5747);
   Color get deathTrend => Color(0xe0404040);
-  Color get percentageTrend => Color(0xFF665191);
+  Color get percentageTrend => Color(0xff665191);
   Color get deathText => Color(0xffa0a0a0);
   Color get noticeBackgroundColor => Color(0xfffffbe8);
+  Color get backgroundColor => Color(0xfff5f5f0);
+  Color get infoBoxBackgroundColor => Colors.white;
+  Color get infoBoxBorderColor => Colors.black12;
+  Color get dateColor => Color(0xffa0a0a0);
 
   Color getTrendColor(final TrendType trendType) {
     switch (trendType) {

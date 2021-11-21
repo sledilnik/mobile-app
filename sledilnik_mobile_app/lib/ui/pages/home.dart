@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../widgets/summaryWidget.dart';
+import '../../custom_color_scheme.dart';
 import "../assets.dart";
 
 class HomePage extends StatefulWidget {
@@ -23,7 +24,9 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final localization = AppLocalizations.of(context)!;
+    final colorScheme = Theme.of(context).colorScheme;
     return Scaffold(
+      backgroundColor: colorScheme.backgroundColor,
       appBar: AppBar(
         title: Text(localization.title),
       ),
